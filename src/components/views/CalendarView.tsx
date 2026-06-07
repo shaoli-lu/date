@@ -334,6 +334,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           }
           .weekly-panel {
             overflow-x: hidden;
+            overflow-y: auto;
           }
           .weekly-cell {
             min-height: auto;
@@ -342,6 +343,11 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             gap: 12px;
             min-width: 0;
             width: 100%;
+          }
+          .weekly-events-container {
+            max-height: 220px;
+            overflow-y: auto;
+            padding-right: 8px;
           }
           .weekly-day-header {
             min-width: 0;
