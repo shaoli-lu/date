@@ -118,12 +118,12 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
 
   return (
     <div className="scrollable-content">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '2rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
+        <h1 style={{ fontSize: '2rem', minWidth: 0, wordBreak: 'break-word' }}>
           {view === 'monthly' ? format(currentDate, 'MMMM yyyy') : `Week of ${format(startOfWeek(currentDate), 'MMM d')}`}
         </h1>
-        <div>
-          <button onClick={prevPeriod} className="btn-secondary" style={{ padding: '8px', marginRight: '8px' }}><ChevronLeft /></button>
+        <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+          <button onClick={prevPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronLeft /></button>
           <button onClick={nextPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronRight /></button>
         </div>
       </div>
@@ -229,7 +229,9 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
           display: grid;
           grid-template-columns: repeat(7, 1fr);
           gap: 16px;
-          max-width: 1000px;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
           margin: 0 auto;
         }
         .weekly-cell {
@@ -238,6 +240,7 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
           justify-content: flex-start;
           padding: 16px;
           min-height: 250px;
+          min-width: 0;
         }
         .weekly-day-header {
           display: flex;
@@ -259,6 +262,7 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
           flex-direction: column;
           gap: 6px;
           width: 100%;
+          min-width: 0;
         }
         .weekly-event-pill {
           font-size: 0.75rem;
@@ -310,6 +314,7 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
             flex-direction: row;
             align-items: flex-start;
             gap: 16px;
+            min-width: 0;
           }
           .weekly-day-header {
             min-width: 40px;
