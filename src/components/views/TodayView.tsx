@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { format, startOfDay, endOfDay, addDays } from 'date-fns'
+import { Trash2 } from 'lucide-react'
 
 export default function TodayView({ session, refreshKey, selectedDate, onDateChange }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void }) {
   const [events, setEvents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [deletingId, setDeletingId] = useState<string | number | null>(null)
 
   useEffect(() => {
     const fetchTodayEvents = async () => {
@@ -29,6 +31,22 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
 
   const goPrevDay = () => onDateChange(addDays(selectedDate, -1))
   const goNextDay = () => onDateChange(addDays(selectedDate, 1))
+
+  const deleteEvent = async (eventId: string | number) => {
+    const confirmed = window.confirm('Delete this event?')
+    if (!confirmed) return
+
+    setDeletingId(eventId)
+    const { error } = await supabase.from('events').delete().eq('id', eventId)
+    setDeletingId(null)
+
+    if (error) {
+      alert('Failed to delete event: ' + error.message)
+      return
+    }
+
+    setEvents(prev => prev.filter(event => event.id !== eventId))
+  }
 
   return (
     <div className="scrollable-content">
@@ -64,10 +82,28 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
                   <h3 style={{ fontSize: '1.2rem', marginBottom: '4px' }}>{event.title}</h3>
                   {event.description && <p style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>{event.description}</p>}
                 </div>
-                <div style={{ textAlign: 'right', minWidth: '80px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px', minWidth: '80px' }}>
                   <span style={{ fontSize: '0.9rem', color: 'var(--secondary-color)', fontWeight: 600 }}>
                     {event.is_all_day ? 'All Day' : format(new Date(event.start_time), 'h:mm a')}
                   </span>
+                  <button
+                    onClick={() => deleteEvent(event.id)}
+                    disabled={deletingId === event.id}
+                    style={{
+                      background: 'transparent',
+                      border: '1px solid rgba(255,255,255,0.15)',
+                      borderRadius: '8px',
+                      color: 'var(--text-main)',
+                      cursor: 'pointer',
+                      padding: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    <Trash2 size={14} />
+                    {deletingId === event.id ? 'Deleting...' : 'Delete'}
+                  </button>
                 </div>
               </div>
             </div>
