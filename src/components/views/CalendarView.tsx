@@ -12,6 +12,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
 
   const startDate = view === 'monthly' ? startOfWeek(startOfMonth(currentDate), { weekStartsOn: 1 }) : startOfWeek(currentDate, { weekStartsOn: 1 })
   const endDate = view === 'monthly' ? endOfWeek(endOfMonth(currentDate), { weekStartsOn: 1 }) : endOfWeek(currentDate, { weekStartsOn: 1 })
+  const weekRangeLabel = `${format(startDate, 'MMM d')} - ${format(endDate, 'MMM d')}`
 
   useEffect(() => {
     setCurrentDate(selectedDate)
@@ -93,6 +94,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           style={{ cursor: 'pointer' }}
         >
           <div className="weekly-day-header">
+            <span className="weekly-day-month">{format(day, 'MMM')}</span>
             <span className="weekly-day-name">{format(day, 'eee')}</span>
             <span className="weekly-day-number">{format(day, 'd')}</span>
           </div>
@@ -109,7 +111,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
     }
 
     return (
-      <div className="glass-panel" style={{ padding: '16px', overflow: 'hidden' }}>
+      <div className="glass-panel weekly-panel" style={{ padding: '16px' }}>
         <div className="weekly-row">
           {days}
         </div>
@@ -126,9 +128,16 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
   return (
     <div className="scrollable-content">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '2rem', minWidth: 0, wordBreak: 'break-word' }}>
-          {view === 'monthly' ? format(currentDate, 'MMMM yyyy') : `Week of ${format(startOfWeek(currentDate), 'MMM d')}`}
-        </h1>
+        <div style={{ minWidth: 0 }}>
+          <h1 style={{ fontSize: '2rem', marginBottom: view === 'weekly' ? '4px' : '0', minWidth: 0, wordBreak: 'break-word' }}>
+            {format(currentDate, 'MMMM yyyy')}
+          </h1>
+          {view === 'weekly' && (
+            <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', margin: 0 }}>
+              Week of {weekRangeLabel}
+            </p>
+          )}
+        </div>
         <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
           <button onClick={prevPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronLeft /></button>
           <button onClick={nextPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronRight /></button>
@@ -234,12 +243,13 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
         /* Weekly View Styling */
         .weekly-row {
           display: grid;
-          grid-template-columns: repeat(7, 1fr);
+          grid-template-columns: repeat(7, minmax(140px, 1fr));
           gap: 16px;
           width: 100%;
-          max-width: 100%;
           min-width: 0;
-          margin: 0 auto;
+        }
+        .weekly-panel {
+          overflow-x: auto;
         }
         .weekly-cell {
           aspect-ratio: auto;
@@ -247,13 +257,20 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           justify-content: flex-start;
           padding: 16px;
           min-height: 250px;
-          min-width: 0;
+          min-width: 140px;
         }
         .weekly-day-header {
           display: flex;
           flex-direction: column;
           align-items: center;
           margin-bottom: 12px;
+          gap: 4px;
+        }
+        .weekly-day-month {
+          font-size: 0.7rem;
+          color: var(--text-main);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
         .weekly-day-name {
           font-size: 0.8rem;
