@@ -11,7 +11,7 @@
   --glass-bg: rgba(31, 40, 51, 0.4);
   --glass-border: rgba(102, 252, 241, 0.2);
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --bottom-nav-height: 80px;
+  --top-nav-height: 88px;
 }
 
 * {
@@ -118,5 +118,5 @@ h1, h2, h3, h4 {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  padding-bottom: calc(var(--bottom-nav-height) + 20px);
-}
+  padding-top: calc(var(--top-nav-height) + 20px);
+  padding-bottom: 20px;

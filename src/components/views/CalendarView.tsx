@@ -10,8 +10,8 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
   const [direction, setDirection] = useState(0)
   const [events, setEvents] = useState<any[]>([])
 
-  const startDate = view === 'monthly' ? startOfWeek(startOfMonth(currentDate)) : startOfWeek(currentDate)
-  const endDate = view === 'monthly' ? endOfWeek(endOfMonth(currentDate)) : endOfWeek(currentDate)
+  const startDate = view === 'monthly' ? startOfWeek(startOfMonth(currentDate), { weekStartsOn: 1 }) : startOfWeek(currentDate, { weekStartsOn: 1 })
+  const endDate = view === 'monthly' ? endOfWeek(endOfMonth(currentDate), { weekStartsOn: 1 }) : endOfWeek(currentDate, { weekStartsOn: 1 })
 
   useEffect(() => {
     setCurrentDate(selectedDate)
@@ -138,7 +138,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       {view === 'monthly' ? (
         <div className="glass-panel" style={{ padding: '16px', overflow: 'hidden' }}>
           <div className="calendar-header" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', textAlign: 'center', fontWeight: 'bold', marginBottom: '10px' }}>
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => <div key={d} style={{ color: 'var(--primary-color)', fontSize: '0.8rem', textTransform: 'uppercase' }}>{d}</div>)}
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => <div key={d} style={{ color: 'var(--primary-color)', fontSize: '0.8rem', textTransform: 'uppercase' }}>{d}</div>)}
           </div>
           
           <AnimatePresence initial={false} custom={direction} mode="popLayout">

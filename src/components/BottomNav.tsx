@@ -5,37 +5,54 @@ interface BottomNavProps {
   onTabChange: (tab: 'today' | 'weekly' | 'monthly') => void
 }
 
-export default function BottomNav({ currentTab, onTabChange }: BottomNavProps) {
+interface BottomNavProps {
+  currentTab: 'today' | 'weekly' | 'monthly'
+  onTabChange: (tab: 'today' | 'weekly' | 'monthly') => void
+  onAdd: () => void
+}
+
+export default function BottomNav({ currentTab, onTabChange, onAdd }: BottomNavProps) {
   return (
     <div className="glass-panel" style={{
       position: 'fixed',
-      bottom: '20px',
+      top: '20px',
       left: '20px',
       right: '20px',
-      height: 'var(--bottom-nav-height)',
+      height: 'var(--top-nav-height)',
       display: 'flex',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
       alignItems: 'center',
+      padding: '0 16px',
       zIndex: 1000
     }}>
-      <NavItem 
-        icon={<LayoutDashboard />} 
-        label="Today" 
-        active={currentTab === 'today'} 
-        onClick={() => onTabChange('today')} 
-      />
-      <NavItem 
-        icon={<CalendarDays />} 
-        label="Weekly" 
-        active={currentTab === 'weekly'} 
-        onClick={() => onTabChange('weekly')} 
-      />
-      <NavItem 
-        icon={<Calendar />} 
-        label="Monthly" 
-        active={currentTab === 'monthly'} 
-        onClick={() => onTabChange('monthly')} 
-      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, overflow: 'auto' }}>
+        <NavItem 
+          icon={<LayoutDashboard />} 
+          label="Today" 
+          active={currentTab === 'today'} 
+          onClick={() => onTabChange('today')} 
+        />
+        <NavItem 
+          icon={<CalendarDays />} 
+          label="Weekly" 
+          active={currentTab === 'weekly'} 
+          onClick={() => onTabChange('weekly')} 
+        />
+        <NavItem 
+          icon={<Calendar />} 
+          label="Monthly" 
+          active={currentTab === 'monthly'} 
+          onClick={() => onTabChange('monthly')} 
+        />
+      </div>
+
+      <button
+        onClick={onAdd}
+        className="btn-primary"
+        style={{ minWidth: '56px', width: '56px', height: '56px', borderRadius: '28px', padding: '0' }}
+      >
+        <span style={{ fontSize: '24px', lineHeight: 1 }}>&#43;</span>
+      </button>
     </div>
   )
 }
