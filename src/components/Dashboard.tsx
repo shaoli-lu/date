@@ -13,9 +13,10 @@ export default function Dashboard({ session }: { session: Session }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
 
-  const handleEventAdded = () => {
+  const handleEventAdded = (eventDate: Date) => {
     setIsModalOpen(false)
     setRefreshKey(prev => prev + 1)
+    setSelectedDate(eventDate)
   }
 
   const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly', date: Date) => {

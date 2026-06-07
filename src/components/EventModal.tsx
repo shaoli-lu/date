@@ -3,7 +3,34 @@ import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { X } from 'lucide-react'
 
-export default function EventModal({ session, onClose, onSuccess }: { session: Session, onClose: () => void, onSuccess: () => void }) {
+const formatLocalDateTime = (date: Date) => {
+  const pad = (value: number) => value.toString().padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`
+}
+
+const formatLocalDate = (date: Date) => {
+  const pad = (value: number) => value.toString().padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
+}
+
+const parseLocalDate = (value: string) => {
+  const [year, month, day] = value.split('-').map(Number)
+  return new Date(year, month - 1, day)
+}
+
+const toLocalDateISOString = (value: string) => {
+  const date = parseLocalDate(value)
+  return date.toISOString()
+}
+
+const getDefaultEndTime = (start: string) => {
+  const date = new Date(start)
+  if (Number.isNaN(date.getTime())) return ''
+  date.setHours(date.getHours() + 1)
+  return formatLocalDateTime(date)
+}
+
+export default function EventModal({ session, onClose, onSuccess }: { session: Session, onClose: () => void, onSuccess: (date: Date) => void }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [startTime, setStartTime] = useState('')
@@ -19,16 +46,18 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
       user_id: session.user.id,
       title,
       description,
-      start_time: isAllDay && startTime ? new Date(startTime).toISOString() : new Date(`${startTime}`).toISOString(),
+      start_time: isAllDay && startTime ? toLocalDateISOString(startTime) : new Date(`${startTime}`).toISOString(),
       end_time: isAllDay || !endTime ? null : new Date(`${endTime}`).toISOString(),
       is_all_day: isAllDay
     }
 
-    const { error } = await supabase.from('events').insert([newEvent])
+    const { data, error } = await supabase.from('events').insert([newEvent])
     setLoading(false)
 
-    if (!error) {
-      onSuccess()
+    if (!error && data && data.length > 0) {
+      onSuccess(new Date(data[0].start_time))
+    } else if (!error) {
+      onSuccess(new Date(newEvent.start_time))
     } else {
       alert("Error saving event: " + error.message)
     }
@@ -84,7 +113,17 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
             <input 
               type="checkbox" 
               checked={isAllDay} 
-              onChange={(e) => setIsAllDay(e.target.checked)} 
+              onChange={(e) => {
+                const checked = e.target.checked
+                setIsAllDay(checked)
+                if (checked) {
+                  const dateValue = startTime ? startTime.split('T')[0] : formatLocalDate(new Date())
+                  setStartTime(dateValue)
+                  setEndTime('')
+                } else if (!startTime) {
+                  setStartTime(formatLocalDateTime(new Date()))
+                }
+              }} 
               style={{ width: 'auto' }}
             />
             All-day event
@@ -96,7 +135,18 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
               <input 
                 type={isAllDay ? "date" : "datetime-local"} 
                 value={startTime} 
-                onChange={(e) => setStartTime(e.target.value)} 
+                onChange={(e) => {
+                  const value = e.target.value
+                  setStartTime(value)
+                  if (!isAllDay && value) {
+                    const startDate = new Date(value)
+                    const endDate = endTime ? new Date(endTime) : null
+                    const shouldUpdateEnd = !endTime || !endDate || Number.isNaN(endDate.getTime()) || endDate <= startDate
+                    if (shouldUpdateEnd) {
+                      setEndTime(getDefaultEndTime(value))
+                    }
+                  }
+                }} 
                 required 
               />
             </div>
