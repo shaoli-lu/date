@@ -94,9 +94,8 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           style={{ cursor: 'pointer' }}
         >
           <div className="weekly-day-header">
-            <span className="weekly-day-month">{format(day, 'MMM')}</span>
             <span className="weekly-day-name">{format(day, 'eee')}</span>
-            <span className="weekly-day-number">{format(day, 'd')}</span>
+            <span className="weekly-day-date">{format(day, 'd MMM')}</span>
           </div>
           <div className="weekly-events-container">
             {dayEvents.map(e => (
@@ -246,10 +245,12 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           grid-template-columns: repeat(7, minmax(140px, 1fr));
           gap: 16px;
           width: 100%;
-          min-width: 0;
+          min-width: max-content;
         }
         .weekly-panel {
           overflow-x: auto;
+          padding-bottom: 8px;
+          -webkit-overflow-scrolling: touch;
         }
         .weekly-cell {
           aspect-ratio: auto;
@@ -266,20 +267,17 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           margin-bottom: 12px;
           gap: 4px;
         }
-        .weekly-day-month {
-          font-size: 0.7rem;
-          color: var(--text-main);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
         .weekly-day-name {
           font-size: 0.8rem;
           color: var(--text-main);
           text-transform: uppercase;
         }
-        .weekly-day-number {
-          font-size: 1.2rem;
-          font-weight: bold;
+        .weekly-day-date {
+          font-size: 1rem;
+          color: var(--text-main);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 700;
         }
         .weekly-events-container {
           display: flex;
@@ -330,20 +328,21 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
 
           /* Weekly */
           .weekly-row {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(7, minmax(140px, 1fr));
             gap: 12px;
+            min-width: max-content;
           }
           .weekly-cell {
             min-height: auto;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 16px;
-            min-width: 0;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            min-width: 140px;
           }
           .weekly-day-header {
-            min-width: 40px;
-            align-items: flex-start;
-            margin-bottom: 0;
+            min-width: 0;
+            align-items: center;
+            margin-bottom: 12px;
           }
         }
       `}</style>
