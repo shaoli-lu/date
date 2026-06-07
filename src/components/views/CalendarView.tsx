@@ -328,20 +328,24 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
 
           /* Weekly */
           .weekly-row {
-            grid-template-columns: repeat(7, minmax(140px, 1fr));
+            grid-template-columns: 1fr;
             gap: 12px;
-            min-width: max-content;
+            min-width: 0;
+          }
+          .weekly-panel {
+            overflow-x: hidden;
           }
           .weekly-cell {
             min-height: auto;
             flex-direction: column;
             align-items: stretch;
             gap: 12px;
-            min-width: 140px;
+            min-width: 0;
+            width: 100%;
           }
           .weekly-day-header {
             min-width: 0;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 12px;
           }
         }
