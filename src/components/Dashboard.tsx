@@ -9,12 +9,25 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Dashboard({ session }: { session: Session }) {
   const [currentTab, setCurrentTab] = useState<'today' | 'weekly' | 'monthly'>('today')
+  const [selectedDate, setSelectedDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [refreshKey, setRefreshKey] = useState(0)
 
   const handleEventAdded = () => {
     setIsModalOpen(false)
     setRefreshKey(prev => prev + 1)
+  }
+
+  const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly', date: Date) => {
+    setSelectedDate(date)
+    setCurrentTab(view)
+  }
+
+  const handleTabChange = (tab: 'today' | 'weekly' | 'monthly') => {
+    if (tab === 'today') {
+      setSelectedDate(new Date())
+    }
+    setCurrentTab(tab)
   }
 
   return (
@@ -29,9 +42,9 @@ export default function Dashboard({ session }: { session: Session }) {
             transition={{ duration: 0.2 }}
             style={{ height: '100%' }}
           >
-            {currentTab === 'today' && <TodayView session={session} refreshKey={refreshKey} />}
-            {currentTab === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} />}
-            {currentTab === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} />}
+            {currentTab === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} />}
+            {currentTab === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
+            {currentTab === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -54,7 +67,7 @@ export default function Dashboard({ session }: { session: Session }) {
         <Plus size={24} color="#0b0c10" />
       </button>
 
-      <BottomNav currentTab={currentTab} onTabChange={setCurrentTab} />
+      <BottomNav currentTab={currentTab} onTabChange={handleTabChange} />
 
       {isModalOpen && <EventModal session={session} onClose={() => setIsModalOpen(false)} onSuccess={handleEventAdded} />}
     </>

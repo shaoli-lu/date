@@ -5,13 +5,17 @@ import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, en
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-export default function CalendarView({ session, view, refreshKey }: { session: Session, view: 'weekly' | 'monthly', refreshKey: number }) {
-  const [currentDate, setCurrentDate] = useState(new Date())
+export default function CalendarView({ session, view, refreshKey, selectedDate, onNavigateToDate }: { session: Session, view: 'weekly' | 'monthly', refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly', date: Date) => void }) {
+  const [currentDate, setCurrentDate] = useState(selectedDate)
   const [direction, setDirection] = useState(0)
   const [events, setEvents] = useState<any[]>([])
 
   const startDate = view === 'monthly' ? startOfWeek(startOfMonth(currentDate)) : startOfWeek(currentDate)
   const endDate = view === 'monthly' ? endOfWeek(endOfMonth(currentDate)) : endOfWeek(currentDate)
+
+  useEffect(() => {
+    setCurrentDate(selectedDate)
+  }, [selectedDate])
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -51,7 +55,8 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
           <div 
             className={`calendar-cell ${!isSameMonth(day, currentDate) ? "disabled" : isSameDay(day, new Date()) ? "today" : ""}`} 
             key={day.toISOString()}
-            style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '4px' }}
+            onClick={() => onNavigateToDate('weekly', cloneDay)}
+            style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '4px', cursor: 'pointer' }}
           >
             <span style={{ alignSelf: 'center', marginBottom: '4px' }}>{format(day, 'd')}</span>
             <div className="monthly-event-container">
@@ -84,6 +89,8 @@ export default function CalendarView({ session, view, refreshKey }: { session: S
         <div 
           className={`calendar-cell weekly-cell ${isSameDay(day, new Date()) ? "today" : ""}`} 
           key={day.toISOString()}
+          onClick={() => onNavigateToDate('today', cloneDay)}
+          style={{ cursor: 'pointer' }}
         >
           <div className="weekly-day-header">
             <span className="weekly-day-name">{format(day, 'eee')}</span>

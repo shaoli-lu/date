@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
-import { format, startOfDay, endOfDay } from 'date-fns'
+import { format, startOfDay, endOfDay, addDays } from 'date-fns'
 
-export default function TodayView({ session, refreshKey }: { session: Session, refreshKey: number }) {
+export default function TodayView({ session, refreshKey, selectedDate, onDateChange }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void }) {
   const [events, setEvents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchTodayEvents = async () => {
       setLoading(true)
-      const todayStart = startOfDay(new Date()).toISOString()
-      const todayEnd = endOfDay(new Date()).toISOString()
+      const todayStart = startOfDay(selectedDate).toISOString()
+      const todayEnd = endOfDay(selectedDate).toISOString()
 
       const { data } = await supabase
         .from('events')
@@ -25,16 +25,27 @@ export default function TodayView({ session, refreshKey }: { session: Session, r
     }
 
     fetchTodayEvents()
-  }, [refreshKey])
+  }, [refreshKey, selectedDate])
+
+  const goPrevDay = () => onDateChange(addDays(selectedDate, -1))
+  const goNextDay = () => onDateChange(addDays(selectedDate, 1))
 
   return (
     <div className="scrollable-content">
-      <h1 style={{ fontSize: '2.5rem', marginBottom: '8px', color: 'var(--primary-color)' }}>
-        {format(new Date(), 'EEEE')}
-      </h1>
-      <h2 style={{ fontSize: '1.2rem', marginBottom: '30px', color: 'var(--text-main)', fontWeight: 400 }}>
-        {format(new Date(), 'MMMM d, yyyy')}
-      </h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
+        <div>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '8px', color: 'var(--primary-color)' }}>
+            {format(selectedDate, 'EEEE')}
+          </h1>
+          <h2 style={{ fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: 400 }}>
+            {format(selectedDate, 'MMMM d, yyyy')}
+          </h2>
+        </div>
+        <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+          <button onClick={goPrevDay} className="btn-secondary" style={{ padding: '8px 12px' }}>Prev</button>
+          <button onClick={goNextDay} className="btn-secondary" style={{ padding: '8px 12px' }}>Next</button>
+        </div>
+      </div>
 
       {loading ? (
         <div style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-main)' }}>Loading tasks...</div>
