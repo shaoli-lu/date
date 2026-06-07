@@ -51,7 +51,9 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
       is_all_day: isAllDay
     }
 
-    const { data, error } = await supabase.from('events').insert([newEvent])
+    const result = await supabase.from('events').insert<any>([newEvent])
+    const data = result.data as any[] | null
+    const error = result.error
     setLoading(false)
 
     if (!error && data && data.length > 0) {
