@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { X } from 'lucide-react'
@@ -30,7 +30,7 @@ const getDefaultEndTime = (start: string) => {
   return formatLocalDateTime(date)
 }
 
-export default function EventModal({ session, onClose, onSuccess }: { session: Session, onClose: () => void, onSuccess: (date: Date) => void }) {
+export default function EventModal({ session, event, onClose, onSuccess }: { session: Session, event?: any | null, onClose: () => void, onSuccess: (date: Date) => void }) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [startTime, setStartTime] = useState('')
@@ -38,11 +38,37 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
   const [isAllDay, setIsAllDay] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    if (!event) {
+      setTitle('')
+      setDescription('')
+      setStartTime('')
+      setEndTime('')
+      setIsAllDay(false)
+      return
+    }
+
+    const eventStart = new Date(event.start_time)
+    const eventEnd = event.end_time ? new Date(event.end_time) : null
+
+    setTitle(event.title ?? '')
+    setDescription(event.description ?? '')
+    setIsAllDay(Boolean(event.is_all_day))
+
+    if (event.is_all_day) {
+      setStartTime(formatLocalDate(eventStart))
+      setEndTime('')
+    } else {
+      setStartTime(formatLocalDateTime(eventStart))
+      setEndTime(eventEnd ? formatLocalDateTime(eventEnd) : getDefaultEndTime(formatLocalDateTime(eventStart)))
+    }
+  }, [event])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
 
-    const newEvent = {
+    const eventPayload = {
       user_id: session.user.id,
       title,
       description,
@@ -51,17 +77,26 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
       is_all_day: isAllDay
     }
 
-    const result = await supabase.from('events').insert<any>([newEvent])
-    const data = result.data as any[] | null
+    let result
+    if (event?.id) {
+      result = await supabase.from('events').update(eventPayload).eq('id', event.id).single()
+    } else {
+      result = await supabase.from('events').insert<any>([eventPayload]).single()
+    }
+
+    const data = result.data as any | null
     const error = result.error
     setLoading(false)
 
-    if (!error && data && data.length > 0) {
-      onSuccess(new Date(data[0].start_time))
-    } else if (!error) {
-      onSuccess(new Date(newEvent.start_time))
-    } else {
+    if (error) {
       alert("Error saving event: " + error.message)
+      return
+    }
+
+    if (data) {
+      onSuccess(new Date(data.start_time))
+    } else {
+      onSuccess(new Date(eventPayload.start_time))
     }
   }
 
@@ -87,7 +122,7 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
         animation: 'slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
-          <h2>New Event</h2>
+          <h2>{event ? 'Edit Event' : 'New Event'}</h2>
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
             <X />
           </button>
@@ -122,8 +157,12 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
                   const dateValue = startTime ? startTime.split('T')[0] : formatLocalDate(new Date())
                   setStartTime(dateValue)
                   setEndTime('')
-                } else if (!startTime) {
-                  setStartTime(formatLocalDateTime(new Date()))
+                } else {
+                  const baseDate = startTime ? parseLocalDate(startTime) : new Date()
+                  baseDate.setHours(9, 0, 0, 0)
+                  const newStart = formatLocalDateTime(baseDate)
+                  setStartTime(newStart)
+                  setEndTime(getDefaultEndTime(newStart))
                 }
               }} 
               style={{ width: 'auto' }}
@@ -135,7 +174,7 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
             <div>
               <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: 'var(--text-main)' }}>Starts</label>
               <input 
-                type={isAllDay ? "date" : "datetime-local"} 
+                type={isAllDay ? 'date' : 'datetime-local'} 
                 value={startTime} 
                 onChange={(e) => {
                   const value = e.target.value
@@ -165,7 +204,7 @@ export default function EventModal({ session, onClose, onSuccess }: { session: S
           </div>
 
           <button type="submit" className="btn-primary" disabled={loading} style={{ marginTop: '16px', padding: '14px' }}>
-            {loading ? 'Saving...' : 'Save Event'}
+            {loading ? (event ? 'Saving...' : 'Saving...') : event ? 'Update Event' : 'Save Event'}
           </button>
         </form>
       </div>

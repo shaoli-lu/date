@@ -10,12 +10,24 @@ export default function Dashboard({ session }: { session: Session }) {
   const [currentTab, setCurrentTab] = useState<'today' | 'weekly' | 'monthly'>('today')
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [editingEvent, setEditingEvent] = useState<any | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
 
   const handleEventAdded = (eventDate: Date) => {
     setIsModalOpen(false)
+    setEditingEvent(null)
     setRefreshKey(prev => prev + 1)
     setSelectedDate(eventDate)
+  }
+
+  const openNewEvent = () => {
+    setEditingEvent(null)
+    setIsModalOpen(true)
+  }
+
+  const handleEditEvent = (event: any) => {
+    setEditingEvent(event)
+    setIsModalOpen(true)
   }
 
   const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly', date: Date) => {
@@ -42,16 +54,16 @@ export default function Dashboard({ session }: { session: Session }) {
             transition={{ duration: 0.2 }}
             style={{ height: '100%' }}
           >
-            {currentTab === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} />}
+            {currentTab === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} onEditEvent={handleEditEvent} />}
             {currentTab === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
             {currentTab === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <BottomNav currentTab={currentTab} onTabChange={handleTabChange} onAdd={() => setIsModalOpen(true)} />
+      <BottomNav currentTab={currentTab} onTabChange={handleTabChange} onAdd={openNewEvent} />
 
-      {isModalOpen && <EventModal session={session} onClose={() => setIsModalOpen(false)} onSuccess={handleEventAdded} />}
+      {isModalOpen && <EventModal session={session} event={editingEvent} onClose={() => setIsModalOpen(false)} onSuccess={handleEventAdded} />}
     </>
   )
 }

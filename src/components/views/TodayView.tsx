@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { format, startOfDay, endOfDay, addDays } from 'date-fns'
-import { Trash2 } from 'lucide-react'
+import { Trash2, Pencil } from 'lucide-react'
 
-export default function TodayView({ session, refreshKey, selectedDate, onDateChange }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void }) {
+export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void }) {
   const [events, setEvents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [deletingId, setDeletingId] = useState<string | number | null>(null)
@@ -86,24 +86,45 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
                   <span style={{ fontSize: '0.9rem', color: 'var(--secondary-color)', fontWeight: 600 }}>
                     {event.is_all_day ? 'All Day' : format(new Date(event.start_time), 'h:mm a')}
                   </span>
-                  <button
-                    onClick={() => deleteEvent(event.id)}
-                    disabled={deletingId === event.id}
-                    style={{
-                      background: 'transparent',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      borderRadius: '8px',
-                      color: 'var(--text-main)',
-                      cursor: 'pointer',
-                      padding: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px'
-                    }}
-                  >
-                    <Trash2 size={14} />
-                    {deletingId === event.id ? 'Deleting...' : 'Delete'}
-                  </button>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button
+                      type="button"
+                      onClick={() => onEditEvent?.(event)}
+                      style={{
+                        background: 'transparent',
+                        border: '1px solid rgba(255,255,255,0.15)',
+                        borderRadius: '8px',
+                        color: 'var(--text-main)',
+                        cursor: 'pointer',
+                        padding: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Pencil size={14} />
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => deleteEvent(event.id)}
+                      disabled={deletingId === event.id}
+                      style={{
+                        background: 'transparent',
+                        border: '1px solid rgba(255,255,255,0.15)',
+                        borderRadius: '8px',
+                        color: 'var(--text-main)',
+                        cursor: 'pointer',
+                        padding: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <Trash2 size={14} />
+                      {deletingId === event.id ? 'Deleting...' : 'Delete'}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
