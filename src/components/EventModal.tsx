@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
-import { X } from 'lucide-react'
+import { X, Mic, MicOff } from 'lucide-react'
 
 const formatLocalDateTime = (date: Date) => {
   const pad = (value: number) => value.toString().padStart(2, '0')
@@ -37,6 +37,40 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
   const [endTime, setEndTime] = useState('')
   const [isAllDay, setIsAllDay] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [isRecording, setIsRecording] = useState(false)
+  const [voiceSupported, setVoiceSupported] = useState(false)
+
+  useEffect(() => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    setVoiceSupported(Boolean(SpeechRecognition))
+  }, [])
+
+  const startVoiceInput = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    if (!SpeechRecognition) {
+      alert('Voice input is not supported in this browser.')
+      return
+    }
+
+    const recognition = new SpeechRecognition()
+    recognition.lang = 'en-US'
+    recognition.interimResults = false
+    recognition.maxAlternatives = 1
+
+    recognition.onstart = () => setIsRecording(true)
+    recognition.onresult = (event: any) => {
+      const transcript = event.results?.[0]?.[0]?.transcript
+      if (transcript) {
+        setTitle(transcript)
+        setIsAllDay(true)
+        setStartTime(formatLocalDate(new Date()))
+        setEndTime('')
+      }
+    }
+    recognition.onend = () => setIsRecording(false)
+    recognition.onerror = () => setIsRecording(false)
+    recognition.start()
+  }
 
   useEffect(() => {
     if (!event) {
@@ -129,14 +163,35 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
         </div>
         
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <input 
-            type="text" 
-            placeholder="Event Title" 
-            value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
-            required 
-            style={{ fontSize: '1.2rem', fontWeight: 'bold' }}
-          />
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <input 
+              type="text" 
+              placeholder="Event Title" 
+              value={title} 
+              onChange={(e) => setTitle(e.target.value)} 
+              required 
+              style={{ flex: 1, fontSize: '1.2rem', fontWeight: 'bold' }}
+            />
+            <button
+              type="button"
+              onClick={startVoiceInput}
+              disabled={!voiceSupported || isRecording}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '10px 14px',
+                borderRadius: '12px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                background: isRecording ? 'rgba(102, 252, 241, 0.15)' : 'transparent',
+                color: 'var(--text-main)',
+                cursor: voiceSupported ? 'pointer' : 'not-allowed'
+              }}
+            >
+              {isRecording ? <MicOff size={16} /> : <Mic size={16} />}
+              {isRecording ? 'Listening' : 'Voice'}
+            </button>
+          </div>
           
           <textarea 
             placeholder="Description or Notes" 
