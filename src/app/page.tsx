@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import PasskeyAuth from '@/components/PasskeyAuth'
 import { Session } from '@supabase/supabase-js'
 import AuthScreen from '@/components/AuthScreen'
 import Dashboard from '@/components/Dashboard'
@@ -30,8 +31,19 @@ export default function Home() {
   }
 
   if (!session) {
-    return <AuthScreen />
+    return (
+      <>
+      <PasskeyAuth session={session} />
+      <AuthScreen />
+      </>
+    )
   }
 
-  return <Dashboard session={session} />
+  return (
+    <>
+      <Dashboard session={session} />
+      {/* Allow user to register a new passkey after signing in */}
+      <PasskeyAuth session={session} />
+    </>
+  )
 }
