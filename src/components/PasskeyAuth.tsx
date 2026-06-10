@@ -71,8 +71,8 @@ export default function PasskeyAuth({ session }: { session?: any }) {
             <button
               onClick={handleRegister}
               disabled={loading}
-              className="btn-secondary"
-              style={{ minWidth: '200px', padding: '0.75rem 1rem' }}
+              className="btn-primary"
+              style={{ minWidth: '200px', padding: '0.75rem 1rem', background: 'var(--secondary-color)', color: '#fff' }}
             >
               {loading ? 'Processing...' : 'Register Passkey'}
             </button>
