@@ -75,12 +75,13 @@ export default function PasskeyAuth({ session: propSession }: { session?: any })
           )}
 
           {/* Register button */}
-          {isLoggedIn &&              <button
-                onClick={handleRegister}
-                disabled={loading}
-                className="btn-primary register-btn"
-                style={{ minWidth: '200px', padding: '0.75rem 1rem', background: 'var(--secondary-color)', color: '#fff', marginTop: '0.5rem' }}
-              >
+          {isLoggedIn && (
+            <button
+              onClick={handleRegister}
+              disabled={loading}
+              className="btn-primary register-btn"
+              style={{ minWidth: '200px', padding: '0.75rem 1rem', background: 'var(--secondary-color)', color: '#fff', marginTop: '0.5rem' }}
+            >
               {loading ? 'Processing...' : 'Register Passkey'}
             </button>
           )}
