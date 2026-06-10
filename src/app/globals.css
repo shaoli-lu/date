@@ -71,6 +71,7 @@ a {
   max-width: 250px;
 }
 
+.btn-primary:active {
   transform: scale(0.95);
 }
 

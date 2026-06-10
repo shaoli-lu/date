@@ -11,11 +11,7 @@
   z-index: 1000;
 }
 
-.modalContent button {
-  width: 100%;
-  max-width: 250px;
-  margin-top: 0.5rem;
-}
+.modalContent {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -33,18 +29,11 @@
   align-items: center;
   gap: 1rem;
 }
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 2rem;
-  max-width: 90vw;
-  max-height: 80vh;
-  overflow-y: auto;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+
+.modalContent button {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 0.5rem;
 }
 
 .closeButton {
