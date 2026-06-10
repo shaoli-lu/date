@@ -65,7 +65,12 @@ a {
   color: #ffffff;
 }
 
-.btn-primary:active {
+.register-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 250px;
+}
+
   transform: scale(0.95);
 }
 

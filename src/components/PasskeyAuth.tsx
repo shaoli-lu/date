@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import Modal from '@/components/Modal';
 
-// Accept optional session prop
-export default function PasskeyAuth({ session }: { session?: any }) {
+// Accept optional session prop; if not provided, retrieve from Supabase
+export default function PasskeyAuth({ session: propSession }: { session?: any }) {
+  const [session, setSession] = useState<any>(propSession);
+  useEffect(() => {
+    if (!propSession) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (session) setSession(session);
+      });
+    }
+  }, [propSession]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -67,13 +75,12 @@ export default function PasskeyAuth({ session }: { session?: any }) {
           )}
 
           {/* Register button */}
-          {isLoggedIn && (
-            <button
-              onClick={handleRegister}
-              disabled={loading}
-              className="btn-primary"
-              style={{ minWidth: '200px', padding: '0.75rem 1rem', background: 'var(--secondary-color)', color: '#fff' }}
-            >
+          {isLoggedIn &&              <button
+                onClick={handleRegister}
+                disabled={loading}
+                className="btn-primary register-btn"
+                style={{ minWidth: '200px', padding: '0.75rem 1rem', background: 'var(--secondary-color)', color: '#fff', marginTop: '0.5rem' }}
+              >
               {loading ? 'Processing...' : 'Register Passkey'}
             </button>
           )}
