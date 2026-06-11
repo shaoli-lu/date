@@ -28,7 +28,7 @@ export default function RootLayout({
       </head>
       <body>
         <div className="page-container">
-          {children}
+          <main className="content-shell">{children}</main>
         </div>
       </body>
     </html>
