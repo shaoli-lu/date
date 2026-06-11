@@ -1,53 +1,30 @@
 /* src/components/Modal.module.css */
 /* Glassmorphism modal styling */
-.modalOverlay {
+.overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 1rem;
 }
 
-.modalContent {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+.content {
+  background: rgba(31, 40, 51, 0.85);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 252, 241, 0.15);
   padding: 2rem;
-  max-width: 90vw;
-  max-height: 80vh;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
   overflow-y: auto;
   color: #fff;
   font-family: 'Inter', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.modalContent button {
-  width: 100%;
-  max-width: 250px;
-  margin-top: 0.5rem;
-}
-
-.closeButton {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.closeButton:hover {
-  transform: rotate(90deg);
 }

@@ -1,13 +1,23 @@
+type Tab = 'today' | 'weekly' | 'monthly' | 'passkey'
+
 type BottomNavProps = {
-  currentTab: 'today' | 'weekly' | 'monthly'
-  onTabChange: (tab: 'today' | 'weekly' | 'monthly') => void
+  currentTab: Tab
+  onTabChange: (tab: Tab) => void
   onAdd: () => void
 }
 
-const tabLabels: Record<BottomNavProps['currentTab'], string> = {
+const tabLabels: Record<Tab, string> = {
   today: 'Today',
   weekly: 'Weekly',
   monthly: 'Monthly',
+  passkey: 'Passkey',
+}
+
+const tabIcons: Record<Tab, string> = {
+  today: '☀️',
+  weekly: '📅',
+  monthly: '🗓️',
+  passkey: '🔑',
 }
 
 export default function BottomNav({ currentTab, onTabChange, onAdd }: BottomNavProps) {
@@ -19,47 +29,76 @@ export default function BottomNav({ currentTab, onTabChange, onAdd }: BottomNavP
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: '0.75rem',
-        padding: '1rem',
-        background: 'rgba(11, 12, 16, 0.92)',
-        backdropFilter: 'blur(16px)',
+        gap: '0.5rem',
+        padding: '0.75rem 1rem',
+        background: 'rgba(11, 12, 16, 0.95)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        zIndex: 100,
       }}
     >
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        {(['today', 'weekly', 'monthly'] as BottomNavProps['currentTab'][]).map(tab => (
+      <div style={{ display: 'flex', gap: '0.25rem', flex: 1 }}>
+        {(['today', 'weekly', 'monthly', 'passkey'] as Tab[]).map(tab => (
           <button
             key={tab}
+            id={`nav-tab-${tab}`}
             type="button"
             onClick={() => onTabChange(tab)}
             style={{
-              padding: '0.75rem 1rem',
-              borderRadius: '999px',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2px',
+              paddingTop: '0.5rem',
+              paddingBottom: '0.5rem',
+              paddingLeft: '0.25rem',
+              paddingRight: '0.25rem',
+              borderRadius: '12px',
+              border: 'none',
               background: currentTab === tab ? 'rgba(102, 252, 241, 0.12)' : 'transparent',
-              color: '#ffffff',
+              color: currentTab === tab ? 'var(--primary-color)' : 'var(--text-main)',
               cursor: 'pointer',
-              fontWeight: currentTab === tab ? 700 : 500,
+              transition: 'all 0.2s ease',
+              fontSize: '0.65rem',
+              fontWeight: currentTab === tab ? 700 : 400,
+              minWidth: 0,
             }}
           >
-            {tabLabels[tab]}
+            <span style={{ fontSize: '1.1rem', lineHeight: 1, filter: currentTab === tab ? 'none' : 'grayscale(0.5)' }}>
+              {tabIcons[tab]}
+            </span>
+            <span>{tabLabels[tab]}</span>
           </button>
         ))}
       </div>
+
       <button
+        id="nav-add-event"
         type="button"
         onClick={onAdd}
         style={{
-          padding: '0.75rem 1rem',
-          borderRadius: '999px',
-          border: '1px solid var(--primary-color)',
+          flexShrink: 0,
+          width: '44px',
+          height: '44px',
+          borderRadius: '50%',
+          border: 'none',
           background: 'var(--primary-color)',
           color: '#0b0c10',
           fontWeight: 700,
+          fontSize: '1.5rem',
           cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          lineHeight: 1,
+          marginLeft: '0.5rem',
+          transition: 'transform 0.15s ease, background 0.2s ease',
         }}
       >
-        Add
+        +
       </button>
     </nav>
   )

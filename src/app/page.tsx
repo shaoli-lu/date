@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import PasskeyAuth from '@/components/PasskeyAuth'
 import { Session } from '@supabase/supabase-js'
 import AuthScreen from '@/components/AuthScreen'
 import Dashboard from '@/components/Dashboard'
@@ -27,23 +26,16 @@ export default function Home() {
   }, [])
 
   if (loading) {
-    return <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-color)' }}>Loading...</div>
-  }
-
-  if (!session) {
     return (
-      <>
-      <PasskeyAuth session={session} />
-      <AuthScreen />
-      </>
+      <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-color)' }}>
+        Loading...
+      </div>
     )
   }
 
-  return (
-    <>
-      <Dashboard session={session} />
-      {/* Allow user to register a new passkey after signing in */}
-      <PasskeyAuth session={session} />
-    </>
-  )
+  if (!session) {
+    return <AuthScreen />
+  }
+
+  return <Dashboard session={session} />
 }
