@@ -620,8 +620,9 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                     <input 
                       type="number" 
                       min="0" 
-                      step="100"
+                      step="0.01"
                       value={cdPrincipal} 
+                      className="no-spin"
                       onChange={(e) => setCdPrincipal(parseFloat(e.target.value) || 0)} 
                       style={{ padding: '10px' }}
                     />
@@ -803,6 +804,14 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
         }
         .slider.round:before {
           border-radius: 50%;
+        }
+        .no-spin::-webkit-outer-spin-button,
+        .no-spin::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        .no-spin {
+          -moz-appearance: textfield;
         }
       `}</style>
     </div>
