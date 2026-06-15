@@ -5,6 +5,16 @@ import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, en
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
+const parseDescForBadges = (desc: string | null | undefined) => {
+  if (!desc) return { isRecurring: false, isCd: false }
+  const hasMetadata = desc.includes('--- METADATA ---')
+  if (!hasMetadata) return { isRecurring: false, isCd: false }
+  return {
+    isRecurring: desc.includes('"recurring"'),
+    isCd: desc.includes('"cdRenewal"')
+  }
+}
+
 export default function CalendarView({ session, view, refreshKey, selectedDate, onNavigateToDate }: { session: Session, view: 'weekly' | 'monthly', refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly', date: Date) => void }) {
   const [currentDate, setCurrentDate] = useState(selectedDate)
   const [direction, setDirection] = useState(0)
@@ -61,11 +71,14 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           >
             <span style={{ alignSelf: 'center', marginBottom: '4px' }}>{format(day, 'd')}</span>
             <div className="monthly-event-container">
-              {dayEvents.slice(0, 3).map(e => (
-                <div key={e.id} className="monthly-event-pill">
-                  {e.is_all_day ? '' : format(parseISO(e.start_time), 'h:mma ').toLowerCase()}{e.title}
-                </div>
-              ))}
+              {dayEvents.slice(0, 3).map(e => {
+                const { isRecurring, isCd } = parseDescForBadges(e.description)
+                return (
+                  <div key={e.id} className="monthly-event-pill">
+                    {isCd && '💰 '}{isRecurring && '🔁 '}{e.is_all_day ? '' : format(parseISO(e.start_time), 'h:mma ').toLowerCase()}{e.title}
+                  </div>
+                )
+              })}
               {dayEvents.length > 3 && <div className="monthly-event-overflow">+{dayEvents.length - 3}</div>}
             </div>
           </div>
@@ -98,11 +111,14 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             <span className="weekly-day-date">{format(day, 'd MMM')}</span>
           </div>
           <div className="weekly-events-container">
-            {dayEvents.map(e => (
-              <div key={e.id} className="weekly-event-pill">
-                {e.is_all_day ? '' : format(parseISO(e.start_time), 'h:mma ').toLowerCase()}{e.title}
-              </div>
-            ))}
+            {dayEvents.map(e => {
+              const { isRecurring, isCd } = parseDescForBadges(e.description)
+              return (
+                <div key={e.id} className="weekly-event-pill">
+                  {isCd && '💰 '}{isRecurring && '🔁 '}{e.is_all_day ? '' : format(parseISO(e.start_time), 'h:mma ').toLowerCase()}{e.title}
+                </div>
+              )
+            })}
           </div>
         </div>
       )
