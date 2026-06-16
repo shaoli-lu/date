@@ -8,9 +8,9 @@ import PasskeyView from './views/PasskeyView'
 import EventModal from './EventModal'
 import { AnimatePresence, motion } from 'framer-motion'
 
-type Tab = 'today' | 'weekly' | 'monthly' | 'passkey'
+type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
 
-type View = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
+type View = Tab
 
 export default function Dashboard({ session }: { session: Session }) {
   const [currentTab, setCurrentTab] = useState<Tab>('today')
@@ -37,12 +37,10 @@ export default function Dashboard({ session }: { session: Session }) {
     setIsModalOpen(true)
   }
 
-  const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly' | 'yearly', date: Date) => {
+  const handleNavigateToDate = (view: View, date: Date) => {
     setSelectedDate(date)
     setCurrentView(view)
-    if (view !== 'yearly') {
-      setCurrentTab(view)
-    }
+    setCurrentTab(view)
   }
 
   const handleTabChange = (tab: Tab) => {

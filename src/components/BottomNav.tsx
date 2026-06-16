@@ -1,4 +1,4 @@
-type Tab = 'today' | 'weekly' | 'monthly' | 'passkey'
+type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
 
 type BottomNavProps = {
   currentTab: Tab
@@ -10,6 +10,7 @@ const tabLabels: Record<Tab, string> = {
   today: 'Today',
   weekly: 'Weekly',
   monthly: 'Monthly',
+  yearly: 'Year',
   passkey: 'Passkey',
 }
 
@@ -17,6 +18,7 @@ const tabIcons: Record<Tab, string> = {
   today: '☀️',
   weekly: '📅',
   monthly: '🗓️',
+  yearly: '📆',
   passkey: '🔑',
 }
 
@@ -39,7 +41,7 @@ export default function BottomNav({ currentTab, onTabChange, onAdd }: BottomNavP
       }}
     >
       <div style={{ display: 'flex', gap: '0.25rem', flex: 1 }}>
-        {(['today', 'weekly', 'monthly', 'passkey'] as Tab[]).map(tab => (
+        {(['today', 'weekly', 'monthly', 'yearly', 'passkey'] as Tab[]).map(tab => (
           <button
             key={tab}
             id={`nav-tab-${tab}`}
