@@ -15,7 +15,7 @@ const parseDescForBadges = (desc: string | null | undefined) => {
   }
 }
 
-export default function CalendarView({ session, view, refreshKey, selectedDate, onNavigateToDate }: { session: Session, view: 'weekly' | 'monthly', refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly', date: Date) => void }) {
+export default function CalendarView({ session, view, refreshKey, selectedDate, onNavigateToDate, onNavigateUp }: { session: Session, view: 'weekly' | 'monthly', refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly' | 'yearly', date: Date) => void, onNavigateUp: () => void }) {
   const [currentDate, setCurrentDate] = useState(selectedDate)
   const [direction, setDirection] = useState(0)
   const [events, setEvents] = useState<any[]>([])
@@ -144,8 +144,16 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
     <div className="scrollable-content">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
         <div style={{ minWidth: 0 }}>
+          <button
+            type="button"
+            onClick={onNavigateUp}
+            className="btn-secondary"
+            style={{ marginBottom: '12px', padding: '8px 12px' }}
+          >
+            ◀ {view === 'weekly' ? 'MONTH' : 'YEAR'}
+          </button>
           <h1 style={{ fontSize: '2rem', marginBottom: view === 'weekly' ? '4px' : '0', minWidth: 0, wordBreak: 'break-word' }}>
-            {format(currentDate, 'MMMM yyyy')}
+            {format(currentDate, view === 'weekly' ? 'MMMM yyyy' : 'MMMM yyyy')}
           </h1>
           {view === 'weekly' && (
             <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', margin: 0 }}>

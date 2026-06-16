@@ -5,7 +5,7 @@ import { format, startOfDay, endOfDay, addDays } from 'date-fns'
 import { Trash2, Pencil } from 'lucide-react'
 import { parseDescription } from '@/lib/eventUtils'
 
-export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void }) {
+export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void, onNavigateUp: () => void }) {
   const [events, setEvents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [deletingId, setDeletingId] = useState<string | number | null>(null)
@@ -71,6 +71,14 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
     <div className="scrollable-content">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
         <div>
+          <button
+            type="button"
+            onClick={onNavigateUp}
+            className="btn-secondary"
+            style={{ marginBottom: '12px', padding: '8px 12px' }}
+          >
+            ◀ WEEK
+          </button>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '8px', color: 'var(--primary-color)' }}>
             {format(selectedDate, 'EEEE')}
           </h1>

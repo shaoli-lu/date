@@ -3,14 +3,18 @@ import { Session } from '@supabase/supabase-js'
 import BottomNav from './BottomNav'
 import TodayView from './views/TodayView'
 import CalendarView from './views/CalendarView'
+import YearView from './views/YearView'
 import PasskeyView from './views/PasskeyView'
 import EventModal from './EventModal'
 import { AnimatePresence, motion } from 'framer-motion'
 
 type Tab = 'today' | 'weekly' | 'monthly' | 'passkey'
 
+type View = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
+
 export default function Dashboard({ session }: { session: Session }) {
   const [currentTab, setCurrentTab] = useState<Tab>('today')
+  const [currentView, setCurrentView] = useState<View>('today')
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingEvent, setEditingEvent] = useState<any | null>(null)
@@ -33,9 +37,12 @@ export default function Dashboard({ session }: { session: Session }) {
     setIsModalOpen(true)
   }
 
-  const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly', date: Date) => {
+  const handleNavigateToDate = (view: 'today' | 'weekly' | 'monthly' | 'yearly', date: Date) => {
     setSelectedDate(date)
-    setCurrentTab(view)
+    setCurrentView(view)
+    if (view !== 'yearly') {
+      setCurrentTab(view)
+    }
   }
 
   const handleTabChange = (tab: Tab) => {
@@ -43,6 +50,7 @@ export default function Dashboard({ session }: { session: Session }) {
       setSelectedDate(new Date())
     }
     setCurrentTab(tab)
+    setCurrentView(tab)
   }
 
   return (
@@ -50,17 +58,18 @@ export default function Dashboard({ session }: { session: Session }) {
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden', height: '100%' }}>
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentTab}
+            key={currentView}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             style={{ height: '100%' }}
           >
-            {currentTab === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} onEditEvent={handleEditEvent} />}
-            {currentTab === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
-            {currentTab === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} />}
-            {currentTab === 'passkey' && <PasskeyView session={session} />}
+            {currentView === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} onEditEvent={handleEditEvent} onNavigateUp={() => handleNavigateToDate('weekly', selectedDate)} />}
+            {currentView === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
+            {currentView === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => setCurrentView('yearly')} />}
+            {currentView === 'yearly' && <YearView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
+            {currentView === 'passkey' && <PasskeyView session={session} />}
           </motion.div>
         </AnimatePresence>
       </div>
