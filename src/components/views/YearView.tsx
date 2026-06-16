@@ -2,23 +2,23 @@ import { useEffect, useMemo, useState } from 'react'
 import { format } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 
-const yearWindow = 17
-const yearBuffer = Math.floor(yearWindow / 2)
+const yearWindow = 21
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 export default function YearView({ session, refreshKey, selectedDate, onNavigateToDate, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly' | 'yearly', date: Date) => void, onNavigateUp: () => void }) {
-  const [displayYear, setDisplayYear] = useState(selectedDate.getFullYear())
+  const currentYear = new Date().getFullYear()
+  const [displayYear, setDisplayYear] = useState(selectedDate.getFullYear() || currentYear)
 
   useEffect(() => {
-    setDisplayYear(selectedDate.getFullYear())
-  }, [selectedDate])
+    setDisplayYear(selectedDate.getFullYear() || currentYear)
+  }, [selectedDate, currentYear])
 
-  const years = useMemo(() => {
-    const currentYear = selectedDate.getFullYear()
-    return Array.from({ length: yearWindow }, (_, index) => currentYear - yearBuffer + index)
-  }, [selectedDate])
+  const yearOptions = useMemo(() => {
+    return Array.from({ length: yearWindow }, (_, index) => currentYear - Math.floor(yearWindow / 2) + index)
+  }, [currentYear])
 
   const handleSelectYear = (year: number) => {
+    setDisplayYear(year)
     onNavigateToDate('yearly', new Date(year, 0, 1))
   }
 
@@ -28,7 +28,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
 
   return (
     <div className="scrollable-content">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
         <div>
           <button
             type="button"
@@ -40,47 +40,63 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
           </button>
           <h1 style={{ fontSize: '2rem', margin: 0 }}>{displayYear}</h1>
           <p style={{ color: 'var(--text-main)', marginTop: '8px' }}>
-            Scroll to see adjacent years and pick one.
+            Select a year from the dropdown, then scroll the months vertically.
           </p>
+        </div>
+
+        <div style={{ minWidth: '220px' }}>
+          <label htmlFor="year-select" style={{ display: 'block', marginBottom: '8px', color: 'var(--text-main)' }}>
+            Year
+          </label>
+          <select
+            id="year-select"
+            value={displayYear}
+            onChange={event => handleSelectYear(Number(event.target.value))}
+            style={{
+              width: '100%',
+              padding: '12px 14px',
+              borderRadius: '12px',
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              color: 'var(--text-heading)',
+              fontSize: '1rem',
+              appearance: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            {yearOptions.map(year => (
+              <option key={year} value={year}>
+                {year === currentYear ? `${year} (current)` : year}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px', maxHeight: '320px', overflowY: 'auto', paddingRight: '4px', marginBottom: '20px' }}>
-        {years.map(year => (
-          <button
-            key={year}
-            type="button"
-            onClick={() => handleSelectYear(year)}
-            className="btn-secondary"
-            style={{
-              textAlign: 'left',
-              padding: '18px 16px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              background: year === displayYear ? 'rgba(102, 252, 241, 0.12)' : 'transparent',
-              borderColor: year === displayYear ? 'var(--primary-color)' : 'var(--glass-border)',
-            }}
-          >
-            <span style={{ fontSize: '1rem', color: 'var(--text-heading)', fontWeight: 600 }}>{year}</span>
-            {year === displayYear ? <span style={{ color: 'var(--primary-color)' }}>Selected</span> : null}
-          </button>
-        ))}
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '12px' }}>
-        {monthNames.map((label, index) => (
-          <button
-            key={label}
-            type="button"
-            onClick={() => handleSelectMonth(index)}
-            className="btn-secondary"
-            style={{ padding: '20px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '6px' }}
-          >
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-main)' }}>{label}</span>
-            <span style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-heading)' }}>{format(new Date(displayYear, index, 1), 'MMMM')}</span>
-          </button>
-        ))}
+      <div style={{ maxHeight: '420px', overflowY: 'auto', paddingRight: '4px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
+          {monthNames.map((label, index) => (
+            <button
+              key={label}
+              type="button"
+              onClick={() => handleSelectMonth(index)}
+              className="btn-secondary"
+              style={{
+                padding: '18px 16px',
+                textAlign: 'left',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <div style={{ fontSize: '0.95rem', color: 'var(--text-main)' }}>{label}</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-heading)' }}>{format(new Date(displayYear, index, 1), 'MMMM')}</div>
+              </div>
+              <span style={{ fontSize: '0.95rem', color: 'var(--primary-color)' }}>{displayYear}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )
