@@ -412,17 +412,29 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                padding: '10px 14px',
-                borderRadius: '12px',
-                border: '1px solid rgba(255,255,255,0.2)',
-                background: isRecording ? 'rgba(102, 252, 241, 0.15)' : 'transparent',
-                color: 'var(--text-main)',
-                cursor: voiceSupported ? 'pointer' : 'not-allowed'
+                gap: '8px',
+                padding: '12px 16px',
+                borderRadius: '14px',
+                border: '1px solid rgba(102, 252, 241, 0.45)',
+                backgroundColor: 'rgba(102, 252, 241, 0.08)',
+                backgroundImage: 'linear-gradient(135deg, #66fcf1 0%, #f5c242 55%, #ff6f61 100%)',
+                color: 'transparent',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+                fontWeight: 900,
+                cursor: voiceSupported ? 'pointer' : 'not-allowed',
+                boxShadow: '0 14px 28px rgba(0, 0, 0, 0.22)',
               }}
             >
-              {isRecording ? <MicOff size={16} /> : <Mic size={16} />}
-              {isRecording ? 'Listening' : 'Voice'}
+              {isRecording ? <MicOff size={16} style={{ color: 'var(--primary-color)' }} /> : <Mic size={16} style={{ color: 'var(--primary-color)' }} />}
+              <span style={{
+                color: 'transparent',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                {isRecording ? 'Listening' : 'Voice'}
+              </span>
             </button>
           </div>
           
