@@ -68,8 +68,8 @@ export default function HelpModal({ isOpen, onClose }: HelpModalProps) {
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: 'flex-start',
+            justifyContent: 'flex-end',
             zIndex: 3000,
             padding: '1rem',
           }}

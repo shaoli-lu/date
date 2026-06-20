@@ -45,8 +45,8 @@ export default function AuthScreen() {
 
   return (
     <>
-      <div className="scrollable-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="glass-panel" style={{ padding: '40px 24px', width: '100%', maxWidth: '400px', textAlign: 'center' }}>
+      <div className="scrollable-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: '12px' }}>
+        <div className="glass-panel" style={{ padding: '28px 24px', width: '100%', maxWidth: '400px', textAlign: 'center' }}>
           <div style={{ marginBottom: '24px' }}>
             <Image src="/logo.png" alt="SwiftNotes Logo" width={80} height={80} style={{ borderRadius: '20px' }} />
           </div>
