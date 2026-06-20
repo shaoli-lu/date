@@ -6,6 +6,7 @@ import CalendarView from './views/CalendarView'
 import YearView from './views/YearView'
 import PasskeyView from './views/PasskeyView'
 import EventModal from './EventModal'
+import HelpModal from './HelpModal'
 import { AnimatePresence, motion } from 'framer-motion'
 
 type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
@@ -17,6 +18,7 @@ export default function Dashboard({ session }: { session: Session }) {
   const [currentView, setCurrentView] = useState<View>('today')
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isHelpOpen, setIsHelpOpen] = useState(false)
   const [editingEvent, setEditingEvent] = useState<any | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
 
@@ -72,9 +74,44 @@ export default function Dashboard({ session }: { session: Session }) {
         </AnimatePresence>
       </div>
 
+      {/* Floating Action Button for Help Guide */}
+      <motion.button
+        id="help-trigger-fab"
+        type="button"
+        onClick={() => setIsHelpOpen(true)}
+        aria-label="Help Guide"
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileTap={{ scale: 0.9 }}
+        style={{
+          position: 'fixed',
+          bottom: '80px',
+          right: '20px',
+          width: '46px',
+          height: '46px',
+          borderRadius: '50%',
+          border: '1px solid rgba(102, 252, 241, 0.3)',
+          background: 'rgba(31, 40, 51, 0.85)',
+          color: 'var(--primary-color)',
+          fontSize: '1.2rem',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(102, 252, 241, 0.1)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          zIndex: 99,
+          transition: 'border-color 0.2s, box-shadow 0.2s',
+        }}
+      >
+        ❓
+      </motion.button>
+
       <BottomNav currentTab={currentTab} onTabChange={handleTabChange} onAdd={openNewEvent} />
 
       {isModalOpen && <EventModal session={session} event={editingEvent} onClose={() => setIsModalOpen(false)} onSuccess={handleEventAdded} />}
+
+      <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
     </>
   )
 }
