@@ -148,7 +148,18 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             type="button"
             onClick={onNavigateUp}
             className="btn-secondary"
-            style={{ marginBottom: '12px', padding: '8px 12px' }}
+            style={{
+              marginBottom: '12px',
+              padding: '12px 18px',
+              borderRadius: '14px',
+              border: '1px solid rgba(102, 252, 241, 0.45)',
+              background: 'linear-gradient(135deg, rgba(102,252,241,0.12), rgba(20,29,40,0.96))',
+              color: 'var(--primary-color)',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              boxShadow: '0 14px 30px rgba(0, 0, 0, 0.24)',
+              cursor: 'pointer',
+            }}
           >
             ◀ {view === 'weekly' ? 'MONTH' : 'YEAR'}
           </button>
@@ -161,9 +172,41 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             </p>
           )}
         </div>
-        <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
-          <button onClick={prevPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronLeft /></button>
-          <button onClick={nextPeriod} className="btn-secondary" style={{ padding: '8px' }}><ChevronRight /></button>
+        <div style={{ display: 'flex', gap: '12px', flexShrink: 0 }}>
+          <button
+            onClick={prevPeriod}
+            className="btn-secondary"
+            style={{
+              padding: '12px 14px',
+              borderRadius: '14px',
+              border: '1px solid rgba(102, 252, 241, 0.4)',
+              background: 'rgba(102, 252, 241, 0.1)',
+              color: 'var(--primary-color)',
+              fontWeight: 700,
+              boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
+              cursor: 'pointer',
+              minWidth: '52px',
+              display: 'grid',
+              placeItems: 'center',
+            }}
+          ><ChevronLeft /></button>
+          <button
+            onClick={nextPeriod}
+            className="btn-secondary"
+            style={{
+              padding: '12px 14px',
+              borderRadius: '14px',
+              border: '1px solid rgba(102, 252, 241, 0.4)',
+              background: 'rgba(102, 252, 241, 0.1)',
+              color: 'var(--primary-color)',
+              fontWeight: 700,
+              boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
+              cursor: 'pointer',
+              minWidth: '52px',
+              display: 'grid',
+              placeItems: 'center',
+            }}
+          ><ChevronRight /></button>
         </div>
       </div>
 
