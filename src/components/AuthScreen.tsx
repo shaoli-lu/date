@@ -48,10 +48,10 @@ export default function AuthScreen() {
       <div className="scrollable-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <div className="glass-panel" style={{ padding: '40px 24px', width: '100%', maxWidth: '400px', textAlign: 'center' }}>
           <div style={{ marginBottom: '24px' }}>
-            <Image src="/logo.png" alt="Date Logo" width={80} height={80} style={{ borderRadius: '20px' }} />
+            <Image src="/logo.png" alt="SwiftNotes Logo" width={80} height={80} style={{ borderRadius: '20px' }} />
           </div>
-          <h1 style={{ marginBottom: '8px' }}>Welcome to Date</h1>
-          <p style={{ color: 'var(--text-main)', marginBottom: '32px' }}>Your elegant calendar and tasks.</p>
+          <h1 style={{ marginBottom: '8px' }}>Welcome to SwiftNotes</h1>
+          <p style={{ color: 'var(--text-main)', marginBottom: '32px' }}>Lightning-fast voice-driven notes and tasks.</p>
 
           {/* Passkey sign-in — shown prominently at the top */}
           <button

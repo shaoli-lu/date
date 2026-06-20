@@ -136,7 +136,7 @@ export default function HelpModal({ isOpen, onClose }: HelpModalProps) {
                     letterSpacing: '-0.02em',
                   }}
                 >
-                  Calendar Guide 📅
+                  SwiftNotes Guide ⚡
                 </h2>
               </div>
               <p style={{ color: 'var(--text-main)', fontSize: '0.85rem', lineHeight: 1.5, opacity: 0.8 }}>
@@ -219,7 +219,7 @@ export default function HelpModal({ isOpen, onClose }: HelpModalProps) {
                   "Either you run the day, or the day runs you."
                   <br />
                   <span style={{ fontSize: '0.7rem', opacity: 0.8, color: 'var(--text-main)', fontStyle: 'normal' }}>
-                    — Calendar Navigator 🧘‍♀️✨
+                    — SwiftNotes Navigator 🎙️✨
                   </span>
                 </p>
               </div>

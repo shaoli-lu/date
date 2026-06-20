@@ -6,13 +6,13 @@ export const viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Date | Calendar & Tasks',
-  description: 'A modern, beautiful calendar-driven note-taking and task app.',
+  title: 'SwiftNotes | Voice & Tasks',
+  description: 'A modern, beautiful calendar-driven voice note-taking and task app.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Date',
+    title: 'SwiftNotes',
   },
 }
 

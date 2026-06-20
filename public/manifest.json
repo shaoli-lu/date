@@ -1,7 +1,7 @@
 {
-  "name": "Date",
-  "short_name": "Date",
-  "description": "Calendar-driven note-taking app",
+  "name": "SwiftNotes",
+  "short_name": "SwiftNotes",
+  "description": "Voice-driven note-taking app",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0c10",
