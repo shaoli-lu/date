@@ -119,7 +119,7 @@ export default function AuthScreen() {
         whileTap={{ scale: 0.9 }}
         style={{
           position: 'fixed',
-          bottom: '20px',
+          top: '20px',
           right: '20px',
           width: '46px',
           height: '46px',

@@ -84,7 +84,7 @@ export default function Dashboard({ session }: { session: Session }) {
         whileTap={{ scale: 0.9 }}
         style={{
           position: 'fixed',
-          bottom: '80px',
+          top: '20px',
           right: '20px',
           width: '46px',
           height: '46px',
