@@ -34,7 +34,25 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
             type="button"
             onClick={onNavigateUp}
             className="btn-secondary"
-            style={{ marginBottom: '12px', padding: '8px 12px' }}
+            style={{
+              marginBottom: '12px',
+              padding: '12px 18px',
+              borderRadius: '14px',
+              border: '1px solid rgba(102, 252, 241, 0.45)',
+              backgroundColor: 'rgba(102, 252, 241, 0.08)',
+              backgroundImage: 'linear-gradient(135deg, #66fcf1, #d946ef)',
+              color: 'transparent',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              boxShadow: '0 14px 28px rgba(0, 0, 0, 0.22)',
+              cursor: 'pointer',
+              minWidth: '120px',
+              display: 'grid',
+              placeItems: 'center',
+            }}
           >
             ◀ MONTH
           </button>

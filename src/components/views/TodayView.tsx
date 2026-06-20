@@ -81,12 +81,18 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               borderRadius: '14px',
               border: '1px solid rgba(102, 252, 241, 0.45)',
               background: 'linear-gradient(135deg, rgba(102,252,241,0.15), rgba(20,29,40,0.95))',
-              color: 'var(--primary-color)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              letterSpacing: '0.04em',
+              color: 'transparent',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.25)',
+              fontWeight: 900,
+              fontSize: '1rem',
+              letterSpacing: '0.08em',
               boxShadow: '0 14px 30px rgba(0, 0, 0, 0.22)',
               cursor: 'pointer',
+              minWidth: '130px',
+              display: 'grid',
+              placeItems: 'center',
             }}
           >
             ◀ WEEK
@@ -105,13 +111,17 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
             style={{
               padding: '12px 18px',
               borderRadius: '14px',
-              border: '1px solid rgba(102, 252, 241, 0.35)',
-              background: 'rgba(102, 252, 241, 0.08)',
+              border: '1px solid rgba(102, 252, 241, 0.4)',
+              background: 'rgba(102, 252, 241, 0.1)',
               color: 'var(--primary-color)',
               fontWeight: 700,
+              fontSize: '0.95rem',
+              letterSpacing: '0.04em',
               minWidth: '90px',
               boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
               cursor: 'pointer',
+              display: 'grid',
+              placeItems: 'center',
             }}
           >
             Prev
@@ -122,13 +132,17 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
             style={{
               padding: '12px 18px',
               borderRadius: '14px',
-              border: '1px solid rgba(102, 252, 241, 0.35)',
-              background: 'rgba(102, 252, 241, 0.08)',
+              border: '1px solid rgba(102, 252, 241, 0.4)',
+              background: 'rgba(102, 252, 241, 0.1)',
               color: 'var(--primary-color)',
               fontWeight: 700,
+              fontSize: '0.95rem',
+              letterSpacing: '0.04em',
               minWidth: '90px',
               boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
               cursor: 'pointer',
+              display: 'grid',
+              placeItems: 'center',
             }}
           >
             Next

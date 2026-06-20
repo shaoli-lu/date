@@ -10,7 +10,7 @@ const tabLabels: Record<Tab, string> = {
   today: 'Today',
   weekly: 'Weekly',
   monthly: 'Monthly',
-  yearly: 'Year',
+  yearly: 'Yearly',
   passkey: 'Passkey',
 }
 
