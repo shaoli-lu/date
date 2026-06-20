@@ -81,7 +81,7 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               borderRadius: '14px',
               border: '1px solid rgba(102, 252, 241, 0.45)',
               backgroundColor: 'rgba(102, 252, 241, 0.08)',
-              backgroundImage: 'linear-gradient(135deg, #66fcf1, #d946ef)',
+              backgroundImage: 'linear-gradient(135deg, #66fcf1 0%, #f5c242 55%, #ff6f61 100%)',
               color: 'transparent',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
