@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { format, startOfDay, endOfDay, addDays } from 'date-fns'
-import { Trash2, Pencil } from 'lucide-react'
+import { Trash2, Pencil, ChevronLeft, ChevronRight } from 'lucide-react'
 import { parseDescription } from '@/lib/eventUtils'
 
 export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void, onNavigateUp: () => void }) {
@@ -80,7 +80,8 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               padding: '12px 18px',
               borderRadius: '14px',
               border: '1px solid rgba(102, 252, 241, 0.45)',
-              background: 'linear-gradient(135deg, rgba(102,252,241,0.15), rgba(20,29,40,0.95))',
+              backgroundColor: 'rgba(102, 252, 241, 0.08)',
+              backgroundImage: 'linear-gradient(135deg, #66fcf1, #d946ef)',
               color: 'transparent',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -109,43 +110,39 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
             onClick={goPrevDay}
             className="btn-secondary"
             style={{
-              padding: '12px 18px',
+              padding: '12px 14px',
               borderRadius: '14px',
               border: '1px solid rgba(102, 252, 241, 0.4)',
               background: 'rgba(102, 252, 241, 0.1)',
               color: 'var(--primary-color)',
               fontWeight: 700,
-              fontSize: '0.95rem',
-              letterSpacing: '0.04em',
-              minWidth: '90px',
               boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
               cursor: 'pointer',
+              minWidth: '52px',
               display: 'grid',
               placeItems: 'center',
             }}
           >
-            Prev
+            <ChevronLeft />
           </button>
           <button
             onClick={goNextDay}
             className="btn-secondary"
             style={{
-              padding: '12px 18px',
+              padding: '12px 14px',
               borderRadius: '14px',
               border: '1px solid rgba(102, 252, 241, 0.4)',
               background: 'rgba(102, 252, 241, 0.1)',
               color: 'var(--primary-color)',
               fontWeight: 700,
-              fontSize: '0.95rem',
-              letterSpacing: '0.04em',
-              minWidth: '90px',
               boxShadow: '0 10px 24px rgba(0, 0, 0, 0.18)',
               cursor: 'pointer',
+              minWidth: '52px',
               display: 'grid',
               placeItems: 'center',
             }}
           >
-            Next
+            <ChevronRight />
           </button>
         </div>
       </div>
