@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { X, Mic, MicOff } from 'lucide-react'
@@ -46,6 +46,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
   const [loading, setLoading] = useState(false)
   const [isRecording, setIsRecording] = useState(false)
   const [voiceSupported, setVoiceSupported] = useState(false)
+  const recognitionRef = useRef<any>(null)
 
   // Recurrence states
   const [isRecurring, setIsRecurring] = useState(false)
@@ -124,9 +125,24 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
         setEndTime('')
       }
     }
-    recognition.onend = () => setIsRecording(false)
-    recognition.onerror = () => setIsRecording(false)
+    recognition.onend = () => {
+      setIsRecording(false)
+      recognitionRef.current = null
+    }
+    recognition.onerror = () => {
+      setIsRecording(false)
+      recognitionRef.current = null
+    }
+    recognitionRef.current = recognition
     recognition.start()
+  }
+
+  const stopVoiceInput = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop()
+      recognitionRef.current = null
+    }
+    setIsRecording(false)
   }
 
   useEffect(() => {
@@ -408,7 +424,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
             <button
               type="button"
               onClick={startVoiceInput}
-              disabled={!voiceSupported || isRecording}
+              disabled={!voiceSupported}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -425,17 +441,40 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                 fontWeight: 900,
                 cursor: voiceSupported ? 'pointer' : 'not-allowed',
                 boxShadow: '0 14px 28px rgba(0, 0, 0, 0.22)',
+                opacity: isRecording ? 0.5 : 1,
               }}
             >
-              {isRecording ? <MicOff size={16} style={{ color: 'var(--primary-color)' }} /> : <Mic size={16} style={{ color: 'var(--primary-color)' }} />}
+              <Mic size={16} style={{ color: 'var(--primary-color)' }} />
               <span style={{
                 color: 'transparent',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
               }}>
-                {isRecording ? 'Listening' : 'Voice'}
+                Voice
               </span>
             </button>
+            {isRecording && (
+              <button
+                type="button"
+                onClick={stopVoiceInput}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '12px 16px',
+                  borderRadius: '14px',
+                  border: '1px solid rgba(255, 111, 97, 0.8)',
+                  background: 'rgba(255, 111, 97, 0.16)',
+                  color: 'var(--text-heading)',
+                  fontWeight: 800,
+                  boxShadow: '0 10px 20px rgba(0, 0, 0, 0.18)',
+                  cursor: 'pointer',
+                }}
+              >
+                <MicOff size={16} style={{ color: '#ff6f61' }} />
+                End Mic
+              </button>
+            )}
           </div>
           
           <textarea 
