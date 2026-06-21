@@ -80,6 +80,9 @@ export default function AuthScreen() {
           >
             {passkeyLoading ? '⟳ Authenticating…' : '🔑 Sign in with Passkey'}
           </button>
+          <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', lineHeight: 1.5, opacity: 0.88, marginBottom: '16px' }}>
+            New here? First sign in with a magic link, then register a passkey from the Passkey tab for next-time biometric login.
+          </p>
 
           {/* Divider */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>

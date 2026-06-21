@@ -10,6 +10,20 @@ interface HelpModalProps {
 
 const guideItems = [
   {
+    icon: <Lock size={20} style={{ color: '#ff4b4b' }} />,
+    title: "Frictionless Passkey Auth",
+    description: "Register a passkey from the Passkey tab to sign in with biometrics or device PIN. Once set up, use the same secure, passwordless flow every time.",
+    details: "Open the Passkey tab, tap Register, then follow your browser/device prompts to enroll. After registration you can sign in instantly with Face ID, Touch ID, or PIN.",
+    bg: 'rgba(255, 75, 75, 0.1)',
+  },
+  {
+    icon: <Sparkles size={20} style={{ color: '#ffb800' }} />,
+    title: "Add Event / Activity",
+    description: "Tap the + button to create a new event or activity. Fill in the title, description, schedule, and optional reminders to keep your day organized.",
+    details: "Use voice input to dictate the event title, then save. You can also set it as all-day, recurring, or add notes and CD renewal details.",
+    bg: 'rgba(255, 184, 0, 0.1)',
+  },
+  {
     icon: <TrendingUp size={20} style={{ color: '#00d4ff' }} />,
     title: "CD Auto Calculation",
     description: "Toggle CD Renewal inside any event to access a live certificate of deposit investment tool. It dynamically calculates compound interest, maturity dates, and investment yields.",
@@ -20,12 +34,6 @@ const guideItems = [
     title: "Smart Voice Input",
     description: "Create events faster with speech-to-text. Tap the mic icon when adding an event to automatically dictate and populate the event title or notes.",
     bg: 'rgba(255, 0, 127, 0.1)',
-  },
-  {
-    icon: <Lock size={20} style={{ color: '#ff4b4b' }} />,
-    title: "Frictionless Passkey Auth",
-    description: "Experience secure, passwordless authentication using your device's biometrics or pin. Keep your personal data fully private without memorizing complex passwords.",
-    bg: 'rgba(255, 75, 75, 0.1)',
   },
   {
     icon: <Clock size={20} style={{ color: 'var(--primary-color)' }} />,
@@ -197,9 +205,14 @@ export default function HelpModal({ isOpen, onClose }: HelpModalProps) {
                     <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-heading)', marginBottom: '4px' }}>
                       {item.title}
                     </h4>
-                    <p style={{ fontSize: '0.78rem', color: 'var(--text-main)', lineHeight: 1.45, opacity: 0.85 }}>
+                    <p style={{ fontSize: '0.78rem', color: 'var(--text-main)', lineHeight: 1.45, opacity: 0.85, marginBottom: item.details ? '8px' : '0' }}>
                       {item.description}
                     </p>
+                    {item.details && (
+                      <p style={{ fontSize: '0.75rem', color: 'rgba(197, 198, 199, 0.9)', lineHeight: 1.55 }}>
+                        {item.details}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
