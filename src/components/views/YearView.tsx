@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { format } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 
-const yearWindow = 21
+const earliestYear = 1800
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 export default function YearView({ session, refreshKey, selectedDate, onNavigateToDate, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onNavigateToDate: (view: 'today' | 'weekly' | 'monthly' | 'yearly', date: Date) => void, onNavigateUp: () => void }) {
@@ -14,7 +14,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
   }, [selectedDate, currentYear])
 
   const yearOptions = useMemo(() => {
-    return Array.from({ length: yearWindow }, (_, index) => currentYear - Math.floor(yearWindow / 2) + index)
+    return Array.from({ length: currentYear - earliestYear + 1 }, (_, index) => earliestYear + index)
   }, [currentYear])
 
   const handleSelectYear = (year: number) => {
