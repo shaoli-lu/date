@@ -67,7 +67,7 @@ export default function Dashboard({ session }: { session: Session }) {
           >
             {currentView === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} onEditEvent={handleEditEvent} onNavigateUp={() => handleNavigateToDate('weekly', selectedDate)} />}
             {currentView === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
-            {currentView === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => setCurrentView('yearly')} />}
+            {currentView === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('yearly', selectedDate)} />}
             {currentView === 'yearly' && <YearView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
             {currentView === 'passkey' && <PasskeyView session={session} />}
           </motion.div>
