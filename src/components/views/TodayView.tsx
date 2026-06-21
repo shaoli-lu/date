@@ -20,6 +20,7 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
       const { data } = await supabase
         .from('events')
         .select('*')
+        .eq('user_id', session.user.id)
         .gte('start_time', todayStart)
         .lte('start_time', todayEnd)
         .order('start_time', { ascending: true })
@@ -44,7 +45,7 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
 
     let error
     if (scope === 'series' && seriesId) {
-      const result = await supabase.from('events').delete().like('description', `%${seriesId}%`)
+      const result = await supabase.from('events').delete().eq('user_id', session.user.id).like('description', `%${seriesId}%`)
       error = result.error
       if (!error) {
         setEvents(prev => prev.filter(event => {
@@ -53,7 +54,7 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
         }))
       }
     } else {
-      const result = await supabase.from('events').delete().eq('id', eventId)
+      const result = await supabase.from('events').delete().eq('id', eventId).eq('user_id', session.user.id)
       error = result.error
       if (!error) {
         setEvents(prev => prev.filter(event => event.id !== eventId))

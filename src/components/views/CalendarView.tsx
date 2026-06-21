@@ -33,6 +33,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       const { data } = await supabase
         .from('events')
         .select('*')
+        .eq('user_id', session.user.id)
         .gte('start_time', startDate.toISOString())
         .lte('start_time', endDate.toISOString())
       if (data) setEvents(data)

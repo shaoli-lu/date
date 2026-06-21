@@ -236,7 +236,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
     if (event?.id) {
       if (editScope === 'series' && seriesId) {
         // Delete all in series, then insert new ones
-        const { error: delError } = await supabase.from('events').delete().like('description', `%${seriesId}%`)
+        const { error: delError } = await supabase.from('events').delete().eq('user_id', session.user.id).like('description', `%${seriesId}%`)
         if (delError) {
           alert("Error updating series (deletion phase): " + delError.message)
           setLoading(false)
