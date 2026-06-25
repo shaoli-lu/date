@@ -395,6 +395,8 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
     }}>
       <div className="glass-panel" style={{
         width: '100%',
+        maxWidth: '540px',
+        margin: '0 auto',
         maxHeight: '90vh',
         overflowY: 'auto',
         padding: '24px',
@@ -803,7 +805,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
             )}
           </div>
 
-          <button type="submit" className="btn-primary" disabled={loading} style={{ marginTop: '16px', padding: '14px' }}>
+          <button type="submit" className="btn-primary" disabled={loading} style={{ marginTop: '16px', padding: '10px 18px', alignSelf: 'flex-start' }}>
             {loading ? (event ? 'Saving...' : 'Saving...') : event ? 'Update Event' : 'Save Event'}
           </button>
         </form>

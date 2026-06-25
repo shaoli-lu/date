@@ -220,7 +220,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       </div>
 
       {view === 'monthly' ? (
-        <div className="glass-panel" style={{ padding: '16px', overflow: 'hidden' }}>
+        <div className="glass-panel" style={{ padding: '16px', overflowY: 'auto', maxHeight: 'calc(100vh - 220px)' }}>
           <div className="calendar-header" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', textAlign: 'center', fontWeight: 'bold', marginBottom: '10px' }}>
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => <div key={d} style={{ color: 'var(--primary-color)', fontSize: '0.8rem', textTransform: 'uppercase' }}>{d}</div>)}
           </div>
