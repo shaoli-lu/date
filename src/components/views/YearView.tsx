@@ -54,7 +54,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
   }, [events])
 
   const yearOptions = useMemo(() => {
-    return Array.from({ length: currentYear - earliestYear + 1 }, (_, index) => earliestYear + index)
+    return Array.from({ length: currentYear + 15 - earliestYear + 1 }, (_, index) => earliestYear + index)
   }, [currentYear])
 
   const handleSelectYear = (year: number) => {
@@ -125,7 +125,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
           >
             {yearOptions.map(year => (
               <option key={year} value={year}>
-                {year === currentYear ? `${year} (current)` : year}
+                {year === currentYear ? `${year} (current)` : year > currentYear ? `${year} (future)` : year}
               </option>
             ))}
           </select>
