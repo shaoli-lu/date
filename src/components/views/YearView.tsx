@@ -92,7 +92,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
         </div>
       </div>
 
-      <div style={{ maxHeight: 'calc(100vh - 240px)', minHeight: '420px', overflowY: 'auto', paddingRight: '4px' }}>
+      <div style={{ paddingRight: '4px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
           {monthNames.map((label, index) => (
             <button

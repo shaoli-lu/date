@@ -220,7 +220,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       </div>
 
       {view === 'monthly' ? (
-        <div className="glass-panel" style={{ padding: '16px', overflowY: 'auto', maxHeight: 'calc(100vh - 220px)' }}>
+        <div className="glass-panel" style={{ padding: '16px', overflowY: 'auto' }}>
           <div className="calendar-header" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', textAlign: 'center', fontWeight: 'bold', marginBottom: '10px' }}>
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(d => <div key={d} style={{ color: 'var(--primary-color)', fontSize: '0.8rem', textTransform: 'uppercase' }}>{d}</div>)}
           </div>
@@ -333,7 +333,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           flex-direction: column;
           justify-content: flex-start;
           padding: 16px;
-          min-height: 250px;
+          min-height: max(250px, calc(100vh - 320px));
           min-width: 140px;
         }
         .weekly-day-header {
@@ -361,6 +361,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           gap: 6px;
           width: 100%;
           min-width: 0;
+          flex: 1;
         }
         .weekly-event-pill {
           font-size: 0.75rem;
@@ -411,8 +412,6 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           }
           .weekly-panel {
             overflow-x: hidden;
-            overflow-y: auto;
-            max-height: calc(100vh - 220px);
           }
           .weekly-cell {
             min-height: auto;

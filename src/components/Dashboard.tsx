@@ -55,7 +55,7 @@ export default function Dashboard({ session }: { session: Session }) {
 
   return (
     <>
-      <div style={{ flex: 1, position: 'relative', overflow: 'hidden', height: '100%' }}>
+      <div style={{ flex: 1, position: 'relative', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentView}
@@ -63,7 +63,7 @@ export default function Dashboard({ session }: { session: Session }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            style={{ height: '100%' }}
+            style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
           >
             {currentView === 'today' && <TodayView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onDateChange={setSelectedDate} onEditEvent={handleEditEvent} onNavigateUp={() => handleNavigateToDate('weekly', selectedDate)} />}
             {currentView === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
