@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { format, startOfYear, endOfYear, getMonth, parseISO } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
+import { getZodiacInfo, getBilingualLunarDate } from '@/lib/lunarUtils'
+
 
 const earliestYear = 1800
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -56,6 +58,10 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
   const yearOptions = useMemo(() => {
     return Array.from({ length: currentYear + 15 - earliestYear + 1 }, (_, index) => earliestYear + index)
   }, [currentYear])
+
+  const zodiacPrev = useMemo(() => getZodiacInfo(displayYear - 1), [displayYear])
+  const zodiacCurrent = useMemo(() => getZodiacInfo(displayYear), [displayYear])
+  const zodiacNext = useMemo(() => getZodiacInfo(displayYear + 1), [displayYear])
 
   const handleSelectYear = (year: number) => {
     setDisplayYear(year)
@@ -129,6 +135,71 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
               </option>
             ))}
           </select>
+        </div>
+      </div>
+
+      {/* Chinese Zodiac Panel */}
+      <div className="glass-panel" style={{ padding: '16px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <h3 style={{ fontSize: '1rem', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
+          <span>🏮</span> Chinese Zodiac Cycles · 农历生肖与干支
+        </h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(285px, 1fr))', gap: '12px' }}>
+          {/* Previous Year */}
+          {zodiacPrev && (
+            <div style={{
+              padding: '12px',
+              borderRadius: '10px',
+              background: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid rgba(255, 255, 255, 0.05)',
+              opacity: 0.75
+            }}>
+              <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', fontWeight: 600 }}>Previous Year ({zodiacPrev.year})</span>
+              <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginTop: '2px' }}>
+                {zodiacPrev.englishZodiac} · {zodiacPrev.bilingualText}
+              </div>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-main)', display: 'block', marginTop: '4px' }}>
+                📅 {format(zodiacPrev.startDate, 'MMM d, yyyy')} - {format(zodiacPrev.endDate, 'MMM d, yyyy')}
+              </span>
+            </div>
+          )}
+
+          {/* Current Selected Year */}
+          {zodiacCurrent && (
+            <div style={{
+              padding: '12px',
+              borderRadius: '10px',
+              background: 'rgba(102, 252, 241, 0.08)',
+              border: '1px solid rgba(102, 252, 241, 0.3)',
+              boxShadow: '0 0 15px rgba(102, 252, 241, 0.1)',
+            }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--primary-color)', textTransform: 'uppercase', fontWeight: 700 }}>Selected Year ({zodiacCurrent.year})</span>
+              <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary-color)', marginTop: '2px' }}>
+                {zodiacCurrent.englishZodiac} · {zodiacCurrent.bilingualText}
+              </div>
+              <span style={{ fontSize: '0.78rem', color: '#fff', display: 'block', marginTop: '4px', fontWeight: 500 }}>
+                📅 {format(zodiacCurrent.startDate, 'MMM d, yyyy')} - {format(zodiacCurrent.endDate, 'MMM d, yyyy')}
+              </span>
+            </div>
+          )}
+
+          {/* Next Year */}
+          {zodiacNext && (
+            <div style={{
+              padding: '12px',
+              borderRadius: '10px',
+              background: 'rgba(255, 255, 255, 0.02)',
+              border: '1px solid rgba(255, 255, 255, 0.05)',
+              opacity: 0.75
+            }}>
+              <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', fontWeight: 600 }}>Next Year ({zodiacNext.year})</span>
+              <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginTop: '2px' }}>
+                {zodiacNext.englishZodiac} · {zodiacNext.bilingualText}
+              </div>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-main)', display: 'block', marginTop: '4px' }}>
+                📅 {format(zodiacNext.startDate, 'MMM d, yyyy')} - {format(zodiacNext.endDate, 'MMM d, yyyy')}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 

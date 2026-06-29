@@ -4,6 +4,8 @@ import { supabase } from '@/lib/supabase'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, isSameMonth, isSameDay, addDays, addWeeks, subWeeks, getHours, getMinutes, parseISO } from 'date-fns'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { getBilingualLunarDate } from '@/lib/lunarUtils'
+
 
 const parseDescForBadges = (desc: string | null | undefined) => {
   if (!desc) return { isRecurring: false, isCd: false }
@@ -62,6 +64,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       for (let i = 0; i < 7; i++) {
         const cloneDay = day
         const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
+        const lunar = getBilingualLunarDate(cloneDay)
         
         days.push(
           <div 
@@ -70,7 +73,15 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             onClick={() => onNavigateToDate('weekly', cloneDay)}
             style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '4px', cursor: 'pointer' }}
           >
-            <span style={{ alignSelf: 'center', marginBottom: '4px' }}>{format(day, 'd')}</span>
+            <div style={{ alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '4px', textAlign: 'center', minHeight: '38px', justifyContent: 'center' }}>
+              <span style={{ fontSize: '0.9rem', fontWeight: isSameDay(day, new Date()) ? 'bold' : 'normal' }}>{format(day, 'd')}</span>
+              {lunar && (
+                <>
+                  <span style={{ fontSize: '0.62rem', color: 'var(--secondary-color)', lineHeight: 1.1, display: 'block' }}>{lunar.labelCh}</span>
+                  <span style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.1, display: 'block' }}>{lunar.labelEng}</span>
+                </>
+              )}
+            </div>
             <div className="monthly-event-container">
               {dayEvents.slice(0, 3).map(e => {
                 const { isRecurring, isCd } = parseDescForBadges(e.description)
@@ -99,6 +110,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
     for (let i = 0; i < 7; i++) {
       const cloneDay = day
       const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
+      const lunar = getBilingualLunarDate(cloneDay)
 
       days.push(
         <div 
@@ -107,9 +119,15 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
           onClick={() => onNavigateToDate('today', cloneDay)}
           style={{ cursor: 'pointer' }}
         >
-          <div className="weekly-day-header">
-            <span className="weekly-day-name">{format(day, 'eee')}</span>
-            <span className="weekly-day-date">{format(day, 'd MMM')}</span>
+          <div className="weekly-day-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', width: '100%', marginBottom: '12px', minHeight: '52px', justifyContent: 'center' }}>
+            <span className="weekly-day-name" style={{ fontSize: '0.8rem', color: 'var(--text-main)', textTransform: 'uppercase' }}>{format(day, 'eee')}</span>
+            <span className="weekly-day-date" style={{ fontSize: '1rem', color: 'var(--text-main)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>{format(day, 'd MMM')}</span>
+            {lunar && (
+              <div style={{ textAlign: 'center', marginTop: '2px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' }}>
+                <span style={{ fontSize: '0.72rem', color: 'var(--secondary-color)', display: 'block', fontWeight: 500, lineHeight: 1.1 }}>{lunar.labelCh}</span>
+                <span style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.4)', display: 'block', lineHeight: 1.1 }}>{lunar.labelEng}</span>
+              </div>
+            )}
           </div>
           <div className="weekly-events-container">
             {dayEvents.map(e => {
