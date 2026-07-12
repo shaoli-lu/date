@@ -117,6 +117,99 @@ export interface BilingualLunarInfo {
   festivals: string[]
 }
 
+export interface SanfuInfo {
+  /** 初伏 | 中伏 | 末伏 */
+  name: string
+  /** e.g. "初伏第3天" */
+  fullName: string
+  /** 1-based day within that Fu period */
+  dayIndex: number
+}
+
+/** Returns Sanfu info for a given date, or null if the date is not in Sanfu. */
+export function getSanfuInfo(date: Date): SanfuInfo | null {
+  try {
+    const solar = Solar.fromDate(date)
+    const lunar = solar.getLunar()
+    // getFu() returns null outside Sanfu, or a Fu object with toString/toFullString/getIndex
+    const fu: any = (lunar as any).getFu()
+    if (!fu) return null
+    return {
+      name: fu.toString() as string,
+      fullName: fu.toFullString() as string,
+      dayIndex: (fu.getIndex ? fu.getIndex() : 0) as number,
+    }
+  } catch {
+    return null
+  }
+}
+
+export interface SanfuPeriod {
+  name: string     // 初伏 / 中伏 / 末伏
+  nameEng: string  // Chu Fu / Zhong Fu / Mo Fu
+  start: Date
+  end: Date
+  days: number
+}
+
+const FU_NAME_ENG: Record<string, string> = {
+  '初伏': 'Chu Fu (First Fu)',
+  '中伏': 'Zhong Fu (Middle Fu)',
+  '末伏': 'Mo Fu (Last Fu)',
+}
+
+/**
+ * Computes the three Sanfu periods (初伏, 中伏, 末伏) for a given Gregorian year.
+ * Returns an array of up to 3 SanfuPeriod objects, or empty array on error.
+ */
+export function getSanfuPeriodsForYear(year: number): SanfuPeriod[] {
+  try {
+    const periods: SanfuPeriod[] = []
+    // Scan July 1 through September 30 to find transitions
+    let currentName: string | null = null
+    let periodStart: Date | null = null
+    let prevDate: Date | null = null
+
+    const scanStart = new Date(year, 6, 1)   // July 1
+    const scanEnd   = new Date(year, 8, 30)  // Sep 30
+
+    for (let d = new Date(scanStart); d <= scanEnd; d = new Date(d.getTime() + 86400000)) {
+      const info = getSanfuInfo(d)
+      const name = info ? info.name : null
+
+      if (name !== currentName) {
+        // Close previous period
+        if (currentName && periodStart && prevDate) {
+          periods.push({
+            name: currentName,
+            nameEng: FU_NAME_ENG[currentName] ?? currentName,
+            start: new Date(periodStart),
+            end: new Date(prevDate),
+            days: Math.round((prevDate.getTime() - periodStart.getTime()) / 86400000) + 1,
+          })
+        }
+        // Start new period (or null = outside Sanfu)
+        currentName = name
+        periodStart = name ? new Date(d) : null
+      }
+      prevDate = new Date(d)
+    }
+    // Close the last open period (末伏 ends within scan range)
+    if (currentName && periodStart && prevDate) {
+      periods.push({
+        name: currentName,
+        nameEng: FU_NAME_ENG[currentName] ?? currentName,
+        start: new Date(periodStart),
+        end: new Date(prevDate),
+        days: Math.round((prevDate.getTime() - periodStart.getTime()) / 86400000) + 1,
+      })
+    }
+    return periods
+  } catch {
+    return []
+  }
+}
+
 export function getBilingualLunarDate(date: Date): BilingualLunarInfo | null {
   try {
     const solar = Solar.fromDate(date)

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { format, startOfYear, endOfYear, getMonth, parseISO } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
-import { getZodiacInfo, getBilingualLunarDate } from '@/lib/lunarUtils'
+import { getZodiacInfo, getBilingualLunarDate, getSanfuPeriodsForYear } from '@/lib/lunarUtils'
 
 
 const earliestYear = 1800
@@ -62,6 +62,7 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
   const zodiacPrev = useMemo(() => getZodiacInfo(displayYear - 1), [displayYear])
   const zodiacCurrent = useMemo(() => getZodiacInfo(displayYear), [displayYear])
   const zodiacNext = useMemo(() => getZodiacInfo(displayYear + 1), [displayYear])
+  const sanfuPeriods = useMemo(() => getSanfuPeriodsForYear(displayYear), [displayYear])
 
   const handleSelectYear = (year: number) => {
     setDisplayYear(year)
@@ -202,6 +203,43 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
           )}
         </div>
       </div>
+
+      {/* Sanfu (三伏天) Panel */}
+      {sanfuPeriods.length > 0 && (
+        <div className="glass-panel" style={{ padding: '16px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <h3 style={{ fontSize: '1rem', color: '#f5a623', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
+            <span>🌡️</span> 三伏天 (Sānfú Tiān) · {displayYear}
+          </h3>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.5 }}>
+            The hottest period of summer, calculated from the heavenly stem-branch system.
+            Chu Fu starts on the 3rd gēng (庚) day after Summer Solstice;
+            Mo Fu starts on the 1st gēng day after Beginning of Autumn.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+            {sanfuPeriods.map((period) => (
+              <div key={period.name} style={{
+                padding: '12px 14px',
+                borderRadius: '10px',
+                background: 'rgba(255, 160, 50, 0.07)',
+                border: '1px solid rgba(255, 160, 50, 0.3)',
+              }}>
+                <div style={{ fontSize: '0.7rem', color: '#f5a623', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
+                  {period.name}
+                </div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
+                  {period.nameEng}
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+                  📅 {format(period.start, 'MMM d')} – {format(period.end, 'MMM d, yyyy')}
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,160,50,0.7)', marginTop: '2px' }}>
+                  {period.days} days
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div style={{ paddingRight: '4px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>

@@ -5,6 +5,7 @@ import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, en
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { getBilingualLunarDate } from '@/lib/lunarUtils'
+import { getSanfuInfo } from '@/lib/lunarUtils'
 
 
 const parseDescForBadges = (desc: string | null | undefined) => {
@@ -65,6 +66,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
         const cloneDay = day
         const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
         const lunar = getBilingualLunarDate(cloneDay)
+        const sanfu = getSanfuInfo(cloneDay)
         
         days.push(
           <div 
@@ -80,6 +82,9 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
                   <span style={{ fontSize: '0.62rem', color: 'var(--secondary-color)', lineHeight: 1.1, display: 'block' }}>{lunar.labelCh}</span>
                   <span style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.1, display: 'block' }}>{lunar.labelEng}</span>
                 </>
+              )}
+              {sanfu && (
+                <span style={{ fontSize: '0.5rem', color: '#f5a623', lineHeight: 1.1, display: 'block', marginTop: '1px', fontWeight: 700 }}>{sanfu.name}</span>
               )}
             </div>
             <div className="monthly-event-container">
@@ -111,6 +116,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       const cloneDay = day
       const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
       const lunar = getBilingualLunarDate(cloneDay)
+      const sanfu = getSanfuInfo(cloneDay)
 
       days.push(
         <div 
@@ -126,6 +132,20 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
               <div style={{ textAlign: 'center', marginTop: '2px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' }}>
                 <span style={{ fontSize: '0.72rem', color: 'var(--secondary-color)', display: 'block', fontWeight: 500, lineHeight: 1.1 }}>{lunar.labelCh}</span>
                 <span style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.4)', display: 'block', lineHeight: 1.1 }}>{lunar.labelEng}</span>
+              </div>
+            )}
+            {sanfu && (
+              <div style={{
+                marginTop: '4px',
+                padding: '2px 8px',
+                borderRadius: '20px',
+                background: 'rgba(255, 160, 50, 0.15)',
+                border: '1px solid rgba(255, 160, 50, 0.4)',
+                fontSize: '0.68rem',
+                color: '#f5a623',
+                fontWeight: 700,
+              }}>
+                🌡 {sanfu.name}
               </div>
             )}
           </div>

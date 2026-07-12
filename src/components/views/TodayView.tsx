@@ -5,6 +5,7 @@ import { format, startOfDay, endOfDay, addDays } from 'date-fns'
 import { Trash2, Pencil, ChevronLeft, ChevronRight } from 'lucide-react'
 import { parseDescription } from '@/lib/eventUtils'
 import { getBilingualLunarDate } from '@/lib/lunarUtils'
+import { getSanfuInfo } from '@/lib/lunarUtils'
 
 
 export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void, onNavigateUp: () => void }) {
@@ -107,12 +108,12 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
           <h2 style={{ fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: 400, marginBottom: '8px' }}>
             {format(selectedDate, 'MMMM d, yyyy')}
           </h2>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px' }}>
           {(() => {
             const lunarInfo = getBilingualLunarDate(selectedDate)
             if (!lunarInfo) return null
             return (
               <div style={{
-                marginTop: '8px',
                 padding: '8px 12px',
                 borderRadius: '10px',
                 background: 'rgba(102, 252, 241, 0.05)',
@@ -129,6 +130,28 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               </div>
             )
           })()}
+          {(() => {
+            const sanfu = getSanfuInfo(selectedDate)
+            if (!sanfu) return null
+            return (
+              <div style={{
+                padding: '8px 12px',
+                borderRadius: '10px',
+                background: 'rgba(255, 160, 50, 0.08)',
+                border: '1px solid rgba(255, 160, 50, 0.35)',
+                fontSize: '0.85rem',
+                display: 'inline-flex',
+                flexDirection: 'column',
+                gap: '2px',
+              }}>
+                <span style={{ fontSize: '0.72rem', color: '#f5a623', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>🌡️ 三伏天 · Sanfu</span>
+                <span style={{ color: '#fff', fontWeight: 600 }}>{sanfu.name} &nbsp;·&nbsp; {sanfu.fullName}</span>
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>The hottest days of summer</span>
+              </div>
+            )
+          })()}
+          </div>
+
         </div>
         <div style={{ display: 'flex', gap: '12px', flexShrink: 0 }}>
           <button
