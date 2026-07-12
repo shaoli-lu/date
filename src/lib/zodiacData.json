@@ -1,0 +1,122 @@
+{
+  "Rat": {
+    "chinese": "鼠",
+    "pinyin": "shǔ",
+    "element": "Water",
+    "personality": "Intelligent, adaptable, quick-witted, charming, and highly resourceful.",
+    "strengths": ["Resourceful", "Smart", "Versatile", "Observant", "Charming"],
+    "weaknesses": ["Timid", "Stubborn", "Opportunistic", "Lacks persistence"],
+    "compatibility": ["Ox", "Dragon", "Monkey"],
+    "hours": "11:00 PM - 01:00 AM (Midnight)"
+  },
+  "Ox": {
+    "chinese": "牛",
+    "pinyin": "niú",
+    "element": "Earth",
+    "personality": "Diligent, dependable, strong, patient, and highly determined.",
+    "strengths": ["Diligence", "Dependable", "Patient", "Honest", "Strong-willed"],
+    "weaknesses": ["Stubborn", "Incommunicative", "Conservative", "Slow to act"],
+    "compatibility": ["Rat", "Snake", "Rooster"],
+    "hours": "01:00 AM - 03:00 AM"
+  },
+  "Tiger": {
+    "chinese": "虎",
+    "pinyin": "hǔ",
+    "element": "Wood",
+    "personality": "Brave, competitive, unpredictable, self-confident, and magnetic.",
+    "strengths": ["Courageous", "Confident", "Charismatic", "Ambitious", "Leader"],
+    "weaknesses": ["Rebellious", "Short-tempered", "Hastiness", "Arrogant"],
+    "compatibility": ["Dragon", "Horse", "Pig"],
+    "hours": "03:00 AM - 05:00 AM"
+  },
+  "Rabbit": {
+    "chinese": "兔",
+    "pinyin": "tù",
+    "element": "Wood",
+    "personality": "Gentle, quiet, elegant, alert, kind, patient, and highly responsible.",
+    "strengths": ["Gentle", "Elegant", "Compassionate", "Tactful", "Artistic"],
+    "weaknesses": ["Hesitant", "Conservative", "Timid", "Easily discouraged"],
+    "compatibility": ["Goat", "Dog", "Pig"],
+    "hours": "05:00 AM - 07:00 AM"
+  },
+  "Dragon": {
+    "chinese": "龙",
+    "pinyin": "lóng",
+    "element": "Earth",
+    "personality": "Confident, intelligent, enthusiastic, powerful, and natural born leaders.",
+    "strengths": ["Enthusiastic", "Confident", "Intelligent", "Generous", "Ambitious"],
+    "weaknesses": ["Impatient", "Unrealistic", "Eccentric", "Demanding"],
+    "compatibility": ["Rat", "Tiger", "Snake", "Monkey"],
+    "hours": "07:00 AM - 09:00 AM"
+  },
+  "Snake": {
+    "chinese": "蛇",
+    "pinyin": "shé",
+    "element": "Fire",
+    "personality": "Enigmatic, intelligent, wise, intuitive, private, and deeply analytical.",
+    "strengths": ["Wise", "Intuitive", "Calm", "Sophisticated", "Decisive"],
+    "weaknesses": ["Jealous", "Suspicious", "Skeptical", "Possessive"],
+    "compatibility": ["Ox", "Dragon", "Rooster"],
+    "hours": "09:00 AM - 11:00 AM"
+  },
+  "Horse": {
+    "chinese": "马",
+    "pinyin": "mǎ",
+    "element": "Fire",
+    "personality": "Animated, active, energetic, freedom-loving, and highly independent.",
+    "strengths": ["Energetic", "Warm-hearted", "Independent", "Athletic", "Optimistic"],
+    "weaknesses": ["Impatient", "Self-centered", "Short-tempered", "Wasteful"],
+    "compatibility": ["Tiger", "Goat", "Dog"],
+    "hours": "11:00 AM - 01:00 PM (Noon)"
+  },
+  "Goat": {
+    "chinese": "羊",
+    "pinyin": "yáng",
+    "element": "Earth",
+    "personality": "Gentle, calm, sympathetic, creative, elegant, and mild-mannered.",
+    "strengths": ["Gentle", "Empathetic", "Creative", "Polite", "Artistic"],
+    "weaknesses": ["Indecisive", "Timid", "Pessimistic", "Worrier"],
+    "compatibility": ["Rabbit", "Horse", "Pig"],
+    "hours": "01:00 PM - 03:00 PM"
+  },
+  "Monkey": {
+    "chinese": "猴",
+    "pinyin": "hóu",
+    "element": "Metal",
+    "personality": "Sharp, smart, curious, mischievous, clever, and highly adaptable.",
+    "strengths": ["Clever", "Innovative", "Witty", "Curious", "Adaptable"],
+    "weaknesses": ["Egotistical", "Mischievous", "Impatient", "Opportunistic"],
+    "compatibility": ["Rat", "Dragon", "Dog"],
+    "hours": "03:00 PM - 05:00 PM"
+  },
+  "Rooster": {
+    "chinese": "鸡",
+    "pinyin": "jī",
+    "element": "Metal",
+    "personality": "Observant, hardworking, courageous, talented, outspoken, and proud.",
+    "strengths": ["Observant", "Hardworking", "Courageous", "Loyal", "Honest"],
+    "weaknesses": ["Self-satisfied", "Critical", "Proud", "Impulsive"],
+    "compatibility": ["Ox", "Snake", "Dragon"],
+    "hours": "05:00 PM - 07:00 PM"
+  },
+  "Dog": {
+    "chinese": "狗",
+    "pinyin": "gǒu",
+    "element": "Earth",
+    "personality": "Loyal, honest, amiable, prudent, sincere, and deeply protective.",
+    "strengths": ["Loyal", "Honest", "Amiable", "Responsible", "Trustworthy"],
+    "weaknesses": ["Anxious", "Cold", "Stubborn", "Critical"],
+    "compatibility": ["Tiger", "Rabbit", "Horse"],
+    "hours": "07:00 PM - 09:00 PM"
+  },
+  "Pig": {
+    "chinese": "猪",
+    "pinyin": "zhū",
+    "element": "Water",
+    "personality": "Compassionate, generous, diligent, peaceful, and highly optimistic.",
+    "strengths": ["Compassionate", "Generous", "Diligent", "Peaceful", "Honest"],
+    "weaknesses": ["Gullible", "Naïve", "Indecisive", "Self-indulgent"],
+    "compatibility": ["Tiger", "Rabbit", "Goat"],
+    "hours": "09:00 PM - 11:00 PM"
+  }
+}

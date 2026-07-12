@@ -3,6 +3,7 @@ import { format, startOfYear, endOfYear, getMonth, parseISO } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { getZodiacInfo, getBilingualLunarDate, getSanfuPeriodsForYear, getSanjiuPeriodsForYear } from '@/lib/lunarUtils'
+import zodiacData from '@/lib/zodiacData.json'
 
 
 const earliestYear = 1800
@@ -204,6 +205,121 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
             </div>
           )}
         </div>
+
+        {/* Selected Zodiac Characteristics Detail Section */}
+        {zodiacCurrent && zodiacData[zodiacCurrent.englishZodiac as keyof typeof zodiacData] && (() => {
+          const info = zodiacData[zodiacCurrent.englishZodiac as keyof typeof zodiacData];
+          return (
+            <div style={{
+              marginTop: '16px',
+              padding: '16px',
+              borderRadius: '12px',
+              background: 'rgba(102, 252, 241, 0.03)',
+              border: '1px solid rgba(102, 252, 241, 0.15)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                <h4 style={{ fontSize: '1.1rem', color: 'var(--primary-color)', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span>✨</span> {zodiacCurrent.englishZodiac} ({info.chinese} · {info.pinyin}) Traits & Characteristics
+                </h4>
+                <div style={{
+                  fontSize: '0.8rem',
+                  background: 'rgba(102, 252, 241, 0.12)',
+                  color: 'var(--primary-color)',
+                  padding: '4px 10px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(102, 252, 241, 0.25)',
+                  fontWeight: 600
+                }}>
+                  Fixed Element: {info.element}
+                </div>
+              </div>
+
+              <p style={{ fontSize: '0.88rem', lineHeight: '1.5', color: 'var(--text-main)', margin: 0 }}>
+                {info.personality}
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginTop: '4px' }}>
+                {/* Strengths */}
+                <div>
+                  <span style={{ fontSize: '0.72rem', color: '#66fcf1', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                    🟢 Key Strengths
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {info.strengths.map((str: string) => (
+                      <span key={str} style={{
+                        fontSize: '0.75rem',
+                        background: 'rgba(102, 252, 241, 0.08)',
+                        color: 'var(--primary-color)',
+                        padding: '3px 8px',
+                        borderRadius: '6px',
+                        border: '1px solid rgba(102, 252, 241, 0.15)'
+                      }}>{str}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Weaknesses */}
+                <div>
+                  <span style={{ fontSize: '0.72rem', color: '#ff7675', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                    🔴 Weaknesses
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {info.weaknesses.map((weak: string) => (
+                      <span key={weak} style={{
+                        fontSize: '0.75rem',
+                        background: 'rgba(255, 118, 117, 0.08)',
+                        color: '#ff7675',
+                        padding: '3px 8px',
+                        borderRadius: '6px',
+                        border: '1px solid rgba(255, 118, 117, 0.15)'
+                      }}>{weak}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Compatibility */}
+                <div>
+                  <span style={{ fontSize: '0.72rem', color: '#ffeaa7', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                    🤝 Best Matches
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {info.compatibility.map((comp: string) => (
+                      <span key={comp} style={{
+                        fontSize: '0.75rem',
+                        background: 'rgba(255, 234, 167, 0.08)',
+                        color: '#ffeaa7',
+                        padding: '3px 8px',
+                        borderRadius: '6px',
+                        border: '1px solid rgba(255, 234, 167, 0.15)'
+                      }}>{comp}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Traditional Hours */}
+                <div>
+                  <span style={{ fontSize: '0.72rem', color: '#a29bfe', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                    ⏰ Zodiac Hour (时辰)
+                  </span>
+                  <span style={{
+                    fontSize: '0.8rem',
+                    color: '#a29bfe',
+                    background: 'rgba(162, 155, 254, 0.08)',
+                    padding: '4px 10px',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(162, 155, 254, 0.15)',
+                    display: 'inline-block'
+                  }}>
+                    {info.hours}
+                  </span>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Sanfu (三伏天) Panel */}
