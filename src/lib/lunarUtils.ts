@@ -210,6 +210,109 @@ export function getSanfuPeriodsForYear(year: number): SanfuPeriod[] {
   }
 }
 
+// ─── Sanjiu / ShuJiu (数九) ─────────────────────────────────────────────────
+
+export interface SanjiuInfo {
+  /** e.g. "三九" */
+  name: string
+  /** e.g. "三九第1天" */
+  fullName: string
+  /** true only when name === "三九" */
+  isSanjiu: boolean
+}
+
+/** Returns ShuJiu info for a given date, or null if outside the 数九 counting period. */
+export function getSanjiuInfo(date: Date): SanjiuInfo | null {
+  try {
+    const solar = Solar.fromDate(date)
+    const lunar = solar.getLunar()
+    const shuJiu: any = (lunar as any).getShuJiu()
+    if (!shuJiu) return null
+    const name = shuJiu.toString() as string
+    return {
+      name,
+      fullName: shuJiu.toFullString() as string,
+      isSanjiu: name === '三九',
+    }
+  } catch {
+    return null
+  }
+}
+
+export interface SanjiuPeriod {
+  name: string      // 一九 … 九九
+  nameEng: string   // First Nine … Ninth Nine
+  start: Date
+  end: Date
+  days: number
+  isSanjiu: boolean // true only for 三九
+}
+
+const JIU_NAME_ENG: Record<string, string> = {
+  '一九': 'First Nine (一九)',
+  '二九': 'Second Nine (二九)',
+  '三九': 'Third Nine (三九) — Coldest',
+  '四九': 'Fourth Nine (四九)',
+  '五九': 'Fifth Nine (五九)',
+  '六九': 'Sixth Nine (六九)',
+  '七九': 'Seventh Nine (七九)',
+  '八九': 'Eighth Nine (八九)',
+  '九九': 'Ninth Nine (九九)',
+}
+
+/**
+ * Computes all ShuJiu periods (一九–九九) anchored at the Winter Solstice
+ * of `year` (which falls in December of `year`; the bulk of the periods run
+ * into January–March of `year + 1`).
+ * Returns an array of up to 9 SanjiuPeriod objects, or empty array on error.
+ */
+export function getSanjiuPeriodsForYear(year: number): SanjiuPeriod[] {
+  try {
+    const periods: SanjiuPeriod[] = []
+    let currentName: string | null = null
+    let periodStart: Date | null = null
+    let prevDate: Date | null = null
+
+    // Winter Solstice is ~Dec 21; 数九 ends ~81 days later (~Mar 12 next year)
+    const scanStart = new Date(year, 11, 1)         // Dec 1  of `year`
+    const scanEnd   = new Date(year + 1, 3, 15)     // Apr 15 of `year+1`
+
+    for (let d = new Date(scanStart); d <= scanEnd; d = new Date(d.getTime() + 86400000)) {
+      const info = getSanjiuInfo(d)
+      const name = info ? info.name : null
+
+      if (name !== currentName) {
+        if (currentName && periodStart && prevDate) {
+          periods.push({
+            name: currentName,
+            nameEng: JIU_NAME_ENG[currentName] ?? currentName,
+            start: new Date(periodStart),
+            end: new Date(prevDate),
+            days: Math.round((prevDate.getTime() - periodStart.getTime()) / 86400000) + 1,
+            isSanjiu: currentName === '三九',
+          })
+        }
+        currentName = name
+        periodStart = name ? new Date(d) : null
+      }
+      prevDate = new Date(d)
+    }
+    if (currentName && periodStart && prevDate) {
+      periods.push({
+        name: currentName,
+        nameEng: JIU_NAME_ENG[currentName] ?? currentName,
+        start: new Date(periodStart),
+        end: new Date(prevDate),
+        days: Math.round((prevDate.getTime() - periodStart.getTime()) / 86400000) + 1,
+        isSanjiu: currentName === '三九',
+      })
+    }
+    return periods
+  } catch {
+    return []
+  }
+}
+
 export function getBilingualLunarDate(date: Date): BilingualLunarInfo | null {
   try {
     const solar = Solar.fromDate(date)

@@ -4,8 +4,7 @@ import { supabase } from '@/lib/supabase'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, isSameMonth, isSameDay, addDays, addWeeks, subWeeks, getHours, getMinutes, parseISO } from 'date-fns'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { getBilingualLunarDate } from '@/lib/lunarUtils'
-import { getSanfuInfo } from '@/lib/lunarUtils'
+import { getBilingualLunarDate, getSanfuInfo, getSanjiuInfo } from '@/lib/lunarUtils'
 
 
 const parseDescForBadges = (desc: string | null | undefined) => {
@@ -67,6 +66,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
         const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
         const lunar = getBilingualLunarDate(cloneDay)
         const sanfu = getSanfuInfo(cloneDay)
+        const sanjiu = getSanjiuInfo(cloneDay)
         
         days.push(
           <div 
@@ -85,6 +85,9 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
               )}
               {sanfu && (
                 <span style={{ fontSize: '0.5rem', color: '#f5a623', lineHeight: 1.1, display: 'block', marginTop: '1px', fontWeight: 700 }}>{sanfu.name}</span>
+              )}
+              {sanjiu && (
+                <span style={{ fontSize: '0.5rem', color: sanjiu.isSanjiu ? '#7ec8ff' : 'rgba(126,200,255,0.6)', lineHeight: 1.1, display: 'block', marginTop: '1px', fontWeight: sanjiu.isSanjiu ? 700 : 500 }}>{sanjiu.name}</span>
               )}
             </div>
             <div className="monthly-event-container">
@@ -117,6 +120,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       const dayEvents = events.filter(e => isSameDay(parseISO(e.start_time), cloneDay))
       const lunar = getBilingualLunarDate(cloneDay)
       const sanfu = getSanfuInfo(cloneDay)
+      const sanjiu = getSanjiuInfo(cloneDay)
 
       days.push(
         <div 
@@ -146,6 +150,20 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
                 fontWeight: 700,
               }}>
                 🌡 {sanfu.name}
+              </div>
+            )}
+            {sanjiu && (
+              <div style={{
+                marginTop: '4px',
+                padding: '2px 8px',
+                borderRadius: '20px',
+                background: sanjiu.isSanjiu ? 'rgba(100, 180, 255, 0.15)' : 'rgba(100, 180, 255, 0.07)',
+                border: sanjiu.isSanjiu ? '1px solid rgba(100, 180, 255, 0.5)' : '1px solid rgba(100, 180, 255, 0.2)',
+                fontSize: '0.68rem',
+                color: sanjiu.isSanjiu ? '#7ec8ff' : 'rgba(126,200,255,0.55)',
+                fontWeight: sanjiu.isSanjiu ? 700 : 500,
+              }}>
+                ❄ {sanjiu.name}
               </div>
             )}
           </div>

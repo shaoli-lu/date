@@ -4,8 +4,7 @@ import { supabase } from '@/lib/supabase'
 import { format, startOfDay, endOfDay, addDays } from 'date-fns'
 import { Trash2, Pencil, ChevronLeft, ChevronRight } from 'lucide-react'
 import { parseDescription } from '@/lib/eventUtils'
-import { getBilingualLunarDate } from '@/lib/lunarUtils'
-import { getSanfuInfo } from '@/lib/lunarUtils'
+import { getBilingualLunarDate, getSanfuInfo, getSanjiuInfo } from '@/lib/lunarUtils'
 
 
 export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void, onNavigateUp: () => void }) {
@@ -147,6 +146,26 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
                 <span style={{ fontSize: '0.72rem', color: '#f5a623', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>🌡️ 三伏天 · Sanfu</span>
                 <span style={{ color: '#fff', fontWeight: 600 }}>{sanfu.name} &nbsp;·&nbsp; {sanfu.fullName}</span>
                 <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>The hottest days of summer</span>
+              </div>
+            )
+          })()}
+          {(() => {
+            const sanjiu = getSanjiuInfo(selectedDate)
+            if (!sanjiu) return null
+            return (
+              <div style={{
+                padding: '8px 12px',
+                borderRadius: '10px',
+                background: sanjiu.isSanjiu ? 'rgba(100, 180, 255, 0.1)' : 'rgba(100, 180, 255, 0.05)',
+                border: sanjiu.isSanjiu ? '1px solid rgba(100, 180, 255, 0.5)' : '1px solid rgba(100, 180, 255, 0.2)',
+                fontSize: '0.85rem',
+                display: 'inline-flex',
+                flexDirection: 'column',
+                gap: '2px',
+              }}>
+                <span style={{ fontSize: '0.72rem', color: '#7ec8ff', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>❄️ 数九 · Shǔjiǔ</span>
+                <span style={{ color: '#fff', fontWeight: sanjiu.isSanjiu ? 700 : 500 }}>{sanjiu.name} &nbsp;·&nbsp; {sanjiu.fullName}</span>
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>{sanjiu.isSanjiu ? '三九 — Coldest days of winter ❄️' : 'Counting the cold season'}</span>
               </div>
             )
           })()}

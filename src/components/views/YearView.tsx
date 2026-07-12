@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { format, startOfYear, endOfYear, getMonth, parseISO } from 'date-fns'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
-import { getZodiacInfo, getBilingualLunarDate, getSanfuPeriodsForYear } from '@/lib/lunarUtils'
+import { getZodiacInfo, getBilingualLunarDate, getSanfuPeriodsForYear, getSanjiuPeriodsForYear } from '@/lib/lunarUtils'
 
 
 const earliestYear = 1800
@@ -63,6 +63,8 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
   const zodiacCurrent = useMemo(() => getZodiacInfo(displayYear), [displayYear])
   const zodiacNext = useMemo(() => getZodiacInfo(displayYear + 1), [displayYear])
   const sanfuPeriods = useMemo(() => getSanfuPeriodsForYear(displayYear), [displayYear])
+  // Sanjiu is anchored at the Winter Solstice of displayYear (most periods fall in Jan-Mar of displayYear+1)
+  const sanjiuPeriods = useMemo(() => getSanjiuPeriodsForYear(displayYear), [displayYear])
 
   const handleSelectYear = (year: number) => {
     setDisplayYear(year)
@@ -234,6 +236,52 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,160,50,0.7)', marginTop: '2px' }}>
                   {period.days} days
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Shujiu / Sanjiu (数九 / 三九) Panel */}
+      {sanjiuPeriods.length > 0 && (
+        <div className="glass-panel" style={{ padding: '16px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <h3 style={{ fontSize: '1rem', color: '#7ec8ff', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
+            <span>❄️</span> 数九 (Shǔjiǔ) · Winter {displayYear}–{displayYear + 1}
+          </h3>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', margin: 0, lineHeight: 1.5 }}>
+            Nine 9-day blocks counted from Winter Solstice of {displayYear}.
+            三九 (Sānjiǔ, the 3rd block, days 19–27) is traditionally the coldest period of the year.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(175px, 1fr))', gap: '8px' }}>
+            {sanjiuPeriods.map((period) => (
+              <div key={period.name} style={{
+                padding: '10px 12px',
+                borderRadius: '10px',
+                background: period.isSanjiu ? 'rgba(100, 180, 255, 0.12)' : 'rgba(100, 180, 255, 0.04)',
+                border: period.isSanjiu ? '1px solid rgba(100, 180, 255, 0.5)' : '1px solid rgba(100, 180, 255, 0.15)',
+                boxShadow: period.isSanjiu ? '0 0 16px rgba(100, 180, 255, 0.1)' : 'none',
+              }}>
+                <div style={{
+                  fontSize: '0.7rem',
+                  color: period.isSanjiu ? '#7ec8ff' : 'rgba(126,200,255,0.5)',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em',
+                  marginBottom: '3px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}>
+                  {period.isSanjiu && <span>❄️</span>}
+                  {period.name}
+                  {period.isSanjiu && <span style={{ fontSize: '0.6rem', background: 'rgba(100,180,255,0.2)', borderRadius: '4px', padding: '1px 4px' }}>COLDEST</span>}
+                </div>
+                <div style={{ fontSize: '0.82rem', fontWeight: period.isSanjiu ? 700 : 500, color: period.isSanjiu ? '#fff' : 'rgba(255,255,255,0.65)', marginBottom: '2px' }}>
+                  {period.nameEng}
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>
+                  📅 {format(period.start, 'MMM d')} – {format(period.end, 'MMM d')}
                 </div>
               </div>
             ))}
