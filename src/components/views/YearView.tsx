@@ -4,6 +4,18 @@ import { Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
 import { getZodiacInfo, getBilingualLunarDate, getSanfuPeriodsForYear, getSanjiuPeriodsForYear } from '@/lib/lunarUtils'
 import zodiacData from '@/lib/zodiacData.json'
+import zodiacYearCombinations from '@/lib/zodiacYearCombinations.json'
+
+const getElementFromGanZhi = (ganZhi: string): "Wood" | "Fire" | "Earth" | "Metal" | "Water" | null => {
+  if (!ganZhi || ganZhi.length === 0) return null;
+  const stem = ganZhi[0];
+  if (['甲', '乙'].includes(stem)) return "Wood";
+  if (['丙', '丁'].includes(stem)) return "Fire";
+  if (['戊', '己'].includes(stem)) return "Earth";
+  if (['庚', '辛'].includes(stem)) return "Metal";
+  if (['壬', '癸'].includes(stem)) return "Water";
+  return null;
+};
 
 
 const earliestYear = 1800
@@ -317,6 +329,112 @@ export default function YearView({ session, refreshKey, selectedDate, onNavigate
                   </span>
                 </div>
               </div>
+
+              {/* Year Combination Influence (e.g., Fire Horse) */}
+              {(() => {
+                const yearElement = getElementFromGanZhi(zodiacCurrent.ganZhi);
+                const yearZodiacInfo = yearElement 
+                  ? (zodiacYearCombinations.animals[zodiacCurrent.englishZodiac as keyof typeof zodiacYearCombinations.animals] as any)?.[yearElement]
+                  : null;
+                const generalElementInfo = yearElement 
+                  ? zodiacYearCombinations.elements[yearElement]
+                  : null;
+
+                if (!yearZodiacInfo) return null;
+
+                const elementColors: Record<string, string> = {
+                  Wood: '#55efc4',
+                  Fire: '#ff7675',
+                  Earth: '#ffeaa7',
+                  Metal: '#dfe6e9',
+                  Water: '#7ec8ff'
+                };
+                const elColor = elementColors[yearElement || ''] || 'var(--primary-color)';
+
+                return (
+                  <div style={{
+                    borderTop: '1px dashed rgba(102, 252, 241, 0.2)',
+                    paddingTop: '16px',
+                    marginTop: '12px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                      <h4 style={{ fontSize: '1rem', color: elColor, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span>☯️</span> Year {zodiacCurrent.year} ({yearZodiacInfo.title}) Fortune & Influence
+                      </h4>
+                      {generalElementInfo && (
+                        <span style={{
+                          fontSize: '0.72rem',
+                          color: elColor,
+                          background: `rgba(${yearElement === 'Fire' ? '255, 118, 117' : yearElement === 'Wood' ? '85, 239, 196' : '102, 252, 241'}, 0.08)`,
+                          padding: '3px 8px',
+                          borderRadius: '4px',
+                          border: `1px solid ${elColor}30`,
+                          fontWeight: 500
+                        }}>
+                          {yearElement} Element Year
+                        </span>
+                      )}
+                    </div>
+
+                    <div style={{ fontSize: '0.85rem', lineHeight: '1.5', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <div>
+                        <strong style={{ color: '#fff' }}>Personality Modifier:</strong> {yearZodiacInfo.traits}
+                      </div>
+                      <div>
+                        <strong style={{ color: '#fff' }}>Yearly Fortune Outlook:</strong> {yearZodiacInfo.fortune}
+                      </div>
+                      {generalElementInfo && (
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', background: 'rgba(255,255,255,0.01)', padding: '8px', borderRadius: '6px', borderLeft: `3px solid ${elColor}` }}>
+                          <strong>{yearElement} Element Influence:</strong> {generalElementInfo.desc}
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginTop: '4px' }}>
+                      {/* Good For */}
+                      <div>
+                        <span style={{ fontSize: '0.72rem', color: '#55efc4', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                          📈 Excellent For
+                        </span>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {yearZodiacInfo.goodFor.map((item: string) => (
+                            <span key={item} style={{
+                              fontSize: '0.75rem',
+                              background: 'rgba(85, 239, 196, 0.08)',
+                              color: '#55efc4',
+                              padding: '3px 8px',
+                              borderRadius: '6px',
+                              border: '1px solid rgba(85, 239, 196, 0.15)'
+                            }}>{item}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Bad For */}
+                      <div>
+                        <span style={{ fontSize: '0.72rem', color: '#fab1a0', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>
+                          ⚠️ Exercise Caution In
+                        </span>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {yearZodiacInfo.badFor.map((item: string) => (
+                            <span key={item} style={{
+                              fontSize: '0.75rem',
+                              background: 'rgba(250, 177, 160, 0.08)',
+                              color: '#fab1a0',
+                              padding: '3px 8px',
+                              borderRadius: '6px',
+                              border: '1px solid rgba(250, 177, 160, 0.15)'
+                            }}>{item}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           );
         })()}

@@ -1,0 +1,480 @@
+{
+  "elements": {
+    "Wood": {
+      "desc": "Brings growth, cooperation, expansion, and creativity. Tempering egos with diplomatic and collaborative focus.",
+      "generalGood": ["Team projects", "Creative brainstorming", "Strategic planning", "Education & skill building"],
+      "generalBad": ["Autocratic leadership", "Resisting necessary changes", "Rigid negotiations"],
+      "fortune": "A year of organic growth and building strong foundations."
+    },
+    "Fire": {
+      "desc": "Brings passion, intensity, bold leadership, and dynamism. Speeds up events but increases volatility.",
+      "generalGood": ["Product launches", "Public speaking & marketing", "Decisive life changes", "Entrepreneurial ventures"],
+      "generalBad": ["Impulsive investments", "Patience-requiring tasks", "Calm conflict resolution"],
+      "fortune": "High-octane and exciting, but carries risks of burnout and sudden shifts."
+    },
+    "Earth": {
+      "desc": "Brings stability, practicality, patience, and realistic thinking. Emphasizes security and long-term results.",
+      "generalGood": ["Real estate & physical assets", "Structuring workflows", "Financial consolidation", "Risk management"],
+      "generalBad": ["Speculative trading", "Spontaneous travels", "Rushing negotiations"],
+      "fortune": "Favorable for steady progress, wealth accumulation, and settling down."
+    },
+    "Metal": {
+      "desc": "Brings discipline, strength, focus, and resilience. Promotes justice, order, and decisive cuts.",
+      "generalGood": ["Enforcing boundaries", "Solitary focus", "Debt repayment", "Structural reforms"],
+      "generalBad": ["Compromises on core values", "Empathetic soft diplomacy", "Relaxed timelines"],
+      "fortune": "Demanding but highly rewarding for those who practice discipline and focus."
+    },
+    "Water": {
+      "desc": "Brings intelligence, flexibility, flow, and deep communication. Enhances intuition and emotional depth.",
+      "generalGood": ["Negotiations & relations", "Intellectual research", "Travel & movement", "Creative writing"],
+      "generalBad": ["Rigorous rigid contracts", "Staying static", "Confrontations"],
+      "fortune": "Favorable for networking, mental clarity, and adapting to unexpected changes."
+    }
+  },
+  "animals": {
+    "Rat": {
+      "Wood": {
+        "title": "Wood Rat",
+        "traits": "Highly creative and outgoing, values teamwork over isolation.",
+        "fortune": "Good for collaborative careers and joint ventures.",
+        "goodFor": ["Networking", "Joint ventures"],
+        "badFor": ["Working alone", "Rigid routines"]
+      },
+      "Fire": {
+        "title": "Fire Rat",
+        "traits": "Passionate, dynamic, loves action, but can be highly impulsive.",
+        "fortune": "Favorable for quick ventures, but watch out for financial volatility.",
+        "goodFor": ["Marketing", "Spontaneous travel"],
+        "badFor": ["Long-term savings plans", "Patience"]
+      },
+      "Earth": {
+        "title": "Earth Rat",
+        "traits": "Pragmatic, disciplined, and very focused on financial security.",
+        "fortune": "Excellent year for property, career consolidation, and saving.",
+        "goodFor": ["Budgeting", "Real estate"],
+        "badFor": ["High-risk investments", "Job hopping"]
+      },
+      "Metal": {
+        "title": "Metal Rat",
+        "traits": "Strong-willed, independent, sometimes overly critical or jealous.",
+        "fortune": "Good for personal skill mastery and independent projects.",
+        "goodFor": ["Solo tasks", "Technical training"],
+        "badFor": ["Group consensus", "Soft negotiations"]
+      },
+      "Water": {
+        "title": "Water Rat",
+        "traits": "Extremely intuitive, wise, and highly adaptable communicator.",
+        "fortune": "Favorable for education, networking, and public relations.",
+        "goodFor": ["Consulting", "Higher studies"],
+        "badFor": ["Physical labor", "Highly rigid contracts"]
+      }
+    },
+    "Ox": {
+      "Wood": {
+        "title": "Wood Ox",
+        "traits": "More cooperative and communicative than other Oxen; respects hierarchy.",
+        "fortune": "Favorable for corporate growth, promotion, and public service.",
+        "goodFor": ["Climbing career ladders", "Team leadership"],
+        "badFor": ["Rebelling against rules", "Spontaneous moves"]
+      },
+      "Fire": {
+        "title": "Fire Ox",
+        "traits": "Intense, extremely hardworking, but prone to hot temper and burnout.",
+        "fortune": "High productivity, but prone to relationship friction and stress.",
+        "goodFor": ["Short intense projects", "Physical fitness"],
+        "badFor": ["Delicate peace talks", "Relaxation"]
+      },
+      "Earth": {
+        "title": "Earth Ox",
+        "traits": "The ultimate symbol of stability, patience, and dependability.",
+        "fortune": "Steady financial gains; very reliable year for investments and long-term construction.",
+        "goodFor": ["Buying property", "Long-term planning"],
+        "badFor": ["Fast speculation", "Spontaneous changes"]
+      },
+      "Metal": {
+        "title": "Metal Ox",
+        "traits": "Resilient, stubborn, quiet, operates with absolute integrity.",
+        "fortune": "Very successful for solo tasks and highly disciplined pursuits.",
+        "goodFor": ["Audits", "Difficult solitary goals"],
+        "badFor": ["Customer service", "Compromising"]
+      },
+      "Water": {
+        "title": "Water Ox",
+        "traits": "Reasonable, realistic, flexible, and open to other people's suggestions.",
+        "fortune": "Favorable for business negotiations and building strategic alliances.",
+        "goodFor": ["Mediation", "Strategic alliances"],
+        "badFor": ["Rigid ultimatums", "Isolation"]
+      }
+    },
+    "Tiger": {
+      "Wood": {
+        "title": "Wood Tiger",
+        "traits": "Sociable, diplomatic, and less impulsive. Prefers group success.",
+        "fortune": "Favorable for partnerships, community activities, and arts.",
+        "goodFor": ["Community events", "Group projects"],
+        "badFor": ["Lone wolf initiatives", "Impatience"]
+      },
+      "Fire": {
+        "title": "Fire Tiger",
+        "traits": "Intensely passionate, optimistic, natural leader, but highly erratic.",
+        "fortune": "Spectacular breakthroughs are possible, but watch out for major setbacks due to pride.",
+        "goodFor": ["Launching startups", "Public campaigns"],
+        "badFor": ["Risk management", "Detail-oriented work"]
+      },
+      "Earth": {
+        "title": "Earth Tiger",
+        "traits": "Responsible, realistic, holds a steady pace, and values stability.",
+        "fortune": "Steady success in career; stable income and solid investments.",
+        "goodFor": ["Long-term projects", "Financial audits"],
+        "badFor": ["Spontaneous travel", "Fast-moving schemes"]
+      },
+      "Metal": {
+        "title": "Metal Tiger",
+        "traits": "Competitive, assertive, lives by their own rules.",
+        "fortune": "Good for competitive sports, battles, and legal disputes.",
+        "goodFor": ["Competitive endeavors", "Litigation/debates"],
+        "badFor": ["Diplomacy", "Compromise"]
+      },
+      "Water": {
+        "title": "Water Tiger",
+        "traits": "Empathetic, clear-headed, wise, and highly creative.",
+        "fortune": "Excellent year for self-reflection, research, arts, and writing.",
+        "goodFor": ["Creative arts", "Research"],
+        "badFor": ["Physical confrontation", "Rigid scheduling"]
+      }
+    },
+    "Rabbit": {
+      "Wood": {
+        "title": "Wood Rabbit",
+        "traits": "Generous, sympathetic, hates conflict, highly cooperative.",
+        "fortune": "Smooth relationships and positive social support.",
+        "goodFor": ["Mediation", "Social gatherings"],
+        "badFor": ["Aggressive debates", "Highly competitive roles"]
+      },
+      "Fire": {
+        "title": "Fire Rabbit",
+        "traits": "More active and expressive. Has a strong charm and artistic flare.",
+        "fortune": "Great for performing arts, PR, and romance.",
+        "goodFor": ["Public relations", "Creative shows"],
+        "badFor": ["Quiet paperwork", "Dealing with harsh criticism"]
+      },
+      "Earth": {
+        "title": "Earth Rabbit",
+        "traits": "Practical, hardworking, prudent, and highly focused on family.",
+        "fortune": "Favorable for home improvements, savings, and stable career moves.",
+        "goodFor": ["Property investments", "Family planning"],
+        "badFor": ["High-risk stocks", "Sudden job relocations"]
+      },
+      "Metal": {
+        "title": "Metal Rabbit",
+        "traits": "Resilient, private, highly observant, and very ambitious.",
+        "fortune": "Good for career advancement and independent projects.",
+        "goodFor": ["Career strategy", "Solo execution"],
+        "badFor": ["Revealing secrets", "Group therapy"]
+      },
+      "Water": {
+        "title": "Water Rabbit",
+        "traits": "Highly intuitive, dislikes hardships, adapts to escape trouble.",
+        "fortune": "Peaceful year, good for mental health, spiritual growth, and relaxation.",
+        "goodFor": ["Spiritual retreats", "Psychological healing"],
+        "badFor": ["High-pressure environments", "Confrontations"]
+      }
+    },
+    "Dragon": {
+      "Wood": {
+        "title": "Wood Dragon",
+        "traits": "Innovative, collaborative, creative, and highly strategic builder.",
+        "fortune": "Superb for launching new creative platforms, tech innovations, and green projects.",
+        "goodFor": ["Sustainable projects", "New tech design", "Diplomacy"],
+        "badFor": ["Stagnating", "Traditional conservative business models"]
+      },
+      "Fire": {
+        "title": "Fire Dragon",
+        "traits": "Highly energetic, passionate, ambitious, but easily angered or self-centered.",
+        "fortune": "Dramatic expansions are possible, but conflict with authority is a major risk.",
+        "goodFor": ["Leadership changes", "Bold marketing"],
+        "badFor": ["Patience", "Submitting to authority"]
+      },
+      "Earth": {
+        "title": "Earth Dragon",
+        "traits": "Pragmatic, nurturing, patient, and highly focused on organizational goals.",
+        "fortune": "Favorable for large infrastructure, real estate, and long-term consolidation.",
+        "goodFor": ["Buying land/houses", "Scaling businesses safely"],
+        "badFor": ["Spontaneous risks", "High-stress changes"]
+      },
+      "Metal": {
+        "title": "Metal Dragon",
+        "traits": "Extremely determined, competitive, uncompromising, and strong leader.",
+        "fortune": "Excellent for overcoming obstacles and crushing competition, but prone to isolation.",
+        "goodFor": ["Restructuring companies", "Winning contests"],
+        "badFor": ["Team harmony", "Empathy-driven discussions"]
+      },
+      "Water": {
+        "title": "Water Dragon",
+        "traits": "Reflective, flexible, compassionate, and highly intellectual.",
+        "fortune": "Good for negotiations, educational achievements, and travel.",
+        "goodFor": ["International business", "Teaching & publishing"],
+        "badFor": ["Rigorous strict routines", "Local isolation"]
+      }
+    },
+    "Snake": {
+      "Wood": {
+        "title": "Wood Snake",
+        "traits": "Wise, artistic, highly selective with friends, values beauty and intellect.",
+        "fortune": "Favorable for academic success, creative writing, and high-end lifestyle.",
+        "goodFor": ["Artistic creation", "Intellectual networking"],
+        "badFor": ["Crude marketing", "Crowded gatherings"]
+      },
+      "Fire": {
+        "title": "Fire Snake",
+        "traits": "Intense, magnetic, highly ambitious, and deeply suspicious.",
+        "fortune": "Great power and influence can be achieved, but personal relationships can suffer from jealousy.",
+        "goodFor": ["Political careers", "Acquiring control/power"],
+        "badFor": ["Open trust", "Soft compromises"]
+      },
+      "Earth": {
+        "title": "Earth Snake",
+        "traits": "Calm, practical, highly analytical, and extremely cautious with money.",
+        "fortune": "Steady growth of assets; highly reliable decisions in finance.",
+        "goodFor": ["Auditing", "Long-term savings"],
+        "badFor": ["Speculative bets", "Hastiness"]
+      },
+      "Metal": {
+        "title": "Metal Snake",
+        "traits": "Determined, private, independent, and calculating.",
+        "fortune": "Favorable for career advancement through strategy and technical skills.",
+        "goodFor": ["Independent calculations", "Strategic placements"],
+        "badFor": ["Emotional sharing", "Impulsive moves"]
+      },
+      "Water": {
+        "title": "Water Snake",
+        "traits": "Insightful, flexible, highly intellectual, and quiet planner.",
+        "fortune": "Excellent for investigations, deep research, and intuitive decisions.",
+        "goodFor": ["Research & forensics", "Investments in tech"],
+        "badFor": ["Public conflicts", "Physical labor"]
+      }
+    },
+    "Horse": {
+      "Wood": {
+        "title": "Wood Horse",
+        "traits": "Active, communicative, cooperative, and loves travel.",
+        "fortune": "Great for public relations, travel industry, and new business alliances.",
+        "goodFor": ["Business partnerships", "Long-distance travel"],
+        "badFor": ["Office desk confinement", "Rigid planning"]
+      },
+      "Fire": {
+        "title": "Fire Horse",
+        "traits": "Extremely passionate, bold, and independent, but highly volatile and impatient.",
+        "fortune": "High risk, high reward. Exciting but unstable. Avoid major financial gambles.",
+        "goodFor": ["Bold innovation", "Artistic expression"],
+        "badFor": ["Long-term financial commitments", "Routine admin work"]
+      },
+      "Earth": {
+        "title": "Earth Horse",
+        "traits": "Pragmatic, steady, and far more patient than other Horses.",
+        "fortune": "Favorable for building stable career path and saving money.",
+        "goodFor": ["Land investment", "Project execution"],
+        "badFor": ["High-speed schemes", "Frequent changes"]
+      },
+      "Metal": {
+        "title": "Metal Horse",
+        "traits": "Highly independent, adventurous, and hates restriction.",
+        "fortune": "Favorable for freelancing, solo travel, and starting solo business.",
+        "goodFor": ["Freelancing", "Adventure sports"],
+        "badFor": ["Climbing traditional hierarchy", "Commitment"]
+      },
+      "Water": {
+        "title": "Water Horse",
+        "traits": "Adaptable, friendly, but prone to constant changes of mind.",
+        "fortune": "Good for media, communications, and short-term quick projects.",
+        "goodFor": ["PR campaigns", "Event planning"],
+        "badFor": ["Long-term planning", "Staying in one place"]
+      }
+    },
+    "Goat": {
+      "Wood": {
+        "title": "Wood Goat",
+        "traits": "Kind-hearted, compassionate, values family harmony above all.",
+        "fortune": "Favorable for family relations, domestic life, and charitable work.",
+        "goodFor": ["Family reconciliation", "Charity work"],
+        "badFor": ["Ruthless business deals", "Cold negotiations"]
+      },
+      "Fire": {
+        "title": "Fire Goat",
+        "traits": "Expressive, creative, and highly dramatic. Needs appreciation.",
+        "fortune": "Good for theatrical arts, design, and emotional bonding.",
+        "goodFor": ["Creative designing", "Public performance"],
+        "badFor": ["Objective analytics", "Solitude"]
+      },
+      "Earth": {
+        "title": "Earth Goat",
+        "traits": "Pragmatic, self-reliant, and holds conservative values.",
+        "fortune": "Stable year with supportive friends; good for domestic stability.",
+        "goodFor": ["Home construction", "Agricultural projects"],
+        "badFor": ["Risky tech investments", "Sudden travels"]
+      },
+      "Metal": {
+        "title": "Metal Goat",
+        "traits": "Artistic, private, appears soft but possesses extreme inner strength.",
+        "fortune": "Favorable for artists, musicians, and highly focused creators.",
+        "goodFor": ["Individual art creation", "Learning instruments"],
+        "badFor": ["Aggressive team dynamics", "Sharing secrets"]
+      },
+      "Water": {
+        "title": "Water Goat",
+        "traits": "Highly adaptable, polite, and easily influenced by environment.",
+        "fortune": "Good year for building friendships and traveling to peaceful locations.",
+        "goodFor": ["Relaxing travel", "Socializing"],
+        "badFor": ["High-pressure decision making", "Harsh environments"]
+      }
+    },
+    "Monkey": {
+      "Wood": {
+        "title": "Wood Monkey",
+        "traits": "Highly curious, creative, always looking for new methods and ideas.",
+        "fortune": "Excellent for launching startups, inventing tools, and new designs.",
+        "goodFor": ["Inventions", "Product designs"],
+        "badFor": ["Maintaining old structures", "Monotonous work"]
+      },
+      "Fire": {
+        "title": "Fire Monkey",
+        "traits": "Ambitious, competitive, loves fame, but can be highly deceitful.",
+        "fortune": "Favorable for sales, marketing, and ascending to leadership.",
+        "goodFor": ["Promotional events", "Sales competitions"],
+        "badFor": ["Deep ethical auditing", "Quiet research"]
+      },
+      "Earth": {
+        "title": "Earth Monkey",
+        "traits": "Academic, disciplined, and holds higher moral standards.",
+        "fortune": "Favorable for publications, higher degrees, and stable investments.",
+        "goodFor": ["Writing thesis/books", "Safe bonds"],
+        "badFor": ["Spontaneous risks", "Quitting studies"]
+      },
+      "Metal": {
+        "title": "Metal Monkey",
+        "traits": "Confident, independent, enjoys financial trading and challenges.",
+        "fortune": "Favorable for financial markets, business expansion, and sports.",
+        "goodFor": ["Financial trading", "Competitive sports"],
+        "badFor": ["Submitting to rules", "Soft diplomacy"]
+      },
+      "Water": {
+        "title": "Water Monkey",
+        "traits": "Extremely persuasive, charming, and highly diplomatic speaker.",
+        "fortune": "Favorable for public relations, mediation, and international trade.",
+        "goodFor": ["International trade", "Diplomacy"],
+        "badFor": ["Solitary quiet routines", "Manual labor"]
+      }
+    },
+    "Rooster": {
+      "Wood": {
+        "title": "Wood Rooster",
+        "traits": "Warm-hearted, organized, loves listing tasks and helping others.",
+        "fortune": "Great for project management, event coordination, and community service.",
+        "goodFor": ["Project coordination", "Community service"],
+        "badFor": ["Abstract unstructured environments", "Chaos"]
+      },
+      "Fire": {
+        "title": "Fire Rooster",
+        "traits": "Highly structured, fanatic about precision, can be very critical.",
+        "fortune": "Favorable for strict quality control, audits, and leadership.",
+        "goodFor": ["Quality audits", "Enforcing standards"],
+        "badFor": ["Dealing with sensitive egos", "Creativity"]
+      },
+      "Earth": {
+        "title": "Earth Rooster",
+        "traits": "Systematic, analytical, study-oriented, and reliable companion.",
+        "fortune": "Stable progress in work; good for deep studies and asset building.",
+        "goodFor": ["Advanced studies", "Financial saving"],
+        "badFor": ["Spontaneous schemes", "Emotional outbursts"]
+      },
+      "Metal": {
+        "title": "Metal Rooster",
+        "traits": "Pragmatic, extremely logical, values direct and blunt honesty.",
+        "fortune": "Excellent for technical precision, science, and math.",
+        "goodFor": ["Technical engineering", "Logical debate"],
+        "badFor": ["Emotional mediation", "Diplomatic speaking"]
+      },
+      "Water": {
+        "title": "Water Rooster",
+        "traits": "Expressive, flexible, artistic, and natural communicator.",
+        "fortune": "Favorable for journalism, writing, public speaking, and relations.",
+        "goodFor": ["Journalism", "Public speaking"],
+        "badFor": ["Highly rigid strict environments", "Physical isolation"]
+      }
+    },
+    "Dog": {
+      "Wood": {
+        "title": "Wood Dog",
+        "traits": "Generous, highly cooperative, devoted helper, respects rules.",
+        "fortune": "Favorable for NGO projects, team projects, and HR management.",
+        "goodFor": ["Team projects", "NGO activities"],
+        "badFor": ["Independent speculative trading", "Lone decisions"]
+      },
+      "Fire": {
+        "title": "Fire Dog",
+        "traits": "Expressive, passionate, highly protective of friends, but stubborn.",
+        "fortune": "Good for security operations, union leading, and activist roles.",
+        "goodFor": ["Active protection", "Leadership in unions"],
+        "badFor": ["Quiet diplomacy", "Submitting to unjust rules"]
+      },
+      "Earth": {
+        "title": "Earth Dog",
+        "traits": "Pragmatic, loyal, calm, and highly dependable advisor.",
+        "fortune": "Excellent for banking, consulting, and building long-term trust.",
+        "goodFor": ["Financial consulting", "Fulfilling contracts"],
+        "badFor": ["High-risk startups", "Quick job shifts"]
+      },
+      "Metal": {
+        "title": "Metal Dog",
+        "traits": "Disciplined, holds extreme sense of justice, uncompromising.",
+        "fortune": "Successful year in law, security, auditing, and defense.",
+        "goodFor": ["Legal actions", "Auditing"],
+        "badFor": ["Soft compromise negotiations", "Ambiguity"]
+      },
+      "Water": {
+        "title": "Water Dog",
+        "traits": "Flexible, intuitive, friendly, and open-minded listener.",
+        "fortune": "Favorable for advisory roles, counseling, and public relations.",
+        "goodFor": ["Psychological counseling", "Public relations"],
+        "badFor": ["Highly confrontational environments", "Stiffness"]
+      }
+    },
+    "Pig": {
+      "Wood": {
+        "title": "Wood Pig",
+        "traits": "Warm, generous, highly collaborative, loves social gatherings.",
+        "fortune": "Favorable for home events, hosting parties, and culinary arts.",
+        "goodFor": ["Hosting social events", "Culinary projects"],
+        "badFor": ["Extreme solitary saving", "Ruthless business cuts"]
+      },
+      "Fire": {
+        "title": "Fire Pig",
+        "traits": "Courageous, active, highly expressive, can be overly generous.",
+        "fortune": "Favorable for launching startups, big celebrations, and promotions.",
+        "goodFor": ["Promotional events", "Big campaigns"],
+        "badFor": ["Budget audits", "Quiet paperwork"]
+      },
+      "Earth": {
+        "title": "Earth Pig",
+        "traits": "Hardworking, realistic, calm, and highly focused on family security.",
+        "fortune": "Steady income and savings; high domestic happiness and security.",
+        "goodFor": ["Farming/land projects", "Long-term deposits"],
+        "badFor": ["High-speed tech investments", "Spontaneous changes"]
+      },
+      "Metal": {
+        "title": "Metal Pig",
+        "traits": "Proud, strong-willed, does not ask for help, operates with pride.",
+        "fortune": "Favorable for independent business owners and single creators.",
+        "goodFor": ["Independent freelancing", "Running solo business"],
+        "badFor": ["Group collaboration conflicts", "Asking for favors"]
+      },
+      "Water": {
+        "title": "Water Pig",
+        "traits": "Highly intuitive, peace-loving, hates conflicts, deeply emotional.",
+        "fortune": "Good for self-reflection, spiritual practices, travel, and artistic relaxation.",
+        "goodFor": ["Artistic relaxation", "Spiritual studies"],
+        "badFor": ["High-stress corporate battles", "Confrontations"]
+      }
+    }
+  }
+}
