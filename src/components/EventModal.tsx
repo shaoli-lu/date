@@ -52,32 +52,38 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
   const [isRecurring, setIsRecurring] = useState(false)
   const [recurrenceFrequency, setRecurrenceFrequency] = useState<'daily' | 'weekly' | 'monthly' | 'yearly'>('weekly')
   const [recurrenceEndCondition, setRecurrenceEndCondition] = useState<'never' | 'count' | 'date'>('never')
-  const [recurrenceEndCount, setRecurrenceEndCount] = useState<number>(10)
+  const [recurrenceEndCount, setRecurrenceEndCount] = useState<string>('10')
   const [recurrenceEndDate, setRecurrenceEndDate] = useState<string>('')
   const [seriesId, setSeriesId] = useState<string | null>(null)
   const [editScope, setEditScope] = useState<'single' | 'series'>('single')
 
   // CD Renewal states
   const [isCdRenewal, setIsCdRenewal] = useState(false)
-  const [cdPrincipal, setCdPrincipal] = useState<number>(10000)
-  const [cdApy, setCdApy] = useState<number>(5.0)
+  const [cdPrincipal, setCdPrincipal] = useState<string>('10000')
+  const [cdApy, setCdApy] = useState<string>('5.0')
   const [cdStartDate, setCdStartDate] = useState<string>(() => {
     const today = new Date()
     const pad = (value: number) => value.toString().padStart(2, '0')
     return `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`
   })
-  const [cdTermValue, setCdTermValue] = useState<number>(12)
+  const [cdTermValue, setCdTermValue] = useState<string>('12')
   const [cdTermUnit, setCdTermUnit] = useState<'days' | 'months' | 'years'>('months')
 
   // Dynamic CD Interest Calculation
   const { interest: cdInterest, grandTotal: cdGrandTotal } = isCdRenewal
-    ? calculateCdInterest(cdPrincipal, cdApy, cdTermValue, cdTermUnit)
+    ? calculateCdInterest(
+        parseFloat(cdPrincipal) || 0,
+        parseFloat(cdApy) || 0,
+        parseInt(cdTermValue) || 0,
+        cdTermUnit
+      )
     : { interest: 0, grandTotal: 0 }
 
   // Sync CD Maturation date with Event start date
   useEffect(() => {
-    if (isCdRenewal && cdStartDate && cdTermValue > 0) {
-      const maturity = calculateMaturityDate(cdStartDate, cdTermValue, cdTermUnit)
+    const termValueNum = parseInt(cdTermValue) || 0
+    if (isCdRenewal && cdStartDate && termValueNum > 0) {
+      const maturity = calculateMaturityDate(cdStartDate, termValueNum, cdTermUnit)
       if (isAllDay) {
         setStartTime(formatLocalDate(maturity))
         setEndTime('')
@@ -156,20 +162,20 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
       setIsRecurring(false)
       setRecurrenceFrequency('weekly')
       setRecurrenceEndCondition('never')
-      setRecurrenceEndCount(10)
+      setRecurrenceEndCount('10')
       setRecurrenceEndDate('')
       setSeriesId(null)
       setEditScope('single')
 
       setIsCdRenewal(false)
-      setCdPrincipal(10000)
-      setCdApy(5.0)
+      setCdPrincipal('10000')
+      setCdApy('5.0')
       setCdStartDate(() => {
         const today = new Date()
         const pad = (value: number) => value.toString().padStart(2, '0')
         return `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`
       })
-      setCdTermValue(12)
+      setCdTermValue('12')
       setCdTermUnit('months')
       return
     }
@@ -194,7 +200,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
       setIsRecurring(true)
       setRecurrenceFrequency(parsed.metadata.recurring.frequency ?? 'weekly')
       setRecurrenceEndCondition(parsed.metadata.recurring.endCondition ?? 'never')
-      setRecurrenceEndCount(parsed.metadata.recurring.endCount ?? 10)
+      setRecurrenceEndCount((parsed.metadata.recurring.endCount ?? 10).toString())
       setRecurrenceEndDate(parsed.metadata.recurring.endDate ? parsed.metadata.recurring.endDate.split('T')[0] : '')
       setSeriesId(parsed.metadata.recurring.seriesId || null)
       setEditScope('single')
@@ -205,10 +211,10 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
 
     if (parsed.metadata.cdRenewal) {
       setIsCdRenewal(true)
-      setCdPrincipal(parsed.metadata.cdRenewal.principal ?? 10000)
-      setCdApy(parsed.metadata.cdRenewal.apy ?? 5.0)
+      setCdPrincipal((parsed.metadata.cdRenewal.principal ?? 10000).toString())
+      setCdApy((parsed.metadata.cdRenewal.apy ?? 5.0).toString())
       setCdStartDate(parsed.metadata.cdRenewal.startDate ? parsed.metadata.cdRenewal.startDate.split('T')[0] : '')
-      setCdTermValue(parsed.metadata.cdRenewal.termValue ?? 12)
+      setCdTermValue((parsed.metadata.cdRenewal.termValue ?? 12).toString())
       setCdTermUnit(parsed.metadata.cdRenewal.termUnit ?? 'months')
     } else {
       setIsCdRenewal(false)
@@ -220,10 +226,10 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
     setLoading(true)
 
     const cdRenewalMetadata = isCdRenewal ? {
-      principal: cdPrincipal,
-      apy: cdApy,
+      principal: parseFloat(cdPrincipal) || 0,
+      apy: parseFloat(cdApy) || 0,
       startDate: cdStartDate,
-      termValue: cdTermValue,
+      termValue: parseInt(cdTermValue) || 0,
       termUnit: cdTermUnit,
       interest: cdInterest,
       grandTotal: cdGrandTotal
@@ -251,7 +257,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
             baseStart,
             recurrenceFrequency,
             recurrenceEndCondition,
-            recurrenceEndCount,
+            parseInt(recurrenceEndCount) || 10,
             parsedEndDate
           )
         } else {
@@ -270,7 +276,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
               total: occurrencesDates.length,
               frequency: recurrenceFrequency,
               endCondition: recurrenceEndCondition,
-              endCount: recurrenceEndCount,
+              endCount: parseInt(recurrenceEndCount) || 10,
               endDate: recurrenceEndDate
             },
             ...(cdRenewalMetadata ? { cdRenewal: cdRenewalMetadata } : {})
@@ -303,7 +309,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
               total: parseDescription(event.description).metadata.recurring?.total || 1,
               frequency: recurrenceFrequency,
               endCondition: recurrenceEndCondition,
-              endCount: recurrenceEndCount,
+              endCount: parseInt(recurrenceEndCount) || 10,
               endDate: recurrenceEndDate
             }
           } : {}),
@@ -336,7 +342,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
           baseStart,
           recurrenceFrequency,
           recurrenceEndCondition,
-          recurrenceEndCount,
+          parseInt(recurrenceEndCount) || 10,
           parsedEndDate
         )
       } else {
@@ -356,7 +362,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
               total: occurrencesDates.length,
               frequency: recurrenceFrequency,
               endCondition: recurrenceEndCondition,
-              endCount: recurrenceEndCount,
+              endCount: parseInt(recurrenceEndCount) || 10,
               endDate: recurrenceEndDate
             }
           } : {}),
@@ -631,7 +637,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                       min="1" 
                       max="100" 
                       value={recurrenceEndCount} 
-                      onChange={(e) => setRecurrenceEndCount(parseInt(e.target.value) || 1)} 
+                      onChange={(e) => setRecurrenceEndCount(e.target.value)} 
                       style={{ padding: '10px' }}
                     />
                   </div>
@@ -676,7 +682,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                       step="0.01"
                       value={cdPrincipal} 
                       className="no-spin"
-                      onChange={(e) => setCdPrincipal(parseFloat(e.target.value) || 0)} 
+                      onChange={(e) => setCdPrincipal(e.target.value)} 
                       style={{ padding: '10px' }}
                     />
                   </div>
@@ -688,7 +694,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                       min="0" 
                       step="0.01"
                       value={cdApy} 
-                      onChange={(e) => setCdApy(parseFloat(e.target.value) || 0)} 
+                      onChange={(e) => setCdApy(e.target.value)} 
                       style={{ padding: '10px' }}
                     />
                   </div>
@@ -701,7 +707,7 @@ export default function EventModal({ session, event, onClose, onSuccess }: { ses
                       type="number" 
                       min="1" 
                       value={cdTermValue} 
-                      onChange={(e) => setCdTermValue(parseInt(e.target.value) || 1)} 
+                      onChange={(e) => setCdTermValue(e.target.value)} 
                       style={{ padding: '10px' }}
                     />
                   </div>
