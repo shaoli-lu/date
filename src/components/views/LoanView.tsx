@@ -275,148 +275,179 @@ export default function LoanView({ session }: { session: Session }) {
   }
 
   return (
-    <div className="scrollable-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-      {/* Top Header & Loan Selector Bar */}
+    <div className="scrollable-content" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', position: 'relative' }}>
+      {/* Sticky Top Header & Sub-Navigation Bar */}
       <div
-        className="glass-panel"
         style={{
-          padding: '1rem 1.25rem',
+          position: 'sticky',
+          top: '-20px',
+          zIndex: 40,
+          background: 'rgba(11, 12, 16, 0.96)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          margin: '-20px -20px 0 -20px',
+          padding: '14px 20px 10px 20px',
+          borderBottom: '1px solid rgba(102, 252, 241, 0.2)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          border: '1px solid rgba(102, 252, 241, 0.2)',
+          flexDirection: 'column',
+          gap: '10px',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div
-            style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, rgba(102,252,241,0.2) 0%, rgba(69,162,158,0.2) 100%)',
-              border: '1px solid var(--glass-border)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.4rem',
-            }}
-          >
-            🏦
+        {/* Top Header & Loan Selector Bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '10px',
+            paddingRight: '56px', // Clearance for floating Help FAB button
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
+            <div
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, rgba(102,252,241,0.2) 0%, rgba(69,162,158,0.2) 100%)',
+                border: '1px solid var(--glass-border)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.25rem',
+                flexShrink: 0,
+              }}
+            >
+              🏦
+            </div>
+            <div style={{ minWidth: 0, flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <select
+                  value={activeLoan.id}
+                  onChange={e => setSelectedLoanId(e.target.value)}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(102, 252, 241, 0.3)',
+                    color: 'var(--text-heading)',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    borderRadius: '8px',
+                    padding: '4px 8px',
+                    cursor: 'pointer',
+                    maxWidth: '100%',
+                    width: 'auto',
+                  }}
+                >
+                  {loans.map(l => (
+                    <option key={l.id} value={l.id} style={{ background: '#0f172a', color: '#fff' }}>
+                      {l.title} ({formatCents(l.originalPrincipalCents)})
+                    </option>
+                  ))}
+                </select>
+                <span
+                  style={{
+                    fontSize: '0.65rem',
+                    padding: '2px 6px',
+                    borderRadius: '8px',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    background:
+                      activeLoan.status === 'active'
+                        ? 'rgba(16, 185, 129, 0.2)'
+                        : activeLoan.status === 'forgiven'
+                        ? 'rgba(245, 158, 11, 0.2)'
+                        : 'rgba(102, 252, 241, 0.2)',
+                    color:
+                      activeLoan.status === 'active'
+                        ? '#10b981'
+                        : activeLoan.status === 'forgiven'
+                        ? '#f59e0b'
+                        : 'var(--primary-color)',
+                    border: '1px solid currentColor',
+                  }}
+                >
+                  {activeLoan.status}
+                </span>
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-main)', marginTop: '2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                Borrower: <strong style={{ color: '#fff' }}>{activeLoan.borrowerName}</strong> • Lender: <strong style={{ color: '#fff' }}>{activeLoan.lenderName}</strong>
+              </div>
+            </div>
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <select
-                value={activeLoan.id}
-                onChange={e => setSelectedLoanId(e.target.value)}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  border: '1px solid rgba(102, 252, 241, 0.3)',
-                  color: 'var(--text-heading)',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  borderRadius: '8px',
-                  padding: '4px 10px',
-                  cursor: 'pointer',
-                  width: 'auto',
-                }}
-              >
-                {loans.map(l => (
-                  <option key={l.id} value={l.id} style={{ background: '#0f172a', color: '#fff' }}>
-                    {l.title} ({formatCents(l.originalPrincipalCents)})
-                  </option>
-                ))}
-              </select>
-              <span
-                style={{
-                  fontSize: '0.7rem',
-                  padding: '3px 8px',
-                  borderRadius: '10px',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  background:
-                    activeLoan.status === 'active'
-                      ? 'rgba(16, 185, 129, 0.2)'
-                      : activeLoan.status === 'forgiven'
-                      ? 'rgba(245, 158, 11, 0.2)'
-                      : 'rgba(102, 252, 241, 0.2)',
-                  color:
-                    activeLoan.status === 'active'
-                      ? '#10b981'
-                      : activeLoan.status === 'forgiven'
-                      ? '#f59e0b'
-                      : 'var(--primary-color)',
-                  border: '1px solid currentColor',
-                }}
-              >
-                {activeLoan.status}
-              </span>
-            </div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '2px' }}>
-              Borrower: <strong style={{ color: '#fff' }}>{activeLoan.borrowerName}</strong> • Lender: <strong style={{ color: '#fff' }}>{activeLoan.lenderName}</strong>
-            </div>
+
+          {/* Quick Actions Header Buttons */}
+          <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedRowForPayment(null);
+                setIsRecordModalOpen(true);
+              }}
+              className="btn-primary"
+              style={{ padding: '6px 12px', fontSize: '0.8rem', borderRadius: '6px' }}
+            >
+              💰 Record
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setEditingLoan(null);
+                setIsCreateModalOpen(true);
+              }}
+              className="btn-secondary"
+              style={{ padding: '6px 10px', fontSize: '0.8rem', borderRadius: '6px' }}
+            >
+              + Loan
+            </button>
           </div>
         </div>
 
-        {/* Quick Actions Header Buttons */}
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedRowForPayment(null);
-              setIsRecordModalOpen(true);
-            }}
-            className="btn-primary"
-            style={{ padding: '8px 16px', fontSize: '0.85rem' }}
-          >
-            💰 Record Payment
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              setEditingLoan(null);
-              setIsCreateModalOpen(true);
-            }}
-            className="btn-secondary"
-            style={{ padding: '8px 14px', fontSize: '0.85rem' }}
-          >
-            + New Loan
-          </button>
+        {/* Sub-Navigation Tabs Row */}
+        <div
+          style={{
+            display: 'flex',
+            gap: '0.4rem',
+            overflowX: 'auto',
+            paddingBottom: '2px',
+            paddingRight: '56px',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {[
+            { id: 'dashboard', label: '📊 Dashboard' },
+            { id: 'amortization', label: '📅 Amortization (360)' },
+            { id: 'ledger', label: `🧾 Ledger (${payments.length})` },
+            { id: 'simulator', label: '🚀 What-If Simulator' },
+            { id: 'documents', label: '📜 Legal Note & Docs' },
+            { id: 'tax', label: '📑 CPA Tax View' },
+            { id: 'settings', label: '⚙️ Settings' },
+          ].map(t => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setSubTab(t.id as LoanSubTab)}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '8px',
+                border: subTab === t.id ? '1px solid var(--primary-color)' : '1px solid rgba(255, 255, 255, 0.08)',
+                background: subTab === t.id ? 'var(--primary-color)' : 'rgba(31, 40, 51, 0.7)',
+                color: subTab === t.id ? '#0b0c10' : 'var(--text-main)',
+                fontWeight: subTab === t.id ? 700 : 500,
+                fontSize: '0.8rem',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                transition: 'all 0.15s ease',
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
-      </div>
-
-      {/* Sub-Navigation Tabs */}
-      <div style={{ display: 'flex', gap: '0.35rem', overflowX: 'auto', paddingBottom: '4px' }}>
-        {[
-          { id: 'dashboard', label: '📊 Dashboard' },
-          { id: 'amortization', label: '📅 Amortization (360)' },
-          { id: 'ledger', label: `🧾 Ledger (${payments.length})` },
-          { id: 'simulator', label: '🚀 What-If Simulator' },
-          { id: 'documents', label: '📜 Legal Note & Docs' },
-          { id: 'tax', label: '📑 CPA Tax View' },
-          { id: 'settings', label: '⚙️ Amendments & Settings' },
-        ].map(t => (
-          <button
-            key={t.id}
-            type="button"
-            onClick={() => setSubTab(t.id as LoanSubTab)}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '10px',
-              border: 'none',
-              background: subTab === t.id ? 'var(--primary-color)' : 'rgba(31, 40, 51, 0.6)',
-              color: subTab === t.id ? '#0b0c10' : 'var(--text-main)',
-              fontWeight: subTab === t.id ? 700 : 500,
-              fontSize: '0.85rem',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.2s ease',
-            }}
-          >
-            {t.label}
-          </button>
-        ))}
       </div>
 
       {/* SUB-VIEW 1: DASHBOARD */}
