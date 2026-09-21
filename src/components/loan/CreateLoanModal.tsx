@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loan } from '@/types/loan';
 import {
@@ -31,9 +31,9 @@ export default function CreateLoanModal({
   userId,
 }: CreateLoanModalProps) {
   const [title, setTitle] = useState(existingLoan?.title || 'Family Home Loan');
-  const [borrowerName, setBorrowerName] = useState(existingLoan?.borrowerName || 'Alex & Jordan Smith');
-  const [lenderName, setLenderName] = useState(existingLoan?.lenderName || 'Robert & Margaret Smith');
-  const [propertyAddress, setPropertyAddress] = useState(existingLoan?.propertyAddress || '742 Evergreen Terrace, Springfield, IL 62704');
+  const [borrowerName, setBorrowerName] = useState(existingLoan?.borrowerName || '');
+  const [lenderName, setLenderName] = useState(existingLoan?.lenderName || '');
+  const [propertyAddress, setPropertyAddress] = useState(existingLoan?.propertyAddress || '');
   
   const [principalDollars, setPrincipalDollars] = useState(existingLoan ? centsToDollars(existingLoan.originalPrincipalCents).toString() : '440000');
   const [ratePercent, setRatePercent] = useState(existingLoan ? bpsToPercent(existingLoan.annualRateBps).toString() : '5.12');
@@ -43,6 +43,37 @@ export default function CreateLoanModal({
   const [paymentDueDay, setPaymentDueDay] = useState(existingLoan?.paymentDueDay?.toString() || '1');
   const [graceDays, setGraceDays] = useState(existingLoan?.graceDays?.toString() || '15');
   const [noteReference, setNoteReference] = useState(existingLoan?.noteReference || `NOTE-${new Date().getFullYear()}-001`);
+
+  // Sync state whenever existingLoan or isOpen changes
+  useEffect(() => {
+    if (existingLoan) {
+      setTitle(existingLoan.title || '');
+      setBorrowerName(existingLoan.borrowerName || '');
+      setLenderName(existingLoan.lenderName || '');
+      setPropertyAddress(existingLoan.propertyAddress || '');
+      setPrincipalDollars(centsToDollars(existingLoan.originalPrincipalCents).toString());
+      setRatePercent(bpsToPercent(existingLoan.annualRateBps).toString());
+      setTermYears((existingLoan.termMonths / 12).toString());
+      setFundingDate(existingLoan.fundingDate || format(new Date(), 'yyyy-MM-dd'));
+      setFirstPaymentDate(existingLoan.firstPaymentDate || format(addMonths(new Date(), 1), 'yyyy-MM-01'));
+      setPaymentDueDay(existingLoan.paymentDueDay?.toString() || '1');
+      setGraceDays(existingLoan.graceDays?.toString() || '15');
+      setNoteReference(existingLoan.noteReference || '');
+    } else if (isOpen) {
+      setTitle('Family Home Loan');
+      setBorrowerName('');
+      setLenderName('');
+      setPropertyAddress('');
+      setPrincipalDollars('440000');
+      setRatePercent('5.12');
+      setTermYears('30');
+      setFundingDate(format(new Date(), 'yyyy-MM-dd'));
+      setFirstPaymentDate(format(addMonths(new Date(), 1), 'yyyy-MM-01'));
+      setPaymentDueDay('1');
+      setGraceDays('15');
+      setNoteReference(`NOTE-${new Date().getFullYear()}-001`);
+    }
+  }, [existingLoan, isOpen]);
 
   // Calculation simulation mode
   const [repaymentOption, setRepaymentOption] = useState<'scheduled' | 'higher' | 'irregular'>('scheduled');

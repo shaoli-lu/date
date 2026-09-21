@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loan, LoanPayment, AmortizationRow } from '@/types/loan';
 import {
@@ -42,6 +42,22 @@ export default function RecordPaymentModal({
   const [extraPrincipalDollars, setExtraPrincipalDollars] = useState<string>('0');
   const [lateFeeDollars, setLateFeeDollars] = useState<string>('0');
   const [memo, setMemo] = useState<string>(selectedRow?.memo || '');
+
+  // Sync state whenever modal opens or selectedRow changes
+  useEffect(() => {
+    if (isOpen) {
+      const num = selectedRow?.paymentNumber || 1;
+      const due = selectedRow?.dueDate || format(new Date(), 'yyyy-MM-01');
+      const scheduled = selectedRow?.scheduledPaymentCents ?? loan.scheduledPaymentCents;
+      setPaymentNumber(num);
+      setDueDate(due);
+      setPaidDate(format(new Date(), 'yyyy-MM-dd'));
+      setAmountReceivedDollars(centsToDollars(scheduled).toString());
+      setExtraPrincipalDollars('0');
+      setLateFeeDollars('0');
+      setMemo(selectedRow?.memo || '');
+    }
+  }, [isOpen, selectedRow, loan]);
 
   // Prior balance at start of cycle
   const balanceBefore = selectedRow?.beginningBalanceCents ?? currentBalanceCents;
