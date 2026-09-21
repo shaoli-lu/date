@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Loan, LoanPayment, LoanAmendment } from '@/types/loan';
 import {
@@ -11,6 +11,7 @@ import {
   dollarsToCents,
   centsToDollars,
 } from '@/lib/loanEngine';
+import { printElement } from '@/lib/printUtils';
 import { format } from 'date-fns';
 
 /**
@@ -295,6 +296,8 @@ export function ReceiptSlipModal({
 }) {
   if (!isOpen || !payment) return null;
 
+  const receiptRef = useRef<HTMLDivElement>(null);
+
   return (
     <div
       style={{
@@ -399,7 +402,7 @@ export function ReceiptSlipModal({
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
           <button
             type="button"
-            onClick={() => window.print()}
+            onClick={() => printElement(receiptRef.current)}
             style={{
               padding: '8px 16px',
               borderRadius: '8px',

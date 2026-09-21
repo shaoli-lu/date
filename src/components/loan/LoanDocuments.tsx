@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Loan, TaxYearSummary, AmortizationRow } from '@/types/loan';
 import { formatCents, formatBps, centsToDollars } from '@/lib/loanEngine';
+import { printElement } from '@/lib/printUtils';
 
 type LoanDocumentsProps = {
   loan: Loan;
@@ -12,6 +13,7 @@ type LoanDocumentsProps = {
 
 export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocumentsProps) {
   const [docType, setDocType] = useState<'note' | 'mortgage' | 'satisfaction' | 'tax'>('note');
+  const docSheetRef = useRef<HTMLDivElement>(null);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -84,7 +86,7 @@ export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocument
 
         <button
           type="button"
-          onClick={() => window.print()}
+          onClick={() => printElement(docSheetRef.current)}
           style={{
             marginLeft: 'auto',
             padding: '8px 16px',
@@ -106,6 +108,7 @@ export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocument
 
       {/* Document Sheet */}
       <div
+        ref={docSheetRef}
         className="glass-panel"
         style={{
           background: '#ffffff',
