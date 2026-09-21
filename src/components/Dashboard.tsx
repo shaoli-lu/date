@@ -5,11 +5,12 @@ import TodayView from './views/TodayView'
 import CalendarView from './views/CalendarView'
 import YearView from './views/YearView'
 import PasskeyView from './views/PasskeyView'
+import LoanView from './views/LoanView'
 import EventModal from './EventModal'
 import HelpModal from './HelpModal'
 import { AnimatePresence, motion } from 'framer-motion'
 
-type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
+type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'loan' | 'passkey'
 
 type View = Tab
 
@@ -69,6 +70,7 @@ export default function Dashboard({ session }: { session: Session }) {
             {currentView === 'weekly' && <CalendarView session={session} view="weekly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
             {currentView === 'monthly' && <CalendarView session={session} view="monthly" refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('yearly', selectedDate)} />}
             {currentView === 'yearly' && <YearView session={session} refreshKey={refreshKey} selectedDate={selectedDate} onNavigateToDate={handleNavigateToDate} onNavigateUp={() => handleNavigateToDate('monthly', selectedDate)} />}
+            {currentView === 'loan' && <LoanView session={session} />}
             {currentView === 'passkey' && <PasskeyView session={session} />}
           </motion.div>
         </AnimatePresence>

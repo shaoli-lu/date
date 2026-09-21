@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.107.0",
     "date-fns": "^4.4.0",
+    "decimal.js": "^10.6.0",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
     "lunar-javascript": "^1.7.7",
