@@ -294,114 +294,105 @@ export default function LoanView({ session }: { session: Session }) {
           gap: '10px',
         }}
       >
-        {/* Top Header & Loan Selector Bar */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '10px',
-            paddingRight: '56px', // Clearance for floating Help FAB button
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
-            <div
-              style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, rgba(102,252,241,0.2) 0%, rgba(69,162,158,0.2) 100%)',
-                border: '1px solid var(--glass-border)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.25rem',
-                flexShrink: 0,
-              }}
-            >
-              🏦
+        {/* Loan Title & Details Section */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', width: '100%', paddingRight: '50px' }}>
+          <div
+            style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '10px',
+              background: 'linear-gradient(135deg, rgba(102,252,241,0.2) 0%, rgba(69,162,158,0.2) 100%)',
+              border: '1px solid var(--glass-border)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.2rem',
+              flexShrink: 0,
+              marginTop: '2px',
+            }}
+          >
+            🏦
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            {/* Title & Status */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <select
+                value={activeLoan.id}
+                onChange={e => setSelectedLoanId(e.target.value)}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(102, 252, 241, 0.3)',
+                  color: 'var(--text-heading)',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  borderRadius: '8px',
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  maxWidth: '100%',
+                }}
+              >
+                {loans.map(l => (
+                  <option key={l.id} value={l.id} style={{ background: '#0f172a', color: '#fff' }}>
+                    {l.title} ({formatCents(l.originalPrincipalCents)})
+                  </option>
+                ))}
+              </select>
+              <span
+                style={{
+                  fontSize: '0.65rem',
+                  padding: '2px 7px',
+                  borderRadius: '8px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  background:
+                    activeLoan.status === 'active'
+                      ? 'rgba(16, 185, 129, 0.2)'
+                      : activeLoan.status === 'forgiven'
+                      ? 'rgba(245, 158, 11, 0.2)'
+                      : 'rgba(102, 252, 241, 0.2)',
+                  color:
+                    activeLoan.status === 'active'
+                      ? '#10b981'
+                      : activeLoan.status === 'forgiven'
+                      ? '#f59e0b'
+                      : 'var(--primary-color)',
+                  border: '1px solid currentColor',
+                }}
+              >
+                {activeLoan.status}
+              </span>
             </div>
-            <div style={{ minWidth: 0, flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                <select
-                  value={activeLoan.id}
-                  onChange={e => setSelectedLoanId(e.target.value)}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(102, 252, 241, 0.3)',
-                    color: 'var(--text-heading)',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    borderRadius: '8px',
-                    padding: '4px 8px',
-                    cursor: 'pointer',
-                    maxWidth: '100%',
-                    width: 'auto',
-                  }}
-                >
-                  {loans.map(l => (
-                    <option key={l.id} value={l.id} style={{ background: '#0f172a', color: '#fff' }}>
-                      {l.title} ({formatCents(l.originalPrincipalCents)})
-                    </option>
-                  ))}
-                </select>
-                <span
-                  style={{
-                    fontSize: '0.65rem',
-                    padding: '2px 6px',
-                    borderRadius: '8px',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    background:
-                      activeLoan.status === 'active'
-                        ? 'rgba(16, 185, 129, 0.2)'
-                        : activeLoan.status === 'forgiven'
-                        ? 'rgba(245, 158, 11, 0.2)'
-                        : 'rgba(102, 252, 241, 0.2)',
-                    color:
-                      activeLoan.status === 'active'
-                        ? '#10b981'
-                        : activeLoan.status === 'forgiven'
-                        ? '#f59e0b'
-                        : 'var(--primary-color)',
-                    border: '1px solid currentColor',
-                  }}
-                >
-                  {activeLoan.status}
-                </span>
-              </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-main)', marginTop: '2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                Borrower: <strong style={{ color: '#fff' }}>{activeLoan.borrowerName}</strong> • Lender: <strong style={{ color: '#fff' }}>{activeLoan.lenderName}</strong>
-              </div>
+            {/* Borrower & Lender Row */}
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-main)', marginTop: '4px', lineHeight: 1.4, wordBreak: 'break-word' }}>
+              Borrower: <strong style={{ color: '#fff' }}>{activeLoan.borrowerName}</strong> &nbsp;•&nbsp; Lender: <strong style={{ color: '#fff' }}>{activeLoan.lenderName}</strong>
             </div>
           </div>
+        </div>
 
-          {/* Quick Actions Header Buttons */}
-          <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedRowForPayment(null);
-                setIsRecordModalOpen(true);
-              }}
-              className="btn-primary"
-              style={{ padding: '6px 12px', fontSize: '0.8rem', borderRadius: '6px' }}
-            >
-              💰 Record
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setEditingLoan(null);
-                setIsCreateModalOpen(true);
-              }}
-              className="btn-secondary"
-              style={{ padding: '6px 10px', fontSize: '0.8rem', borderRadius: '6px' }}
-            >
-              + Loan
-            </button>
-          </div>
+        {/* Action Buttons Row - Below Borrower Row */}
+        <div style={{ display: 'flex', gap: '8px', width: '100%', alignItems: 'center' }}>
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedRowForPayment(null);
+              setIsRecordModalOpen(true);
+            }}
+            className="btn-primary"
+            style={{ flex: 1, padding: '7px 14px', fontSize: '0.82rem', borderRadius: '8px', justifyContent: 'center' }}
+          >
+            💰 Record Payment
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setEditingLoan(null);
+              setIsCreateModalOpen(true);
+            }}
+            className="btn-secondary"
+            style={{ padding: '7px 14px', fontSize: '0.82rem', borderRadius: '8px', whiteSpace: 'nowrap' }}
+          >
+            + New Loan
+          </button>
         </div>
 
         {/* Sub-Navigation Tabs Row */}
