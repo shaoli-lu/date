@@ -370,7 +370,7 @@ export default function LoanView({ session }: { session: Session }) {
         </div>
 
         {/* Action Buttons Row - Below Borrower Row */}
-        <div style={{ display: 'flex', gap: '8px', width: '100%', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
           <button
             type="button"
             onClick={() => {
@@ -378,7 +378,7 @@ export default function LoanView({ session }: { session: Session }) {
               setIsRecordModalOpen(true);
             }}
             className="btn-primary"
-            style={{ flex: 1, padding: '7px 14px', fontSize: '0.82rem', borderRadius: '8px', justifyContent: 'center' }}
+            style={{ padding: '7px 18px', fontSize: '0.85rem', borderRadius: '8px', whiteSpace: 'nowrap' }}
           >
             💰 Record Payment
           </button>
@@ -389,7 +389,7 @@ export default function LoanView({ session }: { session: Session }) {
               setIsCreateModalOpen(true);
             }}
             className="btn-secondary"
-            style={{ padding: '7px 14px', fontSize: '0.82rem', borderRadius: '8px', whiteSpace: 'nowrap' }}
+            style={{ padding: '7px 18px', fontSize: '0.85rem', borderRadius: '8px', whiteSpace: 'nowrap' }}
           >
             + New Loan
           </button>
