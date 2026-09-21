@@ -14,8 +14,8 @@ type Tab = 'today' | 'weekly' | 'monthly' | 'yearly' | 'passkey'
 type View = Tab
 
 export default function Dashboard({ session }: { session: Session }) {
-  const [currentTab, setCurrentTab] = useState<Tab>('today')
-  const [currentView, setCurrentView] = useState<View>('today')
+  const [currentTab, setCurrentTab] = useState<Tab>('monthly')
+  const [currentView, setCurrentView] = useState<View>('monthly')
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isHelpOpen, setIsHelpOpen] = useState(false)
