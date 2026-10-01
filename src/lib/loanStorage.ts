@@ -92,11 +92,13 @@ export async function fetchLoans(userId?: string): Promise<Loan[]> {
   try {
     if (supabase) {
       let query = supabase.from('loans').select('*').order('created_at', { ascending: false });
-      if (userId) {
+      if (userId && userId !== 'demo-user') {
         query = query.eq('user_id', userId);
       }
       const { data, error } = await query;
-      if (!error && data && data.length > 0) {
+      if (error) {
+        console.error('Supabase fetchLoans error:', error);
+      } else if (data && data.length > 0) {
         // Map database columns if needed, or if stored as JSON
         const mapped: Loan[] = data.map((d: any) => ({
           ...d,
@@ -155,13 +157,13 @@ export async function saveLoan(loan: Loan): Promise<Loan> {
   // 2. Try Supabase
   try {
     if (supabase) {
-      const payload = {
+      const payload: Record<string, any> = {
         id: updatedLoan.id,
-        user_id: updatedLoan.user_id,
+        user_id: updatedLoan.user_id && updatedLoan.user_id !== 'demo-user' ? updatedLoan.user_id : null,
         title: updatedLoan.title,
         borrower_name: updatedLoan.borrowerName,
         lender_name: updatedLoan.lenderName,
-        property_address: updatedLoan.propertyAddress,
+        property_address: updatedLoan.propertyAddress || null,
         original_principal_cents: updatedLoan.originalPrincipalCents,
         annual_rate_bps: updatedLoan.annualRateBps,
         term_months: updatedLoan.termMonths,
@@ -174,15 +176,18 @@ export async function saveLoan(loan: Loan): Promise<Loan> {
         prepayment_penalty: false,
         payment_application: updatedLoan.paymentApplication,
         status: updatedLoan.status,
-        note_reference: updatedLoan.noteReference,
-        forgiven_date: updatedLoan.forgivenDate,
-        forgiven_doc_reference: updatedLoan.forgivenDocReference,
-        forgiven_reason: updatedLoan.forgivenReason,
-        amendments: updatedLoan.amendments,
+        note_reference: updatedLoan.noteReference || null,
+        forgiven_date: updatedLoan.forgivenDate || null,
+        forgiven_doc_reference: updatedLoan.forgivenDocReference || null,
+        forgiven_reason: updatedLoan.forgivenReason || null,
+        amendments: updatedLoan.amendments || [],
         updated_at: updatedLoan.updated_at,
       };
 
-      await supabase.from('loans').upsert(payload);
+      const { error } = await supabase.from('loans').upsert(payload);
+      if (error) {
+        console.error('Supabase saveLoan error:', error);
+      }
     }
   } catch (e) {
     console.warn('Supabase saveLoan error, saved locally:', e);
@@ -200,8 +205,10 @@ export async function deleteLoan(loanId: string): Promise<boolean> {
 
   try {
     if (supabase) {
-      await supabase.from('loan_payments').delete().eq('loan_id', loanId);
-      await supabase.from('loans').delete().eq('id', loanId);
+      const { error: pErr } = await supabase.from('loan_payments').delete().eq('loan_id', loanId);
+      if (pErr) console.error('Supabase deleteLoan payments error:', pErr);
+      const { error: lErr } = await supabase.from('loans').delete().eq('id', loanId);
+      if (lErr) console.error('Supabase deleteLoan error:', lErr);
     }
   } catch (e) {
     console.warn('Supabase deleteLoan error:', e);
@@ -222,7 +229,9 @@ export async function fetchPayments(loanId: string): Promise<LoanPayment[]> {
         .eq('loan_id', loanId)
         .order('due_date', { ascending: true });
 
-      if (!error && data && data.length > 0) {
+      if (error) {
+        console.error('Supabase fetchPayments error:', error);
+      } else if (data && data.length > 0) {
         const mapped: LoanPayment[] = data.map((d: any) => ({
           id: d.id,
           loanId: d.loan_id || d.loanId,
@@ -278,7 +287,7 @@ export async function savePayment(payment: LoanPayment): Promise<LoanPayment> {
       const payload = {
         id: updated.id,
         loan_id: updated.loanId,
-        user_id: updated.user_id,
+        user_id: updated.user_id && updated.user_id !== 'demo-user' ? updated.user_id : null,
         payment_number: updated.paymentNumber,
         due_date: updated.dueDate,
         paid_date: updated.paidDate,
@@ -294,7 +303,10 @@ export async function savePayment(payment: LoanPayment): Promise<LoanPayment> {
         status: updated.status,
         memo: updated.memo,
       };
-      await supabase.from('loan_payments').upsert(payload);
+      const { error } = await supabase.from('loan_payments').upsert(payload);
+      if (error) {
+        console.error('Supabase savePayment error:', error);
+      }
     }
   } catch (e) {
     console.warn('Supabase savePayment error:', e);
@@ -309,7 +321,10 @@ export async function deletePayment(paymentId: string, loanId: string): Promise<
 
   try {
     if (supabase) {
-      await supabase.from('loan_payments').delete().eq('id', paymentId);
+      const { error } = await supabase.from('loan_payments').delete().eq('id', paymentId);
+      if (error) {
+        console.error('Supabase deletePayment error:', error);
+      }
     }
   } catch (e) {
     console.warn('Supabase deletePayment error:', e);
