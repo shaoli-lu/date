@@ -5,6 +5,8 @@ import { format, startOfDay, endOfDay, addDays } from 'date-fns'
 import { Trash2, Pencil, ChevronLeft, ChevronRight } from 'lucide-react'
 import { parseDescription } from '@/lib/eventUtils'
 import { getBilingualLunarDate, getSanfuInfo, getSanjiuInfo } from '@/lib/lunarUtils'
+import { WEEKDAY_CH, getHolidayForDate, getNextUpcomingHoliday } from '@/lib/holidayUtils'
+import HolidaySpotlight from '@/components/holiday/HolidaySpotlight'
 
 
 export default function TodayView({ session, refreshKey, selectedDate, onDateChange, onEditEvent, onNavigateUp }: { session: Session, refreshKey: number, selectedDate: Date, onDateChange: (date: Date) => void, onEditEvent?: (event: any) => void, onNavigateUp: () => void }) {
@@ -99,13 +101,19 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               placeItems: 'center',
             }}
           >
-            ◀ WEEK
+            ◀ WEEK · 周
           </button>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '8px', color: 'var(--primary-color)' }}>
-            {format(selectedDate, 'EEEE')}
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '8px', color: 'var(--primary-color)', display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
+            <span>{format(selectedDate, 'EEEE')}</span>
+            <span style={{ fontSize: '1.4rem', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
+              {WEEKDAY_CH[format(selectedDate, 'EEEE')] || ''}
+            </span>
           </h1>
-          <h2 style={{ fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: 400, marginBottom: '8px' }}>
-            {format(selectedDate, 'MMMM d, yyyy')}
+          <h2 style={{ fontSize: '1.2rem', color: 'var(--text-main)', fontWeight: 400, marginBottom: '8px', display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
+            <span>{format(selectedDate, 'MMMM d, yyyy')}</span>
+            <span style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.6)' }}>
+              · {selectedDate.getFullYear()}年{selectedDate.getMonth() + 1}月{selectedDate.getDate()}日
+            </span>
           </h2>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px' }}>
           {(() => {
@@ -113,19 +121,48 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
             if (!lunarInfo) return null
             return (
               <div style={{
-                padding: '8px 12px',
-                borderRadius: '10px',
+                padding: '10px 14px',
+                borderRadius: '12px',
                 background: 'rgba(102, 252, 241, 0.05)',
-                border: '1px solid rgba(102, 252, 241, 0.15)',
+                border: '1px solid rgba(102, 252, 241, 0.2)',
                 fontSize: '0.85rem',
                 color: 'var(--text-main)',
                 display: 'inline-flex',
                 flexDirection: 'column',
-                gap: '2px',
+                gap: '4px',
+                minWidth: '260px',
               }}>
-                <span style={{ fontSize: '0.72rem', color: 'var(--primary-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Chinese Lunar Calendar · 农历</span>
-                <span style={{ color: '#fff', fontWeight: 500 }}>{lunarInfo.fullCh}</span>
-                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>{lunarInfo.fullEng}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--primary-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Chinese Lunar Calendar · 农历</span>
+                  {lunarInfo.festivals.length > 0 && (
+                    <span style={{
+                      fontSize: '0.7rem',
+                      color: '#f59e0b',
+                      background: 'rgba(245, 158, 11, 0.15)',
+                      border: '1px solid rgba(245, 158, 11, 0.35)',
+                      padding: '1px 6px',
+                      borderRadius: '4px',
+                      fontWeight: 600
+                    }}>
+                      🏮 {lunarInfo.festivals.join(', ')}
+                    </span>
+                  )}
+                </div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
+                  <span style={{ color: '#fff', fontWeight: 600, fontSize: '1.05rem' }}>{lunarInfo.fullCh}</span>
+                  <span style={{
+                    color: 'var(--primary-color)',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    background: 'rgba(102, 252, 241, 0.1)',
+                    padding: '1px 6px',
+                    borderRadius: '4px',
+                    border: '1px solid rgba(102, 252, 241, 0.2)'
+                  }}>
+                    {lunarInfo.monthWithCh} · {lunarInfo.dayWithCh}
+                  </span>
+                </div>
+                <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem' }}>{lunarInfo.fullEng}</span>
               </div>
             )
           })()}
@@ -214,12 +251,20 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
         </div>
       </div>
 
+      {/* Chinese Traditional Holiday Spotlight / Countdown */}
+      <HolidaySpotlight
+        currentHoliday={getHolidayForDate(selectedDate)}
+        upcomingHoliday={getNextUpcomingHoliday(selectedDate)}
+        selectedDate={selectedDate}
+        onSelectHolidayDate={onDateChange}
+      />
+
       {loading ? (
-        <div style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-main)' }}>Loading tasks...</div>
+        <div style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-main)' }}>Loading tasks... · 待办加载中...</div>
       ) : events.length === 0 ? (
         <div className="glass-panel" style={{ padding: '40px 20px', textAlign: 'center', marginTop: '20px' }}>
-          <p style={{ color: 'var(--text-main)', fontSize: '1.1rem' }}>No events today.</p>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9rem', marginTop: '8px' }}>Tap the + button to add a task or appointment.</p>
+          <p style={{ color: 'var(--text-main)', fontSize: '1.1rem' }}>No events today · 今日暂无待办事项</p>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.9rem', marginTop: '8px' }}>Tap the + button to add a task or appointment · 点击右下角 + 添加新日程</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

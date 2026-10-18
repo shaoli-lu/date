@@ -86,6 +86,12 @@ const FESTIVALS_ENG: Record<string, string> = {
   '腊八节': 'Laba Festival',
   '除夕': 'Lunar New Year\'s Eve',
   '清明节': 'Tomb Sweeping Day',
+  '中元节': 'Ghost Festival',
+  '龙抬头': 'Dragon Head Raising',
+  '龙头节': 'Dragon Head Raising',
+  '二月二': 'Dragon Head Raising',
+  '小年': 'Little New Year',
+  '上巳节': 'Shangsi Festival',
 }
 
 export function translateGanZhi(ganZhi: string, shengXiao: string) {
@@ -115,6 +121,13 @@ export interface BilingualLunarInfo {
   fullEng: string
   solarTerm: string
   festivals: string[]
+  monthEng: string
+  dayEng: string
+  monthWithCh: string
+  dayWithCh: string
+  dateWithCh: string
+  yearWithCh: string
+  englishZodiac: string
 }
 
 export interface SanfuInfo {
@@ -344,6 +357,12 @@ export function getBilingualLunarDate(date: Date): BilingualLunarInfo | null {
                      (firstFestival && FESTIVALS_ENG[firstFestival]) || 
                      (dayCh === '初一' ? formattedMonthEng : dayEng)
                      
+    const englishZodiac = ZODIAC_ENG[shengXiao] || shengXiao
+    const monthWithCh = `${formattedMonthEng} (${monthCh}月)`
+    const dayWithCh = `${dayEng} (${dayCh})`
+    const dateWithCh = `${formattedMonthEng} Day ${dayEng} (${monthCh}月${dayCh})`
+    const yearWithCh = `Year of the ${englishZodiac} (${yearCh}年·${shengXiao}年)`
+
     return {
       yearCh,
       shengXiao,
@@ -352,9 +371,16 @@ export function getBilingualLunarDate(date: Date): BilingualLunarInfo | null {
       labelCh,
       labelEng,
       fullCh: `${yearCh}年${monthCh}月${dayCh}`,
-      fullEng: `${formattedMonthEng} Day ${dayEng}, Year of the ${ZODIAC_ENG[shengXiao] || shengXiao}`,
+      fullEng: `${formattedMonthEng} Day ${dayEng} (${monthCh}月${dayCh}), Year of the ${englishZodiac} (${shengXiao}年)`,
       solarTerm,
       festivals: festivals || [],
+      monthEng: formattedMonthEng,
+      dayEng,
+      monthWithCh,
+      dayWithCh,
+      dateWithCh,
+      yearWithCh,
+      englishZodiac,
     }
   } catch (error) {
     console.error(error)

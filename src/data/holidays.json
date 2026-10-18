@@ -1,0 +1,757 @@
+{
+  "holidays": [
+    {
+      "id": "chongyang",
+      "name": "重阳节",
+      "namePinyin": "Chóngyáng Jié",
+      "nameEn": "Double Ninth Festival",
+      "type": "lunar",
+      "lunarMonth": 9,
+      "lunarDay": 9,
+      "lunarDateStr": "九月初九",
+      "lunarDateEng": "9th Month Day 9th",
+      "icon": "⛰️",
+      "accentColor": "#f59e0b",
+      "aliases": [
+        "重九节",
+        "登高节",
+        "敬老节",
+        "菊花节",
+        "Chongyeung Festival",
+        "Senior Citizens' Day",
+        "Chrysanthemum Festival"
+      ],
+      "significance": "Celebrated on the 9th day of the 9th lunar month. In the ancient I Ching (Book of Changes), six is a Yin number and nine is the supreme Yang number. With month and day both being nine, double Yang aligns, making it an extraordinarily auspicious day. Because 'nine' (jiǔ) is a homophone for 'long-lasting' (jiǔ 久), the festival symbolizes longevity, robust health, and filial respect for the elderly.",
+      "significanceZh": "农历九月初九，两九相重，故称“重阳”或“重九”。《易经》中将“九”定为阳数之极，九月九日日月并阳，极阳相聚，吉庆祥瑞。因“九九”谐音“久久”，寓意健康长寿、生命长久。现代定为“敬老节”、“老人节”，承载中华民族尊老敬老的传统美德。",
+      "customs": [
+        "Climbing mountains (登高 - Deng Gao) to admire the panoramic autumn foliage, breathe fresh crisp air, and symbolize continuous upward advancement in life and career.",
+        "Wearing and carrying dogwood sprigs (佩插茱萸 - Zhuyu), believed to emit a strong fragrance that cleanses pestilence and wards off misfortune.",
+        "Appreciating blooming chrysanthemums (赏菊 - Shang Ju), the flower of autumn representing integrity and longevity.",
+        "Visiting grandparents and elderly family members, taking them on scenic strolls, and presenting thoughtful longevity gifts."
+      ],
+      "customsZh": [
+        "登高祈福：秋高气爽之时全家登高望远，开阔心胸，寓意步步高升、健康辟邪。",
+        "佩插茱萸：茱萸香味浓烈，有祛虫防瘟、辟邪消灾之效，人们折枝插鬓或缝制茱萸香囊随身佩戴。",
+        "赏菊品秋：农历九月素有“菊月”之称，金菊傲霜怒放，举家游园赏菊怡情养性。",
+        "尊老敬老：返乡探望父母长辈，送上重阳糕与祝福，共度团聚温情时光。"
+      ],
+      "foods": [
+        "Chongyang Cake (重阳糕 / 花糕): Multi-layered steamed rice cake studded with red dates, chestnuts, pine nuts, and sweet osmanthus. The word 'cake' (gāo 糕) is homophonous with 'high' (gāo 高), symbolizing soaring higher in status and living standards.",
+        "Chrysanthemum Wine (菊花酒): A fragrant liquor infused with freshly picked chrysanthemum petals and glutinous rice, historically praised as the 'auspicious longevity brew' (延年益寿之酒).",
+        "Chrysanthemum Tea (菊花茶): Clear, calming golden herbal tea that soothes the eyes, cools internal autumn heat, and refreshes the spirit.",
+        "Mutton Noodles (羊肉面): Eaten in many northern Chinese areas because 'mutton' (yáng 羊) sounds like 'Yang' (yáng 阳), complementing the double-yang warmth."
+      ],
+      "foodsZh": [
+        "重阳花糕：以大米粉、糯米粉夹枣栗、果仁、桂花蒸制而成。“糕”谐音“高”，寓意百事俱高、步步登高、节节升迁。",
+        "菊花名酒：用金秋菊花与糯米古法酿成，甘美芳香，古人视为祛灾祈福、延年益寿的“吉祥酒”。",
+        "金丝菊茶：冲泡清冽甘爽，具有清肝明目、疏风降燥之功效，是重阳品糕绝配。",
+        "滋补羊肉面：“羊”与“阳”同音，九九极阳之日食温热羊肉面，既补益脾胃又顺应节气。"
+      ],
+      "funFacts": [
+        "The Legend of Huan Jing: In the Eastern Han Dynasty, an immortal warned Huan Jing that a river demon would spread disease on the 9th day of the 9th month. Huan Jing led all the villagers up a high peak, gave everyone dogwood sprigs and chrysanthemum wine. The aromatic scent intoxicated the demon, allowing Huan Jing to slay it with his enchanted sword!",
+        "Tang Dynasty Masterpiece: Poet Wang Wei wrote the timeless verse 'Thinking of My Brothers in Shandong on the Double Ninth' (《九月九日忆山东兄弟》): 'Alone, a lonely stranger in a foreign land, on every holiday I miss my family doubly. Far away I know my brothers are ascending the height, all wearing dogwood, with only one person missing.'",
+        "If you can't climb a mountain, eating Chongyang Cake was traditionally accepted as a full symbolic equivalent because the words sound identical!",
+        "Celebrated internationally: In Japan it is celebrated as Chōyō no Sekku (Chrysanthemum Festival) with chrysanthemum sake; in South Korea it is Jungyangjeol with pan-fried chrysanthemum cakes."
+      ],
+      "funFactsZh": [
+        "桓景登高伏魔传说：东汉汝河瘟魔肆虐，仙人指点桓景于九月九日率乡邻携茱萸、饮菊花酒登高避祸，借香气熏晕瘟魔，拔剑将其彻底降伏。",
+        "王维千古名篇：唐代诗人王维17岁于重阳写下《九月九日忆山东兄弟》：“独在异乡为异客，每逢佳节倍思亲。遥知兄弟登高处，遍插茱萸少一人。”传颂至今。",
+        "以“糕”代“高”：古人讲究“登高避灾”，若地势平坦或家有长者出行不便，便以吃重阳糕代指登高，同样寄托美好心愿。",
+        "东亚同庆：在日本被列为五节句之一的“重阳之节句”（菊之节句）；在韩国则为“重阳节”，有食菊花煎饼赏秋的雅俗。"
+      ]
+    },
+    {
+      "id": "chunjie",
+      "name": "春节",
+      "namePinyin": "Chūn Jié",
+      "nameEn": "Spring Festival (Chinese New Year)",
+      "type": "lunar",
+      "lunarMonth": 1,
+      "lunarDay": 1,
+      "lunarDateStr": "正月初一",
+      "lunarDateEng": "1st Month Day 1st",
+      "icon": "🧨",
+      "accentColor": "#ef4444",
+      "aliases": [
+        "农历新年",
+        "大年初一",
+        "新春",
+        "过年",
+        "Chinese New Year",
+        "Lunar New Year"
+      ],
+      "significance": "The most significant traditional holiday across the Chinese world. It signals the rebirth of spring, the start of a fresh agricultural and lunar cycle, and the supreme gathering of families. It is a time for renewal, letting go of the old year's debts and grievances, and wishing for abundance, peace, and health.",
+      "significanceZh": "中华民族最隆重、最热闹的传统佳节。标志着冬去春来、天地万象更新，是辞旧迎新、阖家团圆的盛大庆典，承载着祈福迎祥、万家和乐的美好心愿。",
+      "customs": [
+        "Pasting bright red couplets (春联), Door Gods (门神), and inverted 'Fu' (福) characters on entry doors (upside-down 'dao' sounds like 'arriving').",
+        "Handing out red envelopes (红包 - Hongbao) filled with crisp new bills to younger generations to ward off evil spirits and bestow fortune.",
+        "Visiting elder relatives and neighbors to exchange heartfelt New Year greetings (拜年 - Bainian).",
+        "Watching lion and dragon dances (舞龙舞狮) accompanied by gongs, drums, and celebratory music."
+      ],
+      "customsZh": [
+        "贴春联与倒福：朱红春联纳祥瑞，倒贴“福”字寓意“福到家门”，门神镇宅护平安。",
+        "长辈给压岁钱：长辈给小辈派发红纸包着的压岁钱，取“压祟除凶”、平平安安之意。",
+        "走亲访友拜年：初一拜本家，初二回娘家，穿新衣道吉言，传递亲朋祝福。",
+        "醒狮舞龙巡游：锣鼓喧天中迎祥纳福，热闹非凡，驱除旧岁阴霾。"
+      ],
+      "foods": [
+        "Dumplings (饺子 - Jiaozi): Shaped like ancient Chinese silver and gold ingots (元宝); eating them brings wealth and fortune. Sometimes a clean coin is wrapped inside a lucky dumpling!",
+        "Nian Gao (年糕): Sweet sticky glutinous rice cake. Sounds like 'Year Higher' (年高), symbolizing rising higher in stature, career, and grades each year.",
+        "Spring Rolls (春卷): Deep-fried golden cylinders that look like bars of solid gold, symbolizing immense prosperity.",
+        "Longevity Noodles (长寿面): Unbroken continuous noodles symbolizing a long, uninterrupted, healthy life."
+      ],
+      "foodsZh": [
+        "元宝金饺：外形酷似金银元宝，内包鲜香馅料，寓意招财进宝。有的饺子内包红枣或硬币，吃到者福气加倍。",
+        "如意年糕：糯米制成，谐音“年年高升”，祝福生活一年更比一年好，事业学业节节高。",
+        "黄金春卷：外皮金黄酥脆，形似金条，咬一口酥脆迎春，寓意“迎春纳福、黄金万两”。",
+        "绵长寿面：面条细长不断，寓意健康延年、长命百岁。"
+      ],
+      "funFacts": [
+        "The Legend of Nian: In ancient times, the ferocious beast 'Nian' would terrorize villages on New Year's Eve until people discovered it was terrified of the color red, blinding flames, and crackling loud sounds. This gave birth to red clothes, red lanterns, and fireworks!",
+        "Strict Taboo on Sweeping: On the first day of the New Year, sweeping floors or dumping garbage is strictly forbidden, as doing so is believed to sweep away the newly arrived good luck and wealth!",
+        "Chunyun (春运): The weeks surrounding Spring Festival form the largest annual migration of humans on Earth, with over 3 billion passenger trips taken to return to hometowns."
+      ],
+      "funFactsZh": [
+        "年兽与过年起源：传说太古凶兽“年”每逢腊月除夕便出山害人，后人发现其惧怕红色、火光与爆响，便在门贴红纸、燃放爆竹将其驱逐，此即“过年”。",
+        "大年初一忌扫地：正月初一不动扫帚、不倒垃圾，生怕扫地会将刚进门的财气与福气扫地出门。",
+        "春运人类大迁徙：春节前后的“春运”被誉为人类历史上规模最大的周期性迁徙，数十亿人次跨越千山万水只为一顿团圆饭。"
+      ]
+    },
+    {
+      "id": "chuxi",
+      "name": "除夕",
+      "namePinyin": "Chú Xī",
+      "nameEn": "Lunar New Year's Eve",
+      "type": "lunar",
+      "lunarMonth": 12,
+      "lunarDay": 30,
+      "lunarDateStr": "腊月三十",
+      "lunarDateEng": "12th Month Day 30th",
+      "icon": "🏮",
+      "accentColor": "#e11d48",
+      "aliases": [
+        "大年三十",
+        "岁除",
+        "大年夜",
+        "Chinese New Year's Eve",
+        "Reunion Night"
+      ],
+      "significance": "The final night of the lunar year. 'Chu' means to eliminate or cast out; 'Xi' means evening. It represents casting away all hardships and misfortunes of the old year while staying awake together to welcome the luminous new year with open arms.",
+      "significanceZh": "岁末的最后一夜，岁暮除旧迎新之时。“除”即除旧布新，“夕”即夜晚。阖家欢聚一堂，祭祀祖先，共进年夜饭，共度辞旧迎新的神圣温馨之夜。",
+      "customs": [
+        "The Grand Reunion Dinner (年夜饭 / 团年饭): The single most sacred and lavish family meal of the entire year.",
+        "Shousui (守岁 - Guarding the Year): Staying awake late into the night or all night to cherish time with family and pray for longevity of parents.",
+        "Ancestor Veneration: Preparing tables with fine delicacies, burning incense, and honoring ancestors before sitting down to dine.",
+        "Setting off midnight fireworks (放烟花爆竹) at the stroke of 12:00 AM to banish stale energy and greet the New Year."
+      ],
+      "customsZh": [
+        "阖家年夜饭：一年中最重要的一顿团圆大餐，即便远在他乡也会千里迢迢赶回，围炉夜话。",
+        "彻夜守岁：除夕夜灯火通明，全家人熬夜畅叙守岁，相传年轻人守岁可为父母延年益寿。",
+        "祭祖酬神：年夜饭前设案焚香，敬奉天地神明与列祖列宗，感念祖德，祈求家族昌盛。",
+        "鸣钟放炮：子夜时分辞旧岁，万家爆竹齐鸣，焰火映红夜空，迎来崭新的一年。"
+      ],
+      "foods": [
+        "Whole Fish (年年有余): Always served with head and tail intact to symbolize completeness. Chinese 'fish' (yú 鱼) is homophonous with 'surplus' (yú 余). Leaving a portion uneaten symbolizes ongoing abundance year after year.",
+        "Midnight Dumplings (交子): Eaten right at the midnight transition ('jiao zi', 交子) from the old year to the new year.",
+        "Braised Pork Belly (红烧肉): Radiant red and sumptuous, representing rich and prosperous days ahead.",
+        "Prosperity Hot Pot (年夜暖锅): Simmering round pot packed with meatballs, vegetables, and tofu, symbolizing hot thriving warmth and round completeness."
+      ],
+      "foodsZh": [
+        "年年有“余”（鱼）：不可或缺的主菜，且须头尾俱全，饭后留有鱼肉，寓意“年年有结余、富足安康”。",
+        "子夜更岁饺子：取“更岁交子”之意，在子时辞旧迎新之际热腾腾出锅，象征团聚招财。",
+        "鸿运红烧肉：色泽红亮如火，肥而不腻，寓意新的一年红红火火、富足美满。",
+        "团圆暖锅：一家人围炉共享热气腾腾的火锅，汤滚菜香，寓意日子过得热热闹闹、红火温暖。"
+      ],
+      "funFacts": [
+        "The Empty Seat Tradition: If a family member is overseas or unable to make it back in time, traditional families still set a full place setting with chopsticks and wine to honor their spiritual presence at the table.",
+        "Guarding the Year for Parents: Folk tradition teaches that the later young children stay awake on Chuxi night, the longer their parents will live (守岁延寿).",
+        "Brightly lit overnight: Lights throughout the house are kept blazing all night long to illuminate good fortune and discourage shadows or bad spirits."
+      ],
+      "funFactsZh": [
+        "留座添箸：若有远在他乡未能赶回的游子，年夜饭席上依然会为其保留一个座位、添一副碗筷，象征全家一人不落。",
+        "守岁延年：民间相传除夕夜守岁熬得越久，父母长辈的寿命越长，承载着深厚的孝道亲情。",
+        "除夕不关灯：除夕夜通宵点灯不灭，照亮前程，驱除一切阴霾，寓意来年通达光明。"
+      ]
+    },
+    {
+      "id": "yuanxiao",
+      "name": "元宵节",
+      "namePinyin": "Yuánxiāo Jié",
+      "nameEn": "Lantern Festival",
+      "type": "lunar",
+      "lunarMonth": 1,
+      "lunarDay": 15,
+      "lunarDateStr": "正月十五",
+      "lunarDateEng": "1st Month Day 15th",
+      "icon": "🏮",
+      "accentColor": "#f97316",
+      "aliases": [
+        "上元节",
+        "灯节",
+        "小正月",
+        "Shangyuan Festival",
+        "Chinese Valentine's Day"
+      ],
+      "significance": "Celebrated on the 15th day of the first lunar month, marking the first full moon of the year and the festive climax and conclusion of the Spring Festival season. It is a festival of dazzling illuminations, romantic encounters, and harmonious reunions.",
+      "significanceZh": "农历正月十五，新年第一个月圆之夜，也是春节系列庆典的压轴高潮。自汉代起便有燃灯祈福的传统，是一年中极具浪漫与狂欢色彩的民俗节日。",
+      "customs": [
+        "Admiring illuminated lanterns (赏花灯): Streets and parks are transformed into glowing oceans of artistic paper and silk lanterns.",
+        "Solving lantern riddles (猜灯谜): Clever intellectual riddles written on slips attached to lanterns, rewarded with small prizes.",
+        "Watching dynamic lion and dragon dances (舞龙舞狮) and walking on stilts (踩高跷).",
+        "Strolling across bridges (走百病): Women traditionally walked across city bridges under the moonlight to shed ailments and pray for health."
+      ],
+      "customsZh": [
+        "观灯赏灯：火树银花不夜天，街巷长廊挂满百态花灯，五彩斑斓，绚丽夺目。",
+        "智猜灯谜：将妙趣横生的谜语贴于灯上，供游人驻足猜射，既开智又添节庆雅兴。",
+        "闹社火与耍龙灯：舞龙、舞狮、跑旱船、踩高跷，锣鼓喧天，万人空巷同贺佳节。",
+        "走桥散百病：相传正月十五夜结伴过桥走百步，能消灾去病、健康长寿。"
+      ],
+      "foods": [
+        "Tangyuan / Yuanxiao (汤圆 / 元宵): Plump, round glutinous rice balls filled with molten black sesame, red bean, crushed peanuts, or lard-sugar filling, served in warm sweet broth. Their spherical perfection symbolizes family togetherness, wholeness, and sweet lives.",
+        "Fried Lantern Pastries (油灯粑 / 枣糕): Traditional crispy celebratory treats served in local town fairs."
+      ],
+      "foodsZh": [
+        "团圆汤圆与元宵：北方滚元宵，南方包汤圆。香糯软弹，内裹黑芝麻、花生或红豆沙，温润甜润，象征家庭团圆、甜美圆满。",
+        "元宵油茶与枣糕：部分地区有饮温润油茶、吃吉祥枣糕的风俗，暖胃又提气。"
+      ],
+      "funFacts": [
+        "Ancient Chinese Valentine's Day: In feudal China, unmarried daughters were generally kept strictly at home. However, on Lantern Festival night, curfews were lifted and women were freely allowed to roam the illuminated streets, making it the premier night for romantic strolls and falling in love!",
+        "Xin Qiji's famous romantic verse captured this atmosphere: 'Looking for her thousands of times in the crowd, suddenly turning back, she was there where the lanterns were dim and flickering.' (众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。)",
+        "North vs South technique: In the North, 'Yuanxiao' are made by tossing firm filling cubes in a large bamboo basket filled with dry flour; in the South, 'Tangyuan' are hand-rolled like dough dumplings!"
+      ],
+      "funFactsZh": [
+        "古代真正的情人节：封建社会年轻女子平日鲜少出闺门，唯元宵夜解除宵禁，男女皆可盛装出游赏灯，由此留下了无数才子佳人的浪漫佳话。",
+        "辛弃疾传世词作：南宋辛弃疾写下“东风夜放花千树……众里寻他千百度，蓦然回首，那人却在，灯火阑珊处”，描绘的正是元宵浪漫之景。",
+        "南“包”北“滚”：北方元宵是将馅料蘸水后在糯米粉筛中反复摇滚而成；南方汤圆则是将糯米粉和面后像包水饺一样手工包裹，各具千秋。"
+      ]
+    },
+    {
+      "id": "longtaitou",
+      "name": "龙抬头",
+      "namePinyin": "Lóng Tái Tóu",
+      "nameEn": "Dragon Head Raising Festival",
+      "type": "lunar",
+      "lunarMonth": 2,
+      "lunarDay": 2,
+      "lunarDateStr": "二月初二",
+      "lunarDateEng": "2nd Month Day 2nd",
+      "icon": "🐲",
+      "accentColor": "#06b6d4",
+      "aliases": [
+        "春耕节",
+        "春龙节",
+        "二月二",
+        "Spring Dragon Festival",
+        "Farming Festival"
+      ],
+      "significance": "Falling on the 2nd day of the 2nd lunar month. In ancient Chinese astronomy, the Azure Dragon constellation begins to peek above the eastern horizon around this time. Dragons govern rain, clouds, and water, symbolizing the reawakening of life from winter hibernation and the kickoff of spring plowing.",
+      "significanceZh": "农历二月初二，东方苍龙七宿之“龙角星”从东方地平线上徐徐升起，故称“龙抬头”。龙主风调雨顺、降雨润泽，预示着大地春回、草木萌生、春耕大忙自此展开。",
+      "customs": [
+        "Getting a Haircut (剃龙头): The most widespread modern custom. Getting a haircut on this day is believed to bestow vigor, fresh luck, and clean success from the head down.",
+        "Spring Plowing Ceremonies: Farmers bless draft oxen, till the first furrow of the season, and pray for bountiful harvests.",
+        "Scattering wood ash (引龙回): Drawing ash lines from outside wells into the kitchen to guide dragon water blessings home.",
+        "Avoiding needlework: Women traditionally avoided sewing to prevent the needle from piercing the dragon's eyes!"
+      ],
+      "customsZh": [
+        "剃龙头剪发：民间素有“二月二剃龙头，一年都有精神头”之说，人们在这一天剪发理容，辞旧迎新，讨个好彩头。",
+        "引龙回与祭社神：清晨以灶灰撒于庭院引龙入室，保佑家宅风调雨顺；同时祭拜土地公求一年丰稔。",
+        "春耕出锄：农人整理农具，翻耕第一垄春田，祈求今年五谷丰登。",
+        "不动针线：当日闺阁女眷多不动剪刀针线，生怕伤了龙眼，表达对天地造化的敬畏。"
+      ],
+      "foods": [
+        "Dragon's Beard Noodles (龙须面): Delicate extra-fine noodles symbolizing the flowing beard of the mighty dragon.",
+        "Dragon's Ears Dumplings (龙耳/饺子): Savory crescent dumplings eaten for sharp hearing and wealth.",
+        "Dragon's Scales Pancakes (龙鳞饼/春饼): Thin crepe-like wheat pancakes rolled with fresh spring vegetables.",
+        "Golden Dragon Beans (金豆/炒玉米): Roasted spiced soybeans or popcorn ('golden beans blooming') to bring joyous fortune."
+      ],
+      "foodsZh": [
+        "龙须面：面条细长如丝，形似龙须，寓意长寿吉祥、顺心顺意。",
+        "龙耳水饺：饺子形如人耳，二月二吃水饺谓之“吃龙耳”，盼望眼聪目明、耳聪心慧。",
+        "龙鳞春饼：薄如纸张的烙饼，层叠摆放犹如龙鳞，卷入鲜嫩春韭豆芽，爽口迎春。",
+        "爆开金豆（炒黄豆/爆米花）：相传“金豆开花，龙王升天”，吃炒豆爆花象征好事连连、金玉满堂。"
+      ],
+      "funFacts": [
+        "The Uncle Superstition: In northern China, an old folk saying claimed: 'Cutting hair in the first lunar month harms maternal uncles' (正月剪头死舅舅). In reality, this originated as 'Sī Jiù' (思旧 - reminiscing past dynasties under Qing rule). As a result, nobody cuts their hair in Month 1, making barbershops booked solid from dawn on Month 2 Day 2!",
+        "Dragon-themed diet: Virtually every single dish eaten on Longtaitou is renamed after dragon anatomy to absorb the auspicious dragon energy!"
+      ],
+      "funFactsZh": [
+        "“死舅”原为“思旧”：清代初年百姓怀念旧朝，正月不剪发以示“思旧”，后谐音讹传为“死舅舅”，导致正月普遍不理发，直至二月二理发店通宵爆满。",
+        "无菜不以“龙”名：民间在此日把所有美食冠以“龙”字：吃米饭叫吃龙子，吃猪头肉叫吃龙头，吃馄饨叫吃龙眼，趣味横生。"
+      ]
+    },
+    {
+      "id": "qingming",
+      "name": "清明节",
+      "namePinyin": "Qīngmíng Jié",
+      "nameEn": "Qingming Festival (Tomb-Sweeping Day)",
+      "type": "solarTerm",
+      "solarTermName": "清明",
+      "lunarDateStr": "仲春暮春之交",
+      "lunarDateEng": "Solar Term Clear & Bright (~April 4/5)",
+      "icon": "🌿",
+      "accentColor": "#10b981",
+      "aliases": [
+        "踏青节",
+        "三月节",
+        "冥节",
+        "Tomb Sweeping Day",
+        "Pure Brightness Festival"
+      ],
+      "significance": "One of China's core ancestral festivals, Qingming ('Clear and Bright') occurs when the earth is bathed in fresh sunlight and spring blossoms. It harmoniously intertwines solemn reverence for deceased ancestors with the vibrant embrace of new life outdoors.",
+      "significanceZh": "二十四节气之一，亦是祭祖扫墓的传统大节。“清明”二字寄托着气清景明、万物皆显之意。既是寄托哀思、缅怀先人的肃穆日子，又是感受春回大地、踏青出游的生机之节。",
+      "customs": [
+        "Tomb Sweeping (扫墓): Clearing weeds from ancestral gravesites, sweeping markers, planting fresh flowers, and bowing in gratitude.",
+        "Spring Outings (踏青 - Ta Qing): Walking in nature, rolling on new grass, and admiring vibrant cherry and peach blossoms.",
+        "Kite Flying (放风筝): Flying kites up into the gusty spring winds and intentionally cutting strings to let illness and troubles fly away.",
+        "Willow Twig Wearing (折柳戴柳): Placing fresh willow twigs on door lintels or hair to symbolize vitality and ward off spirits."
+      ],
+      "customsZh": [
+        "扫墓除草：为先祖扫除茔地杂草，培添新土，供奉鲜花美酒，行礼默哀，慎终追远。",
+        "春野踏青：借扫墓之机步入郊外田野，观赏绿意盎然与繁花盛开，呼吸清冽生机。",
+        "放鸢断线：清明放风筝并特意剪断风筝线，任其随风飘向天际，寓意消灾解难、带走晦气。",
+        "门前插柳：折嫩绿柳枝插于门楣或戴于头上，“清明不戴柳，红颜成皓首”，祈求青春永驻、辟邪保平安。"
+      ],
+      "foods": [
+        "Qingtuan (青团): Vibrant emerald jade-green glutinous rice balls tinted with freshly pounded mugwort or wild barley grass juice, stuffed with sweet red bean paste or salted egg yolk and savory pork floss.",
+        "Cold Food Pastries (寒食散 / 青饼): Refreshing cold dishes inherited from the historic Cold Food Festival.",
+        "Peach Blossom Porridge (桃花粥): Delicate sweet rice porridge flavored with fresh early spring peach blossoms."
+      ],
+      "foodsZh": [
+        "艾草青团：采摘春季新鲜艾草或麦青汁捣碎和入糯米粉，内包豆沙或咸蛋黄肉松，清香软糯，带着大自然的草木芬芳。",
+        "寒食青饼与子推馍：继承古寒食节禁火习俗，食冷干粮面点，缅怀介子推的忠孝节烈。",
+        "时令春笋与螺蛳：“清明螺，赛过鹅”，此时河鲜螺蛳肉质肥美甘甜，是江南清明佐酒佳品。"
+      ],
+      "funFacts": [
+        "Merged with the Cold Food Festival (寒食节): Qingming absorbed the 2,600-year-old Cold Food Festival, dedicated to Jie Zitui who died in a forest fire rather than accept worldly glory. During Hanshi, no stoves were lit and people ate only cold dishes.",
+        "Famous Poem by Du Mu: 'A drizzling rain falls like tears on the Mourning Day; the mourner's heart is breaking on his way. Where can a winehouse be found to drown his sad plight? A cowherd boy points to Apricot Flower Village in the distance.' (清明时节雨纷纷，路上行人欲断魂。借问酒家何处有？牧童遥指杏花村。)"
+      ],
+      "funFactsZh": [
+        "源自寒食节与介子推：相传晋文公悼念忠臣介子推火焚柳树殉节，下令全国禁火三日仅食冷食，后寒食节逐渐与清明节气合二为一。",
+        "杜牧千古名作：唐代诗人杜牧路过池州写就《清明》：“清明时节雨纷纷，路上行人欲断魂。借问酒家何处有？牧童遥指杏花村。”成为千百年来清明意境的绝佳写照。"
+      ]
+    },
+    {
+      "id": "duanwu",
+      "name": "端午节",
+      "namePinyin": "Duānwǔ Jié",
+      "nameEn": "Dragon Boat Festival",
+      "type": "lunar",
+      "lunarMonth": 5,
+      "lunarDay": 5,
+      "lunarDateStr": "五月初五",
+      "lunarDateEng": "5th Month Day 5th",
+      "icon": "🚣",
+      "accentColor": "#14b8a6",
+      "aliases": [
+        "五月节",
+        "端阳节",
+        "重午节",
+        "龙舟节",
+        "Duanwu Festival",
+        "Double Fifth"
+      ],
+      "significance": "Occurring on the 5th day of the 5th lunar month. Deeply honors the memory of patriotic poet Qu Yuan (c. 340–278 BCE). Historically, the 5th month was considered the 'Poisonous Month' when summer insects and diseases raged; traditions were established to protect vitality, balance energies, and ward off the 'Five Poisonous Pests'.",
+      "significanceZh": "农历五月初五，纪念楚国爱国诗人屈原投汨罗江殉国的壮烈节操。古人亦将五月视为“恶月”、“毒月”，湿热虫害滋生，端午遂成为驱瘟避疫、强身健体的卫生保健盛会。",
+      "customs": [
+        "Dragon Boat Racing (赛龙舟): Electrifying water races where teams row rhythmically to the thunderous pulse of drums, recreating the search to rescue Qu Yuan.",
+        "Hanging Mugwort and Calamus (挂艾草与菖蒲): Placed on front doors; calamus leaves look like sharp swords, cutting down evil spirits and repelling mosquitoes.",
+        "Wearing fragrant herb pouches (佩香囊): Children wear beautifully embroidered silk sachets filled with herbal medicines to repel pests.",
+        "Tying Five-Color Silk Threads (系五彩绳): Wrapped around wrists and ankles for protection and only snipped off during the first summer rain."
+      ],
+      "customsZh": [
+        "龙舟竞渡：多艘雕龙头、刻凤尾的龙舟在江面上百舸争流，鼓声震天，再现昔日乡民划船争相打捞屈原的悲壮场面。",
+        "门悬艾蒲：艾草香气扑鼻，菖蒲叶形如利剑，挂于门首有“菖蒲驱百恶，艾草纳千福”之功用。",
+        "佩戴香囊：长辈以丝缎绣成精美荷包，内填丁香、雄黄、苍术等中草药，给幼童佩戴防虫安神。",
+        "手系五彩绳：腕踝系红、黄、蓝、白、黑五色丝线，谓之“长命缕”，祈求长命百岁、驱邪避祸。"
+      ],
+      "foods": [
+        "Zongzi (粽子): Pyramid parcels of glutinous rice wrapped in fragrant bamboo or reed leaves. Northern styles are sweet (red date, sweet bean paste); Southern styles are savory (marinated pork belly, salted duck egg yolks, shiitake mushrooms, dried scallops).",
+        "Salted Duck Eggs (咸鸭蛋): Rich, glowing orange yolks that oil delightfully when cut open, eaten during hot summer to restore mineral balance.",
+        "Five Yellow Foods (五黄): In southern China, eating five yellow foods (yellow croaker fish, yellow cucumber, eel, salted egg yolk, realgar wine)."
+      ],
+      "foodsZh": [
+        "翠叶香粽：以竹叶或苇叶包裹糯米蒸煮而成。北粽尚甜（蜜枣、赤豆、蜜饯）；南粽尚咸（五花肉、咸蛋黄、干贝、香菇），咸甜各具独特风味。",
+        "红油咸鸭蛋：切开蛋壳红黄流油，咸香诱人，在炎热初夏补充电解质与食欲。",
+        "端午食“五黄”：江南讲究吃黄鱼、黄瓜、黄鳝、鸭蛋黄和雄黄酒，借“五黄”之气驱邪避毒、清热解毒。"
+      ],
+      "funFacts": [
+        "UNESCO Recognition: In 2009, the Dragon Boat Festival was officially inscribed onto the UNESCO Representative List of the Intangible Cultural Heritage of Humanity, the first Chinese festival to earn this honor.",
+        "Egg-Balancing Magic: An ancient game challenges people to stand a raw egg upright on its end at exactly 12:00 noon. Successfully doing so is said to bring lucky fortune all year!",
+        "Origin of Zongzi: Villagers threw bamboo-wrapped rice dumplings into the Miluo river so fish would feast on the rice instead of disturbing Qu Yuan's body."
+      ],
+      "funFactsZh": [
+        "首个入选非遗的中国节日：2009年端午节被联合国教科文组织正式列入《人类非物质文化遗产代表作名录》，享誉世界。",
+        "正午立蛋奇趣：相传在端午节正午十二点，地心引力与太阳引力达到奇妙平衡，若能将生鸡蛋竖立在地面，将赢得全年的鸿运！",
+        "粽子投江传说：百姓闻屈原投江，痛心疾首，纷纷以粽叶包饭投入江心，使鱼虾鳖蟹食粽而莫伤屈子身躯。"
+      ]
+    },
+    {
+      "id": "qixi",
+      "name": "七夕节",
+      "namePinyin": "Qīxī Jié",
+      "nameEn": "Qixi Festival (Chinese Valentine's Day)",
+      "type": "lunar",
+      "lunarMonth": 7,
+      "lunarDay": 7,
+      "lunarDateStr": "七月初七",
+      "lunarDateEng": "7th Month Day 7th",
+      "icon": "✨",
+      "accentColor": "#ec4899",
+      "aliases": [
+        "乞巧节",
+        "少女节",
+        "双七节",
+        "Double Seventh",
+        "Night of Sevens"
+      ],
+      "significance": "Celebrated on the 7th night of the 7th lunar month. Born from the tragic yet poetic mythology of the Cowherd (Niulang) and the Weaver Girl (Zhinü). Separated by the vast celestial Milky Way, they are granted permission to reunite on this single magical night. It is a festival honoring fidelity, romance, and needlework dexterity.",
+      "significanceZh": "农历七月初七夜，承载牛郎织女隔银河遥遥相望、唯有今宵相会的浪漫神话。古代女子在此夜向织女星乞求心灵手巧与美好良缘，被誉为中国最具浪漫色彩的情人节。",
+      "customs": [
+        "Nighttime Stargazing (看牵牛织女星): Looking into the clear summer night to spot the star Vega (Weaver Girl) and Altair (Cowherd) gazing at each other across the River of Stars.",
+        "Begging for Needlework Dexterity (乞巧): Threading seven-eyed needles under the moonlight or catching a spider overnight; a tight symmetrical web means outstanding skill.",
+        "Couples making romantic vows and exchanging bespoke tokens of eternal devotion.",
+        "Worshiping the Weaver Fairy with plates of fresh seasonal melons, flowers, and powders."
+      ],
+      "customsZh": [
+        "仰望双星：夏夜于庭院仰望夜空，辨认牛郎星与织女星相隔银河脉脉含情的绝美景象。",
+        "穿针乞巧：闺中女子月下穿针引线，对月穿过七孔针，或将小蜘蛛捕入盒中，翌日视织网疏密以定灵巧。",
+        "情侣祈缘：青年男女互赠红绳香囊与深情信物，祈祷爱情忠贞不渝、白头偕老。",
+        "设案拜仙：庭院陈设时令鲜瓜与巧果，向九天织女祈求智慧巧手与美满良缘。"
+      ],
+      "foods": [
+        "Qiaoguo (巧果): Delicate, golden fried pastries crafted from wheat flour, sesame seeds, honey, and raw cane sugar, molded into auspicious shapes of blossoms, butterflies, and magpies.",
+        "Crisp Melons & Watermelon Carvings (巧瓜): Carving delicate flower silhouettes on fresh green summer watermelons.",
+        "Lotus Root Dishes: Representing 'lingering silky connections of unbroken love' (藕断丝连)."
+      ],
+      "foodsZh": [
+        "油炸七夕巧果：以面粉、芝麻、白糖、蜂蜜和匀油炸而成的传统酥点，捏出花鸟吉禽形态，食之巧心巧意。",
+        "雕花蜜瓜（巧瓜）：用夏熟甜瓜切出精巧莲花瓣或镂空花纹，赏心悦目又消暑清甜。",
+        "蜜汁糖藕：取“藕断丝连”之浪漫寓意，象征恋人情丝绵绵不断、甘甜深厚。"
+      ],
+      "funFacts": [
+        "The Magpie Bridge (鹊桥): Legend tells that millions of sympathetic magpies across the earth assemble on the 7th night to form a flying bridge with their fluttering wings over the Milky Way so the lovers can embrace.",
+        "Tears of Lovers: If a gentle drizzle of rain falls on the night of Qixi, folk lore says it is the tears shed by Niulang and Zhinü as they weep in joy and bittersweet farewell.",
+        "Qin Guan's Immortal Verse: 'If love between both sides can last for aye, why need they stay together night and day?' (两情若是久长时，又岂在朝朝暮暮。)"
+      ],
+      "funFactsZh": [
+        "群鹊搭桥奇景：相传人间所有的喜鹊在七夕之夜皆飞向九霄，以羽翼首尾相衔搭成巍巍鹊桥，成全牛郎织女跨越银河相会。",
+        "七夕泪雨传说：若七夕夜晚飘起蒙蒙细雨，老人们便说这是牛郎织女重逢与离别时抛洒的相思热泪。",
+        "秦观名句千古绝唱：宋代词人秦观写下《鹊桥仙》：“金风玉露一相逢，便胜却人间无数……两情若是久长时，又岂在朝朝暮暮。”"
+      ]
+    },
+    {
+      "id": "zhongyuan",
+      "name": "中元节",
+      "namePinyin": "Zhōngyuán Jié",
+      "nameEn": "Zhongyuan Festival (Hungry Ghost Festival)",
+      "type": "lunar",
+      "lunarMonth": 7,
+      "lunarDay": 15,
+      "lunarDateStr": "七月十五",
+      "lunarDateEng": "7th Month Day 15th",
+      "icon": "🕯️",
+      "accentColor": "#8b5cf6",
+      "aliases": [
+        "鬼节",
+        "七月半",
+        "盂兰盆节",
+        "施孤节",
+        "Ghost Festival",
+        "Ullambana"
+      ],
+      "significance": "Celebrated on the 15th day of the 7th lunar month. Rooted deeply in Daoist (Zhongyuan) and Buddhist (Ullambana) philosophy. It is believed that the gates of the spirit realm open, allowing wandering spirits and departed ancestors to revisit mortal realms. It is fundamentally an occasion of profound filial gratitude, ancestor veneration, and universal compassion.",
+      "significanceZh": "道教称“中元”，佛教称“盂兰盆”，民间通称“七月半”。相传此日地府洞开，鬼魂获准重返人间接受供奉。是中华传统中倡导孝道溯源、恤孤怜悯的报恩与祭祀大节。",
+      "customs": [
+        "Floating Lotus Water Lanterns (放河灯): Releasing lit candle lanterns carved like floating lotus flowers into rivers and lakes to gently guide deceased souls across the dark waters.",
+        "Burning Ancestral Joss Paper (烧包袱 / 寄钱): Sending spiritual provisions, clothing, and funds to departed kin.",
+        "Feeding Wandering Spirits (施孤): Placing food, rice, and water at crossroads for lonely spirits without descendants.",
+        "Visiting family altars to offer freshly harvested autumn grain."
+      ],
+      "customsZh": [
+        "漂放荷花河灯：夜幕降临后在河流湖泊放入点着烛光的荷花水灯，灯火随波逐流，指引迷途亡魂归途向善。",
+        "路旁焚香化纸：准备“包袱皮”书写先祖名讳，焚化冥币衣料，表达对逝去亲人的深切怀念与照拂。",
+        "施食路祭：在街角路口设散食果脯，供奉无人祭奠的孤魂野鬼，体现博爱宽容的善意仁心。",
+        "秋尝荐新：将初熟的秋粮新米盛于碗中供奉于家庙祖先牌位前，报告丰收捷报。"
+      ],
+      "foods": [
+        "Steamed Roast Duck (吃鸭肉): In many southern provinces, duck is the paramount seasonal delicacy ('ya' sounds like 'suppress' 压 to soothe restless autumn heat).",
+        "Steamed Flat Rice Cakes (扁食 / 赖糕): Delicate steamed flour envelopes filled with vegetables and minced meat.",
+        "Seasonal Autumn Fruit Offerings: Crispy pears, jujubes, and grapes."
+      ],
+      "foodsZh": [
+        "节令吃鸭肉：江南与岭南皆有中元食鸭之俗。“鸭”与“压”谐音，取压伏邪祟、清降秋燥之效，肉质鲜美甘平。",
+        "扁食与米浆糕：山东等地以面皮包馅煮成扁食祭祖；南方以磨制米浆蒸成松软米糕，清淡适口。",
+        "新采秋果供奉：奉上新采摘的蜜梨、脆枣、鲜葡萄，敬献先人尝鲜。"
+      ],
+      "funFacts": [
+        "The Ullambana Origin (目连救母): According to Buddhist scripture, the devout monk Maudgalyayana (Mulian) saved his deceased mother from agonizing hunger in the underworld by preparing a vast feast for enlightened monks on this day.",
+        "Spiritual Taboos of Ghost Month: Traditional folks avoid nighttime swimming, whistling after sundown, picking up stray coins found on streets, and hanging laundry outdoors late into the night."
+      ],
+      "funFactsZh": [
+        "目连救母佛教典故：相传目连尊者见亡母在地狱受饿鬼之苦咽喉如针，遂遵佛祖教诲，于七月十五备百味五果供养十方僧众，终超度母亲脱离苦海。",
+        "七月半民俗禁忌：民间多有此夜不夜游、夜间不吹口哨、路边不乱捡硬币、入夜不晾晒衣物等风俗讲究，保留着对未知的敬畏。"
+      ]
+    },
+    {
+      "id": "zhongqiu",
+      "name": "中秋节",
+      "namePinyin": "Zhōngqiū Jié",
+      "nameEn": "Mid-Autumn Festival",
+      "type": "lunar",
+      "lunarMonth": 8,
+      "lunarDay": 15,
+      "lunarDateStr": "八月十五",
+      "lunarDateEng": "8th Month Day 15th",
+      "icon": "🥮",
+      "accentColor": "#eab308",
+      "aliases": [
+        "月亮节",
+        "团圆节",
+        "八月半",
+        "仲秋节",
+        "Moon Festival",
+        "Mooncake Festival"
+      ],
+      "significance": "Celebrated on the 15th day of the 8th lunar month. The full moon on this night is believed to shine with incomparable brilliance and perfect roundness. In Chinese cosmology, roundness symbolizes perfection, completeness, and harmonious family reunion. It ranks second only to Spring Festival in cultural grandeur.",
+      "significanceZh": "农历八月十五，秋收时节金风送爽。此日月亮最为圆满皎洁，中国人以月之圆兆人之团圆，寄托思念故乡亲人之情，祈盼丰收与阖家美满，是举足轻重的传统大节。",
+      "customs": [
+        "Gazing at the Radiant Full Moon (赏月): Families gather on terraces and patios with tea, poetry, and fruit to appreciate the lunar glow.",
+        "Sharing Mooncakes (吃月饼): Slicing mooncakes into equal wedges so every member of the family partakes in the roundness.",
+        "Hanging colorful paper lanterns (玩花灯) shaped like rabbits, carps, and spheres.",
+        "Admiring and inhaling sweet osmanthus blooms (赏桂花) perfuming the autumn air."
+      ],
+      "customsZh": [
+        "举家拜月赏月：庭院摆设案台，置香烛月饼，围坐赏玩秋月清辉，低吟古今望月辞章。",
+        "切分分享月饼：将圆圆的月饼按家中人数均等切块分食，一人一块，象征一个不少、圆满团圆。",
+        "童趣挂花灯：手提玉兔灯、金鱼灯穿街过巷，或将各色天灯徐徐放飞，祈愿梦想成真。",
+        "品味金秋木犀：漫步桂花树下，微风拂面暗香浮动，赏桂酿蜜其乐融融。"
+      ],
+      "foods": [
+        "Traditional Mooncakes (月饼): Dense golden crust pastries filled with pure lotus seed paste, double salted duck egg yolks (representing glowing twin moons), red bean, or five nuts (五仁). Modern styles include snowy mochi skin (冰皮) and green tea.",
+        "Steamed River Hairy Crabs (大闸蟹): At their absolute peak of sweetness and golden roe in autumn.",
+        "Sweet Osmanthus Wine (桂花酒): Golden sweet wine scented with freshly bloomed osmanthus blossoms.",
+        "Pomelos (柚子): Large round citrus fruit; 'you' (柚) sounds like 'blessing' (佑) and 'having' (有)."
+      ],
+      "foodsZh": [
+        "精细广苏月饼：广式浆皮包裹浓醇白莲蓉双黄、五仁与红豆沙；苏式千层酥皮裹以鲜肉或苔菜；冰皮月饼晶莹剔透，甘美圆满。",
+        "金秋清蒸大闸蟹：“九雌十雄”，此时大闸蟹膏肥黄满，佐以生姜紫苏与香醋，鲜美至极。",
+        "桂花陈酿甘露：以金桂与高粱糯米合酿，酒色澄金，花香清冽，开怀对饮畅叙衷肠。",
+        "多汁蜜柚与芋头：柚子浑圆形似明月，谐音“保佑”，祈求神灵护佑阖家安好。"
+      ],
+      "funFacts": [
+        "The Legend of Chang'e (嫦娥奔月): Chang'e drank the celestial elixir of immortality to safeguard it from an evil intruder and floated gracefully upward to the Moon Palace, where she resides forever alongside the faithful Jade Rabbit.",
+        "The Jade Rabbit (玉兔捣药): If you gaze intently at the dark maria patterns of the full moon, folklore reveals the silhouette of the Jade Rabbit endlessly pounding healing medicinal herbs in a mortar.",
+        "Secret Rebellion in Pastries: Folk history records that in the late Yuan Dynasty, insurgent leader Zhu Yuanzhang orchestrated a nationwide uprising by baking secret slips containing the invasion date ('Kill the tyrants on the 15th of the 8th month!') inside mooncakes!"
+      ],
+      "funFactsZh": [
+        "嫦娥奔月千古绝唱：后羿射九日得不死神药，其妻嫦娥为防奸徒夺药被迫吞服，飘向冷冷广寒月宫，相守玉兔望向人间。",
+        "月宫玉兔捣药：古人遥望明月中暗斑阴影，宛若一只灵兔手握玉杵不断捣炼长生仙药，给明月平添一抹灵动与诗意。",
+        "“八月十五杀鞑子”起义：民间相传元末朱元璋联合起义军，将写有举事暗号的纸条藏入月饼分发各地，于中秋夜一举起事成功。"
+      ]
+    },
+    {
+      "id": "dongzhi",
+      "name": "冬至",
+      "namePinyin": "Dōngzhì",
+      "nameEn": "Dongzhi Festival (Winter Solstice)",
+      "type": "solarTerm",
+      "solarTermName": "冬至",
+      "lunarDateStr": "仲冬之交",
+      "lunarDateEng": "Solar Term Winter Solstice (~December 21-23)",
+      "icon": "🥟",
+      "accentColor": "#38bdf8",
+      "aliases": [
+        "冬节",
+        "长至节",
+        "亚岁",
+        "Winter Solstice Festival"
+      ],
+      "significance": "The astronomical shortest day and longest night of the entire year in the Northern Hemisphere. Ancient Chinese thinkers celebrated: 'Dongzhi is as great as the New Year' (冬至大如年). It represents the absolute summit of Yin coldness, but immediately after, Yang warmth begins its triumphant return, heralding longer daylight and renewal.",
+      "significanceZh": "二十四节气中最早被制定的节气之一，北半球昼最短、夜最长之日。古人云“冬至大如年”，此日阴气达到极致而阳气始生，是天地阴阳转换的吉庆枢纽，标志着春天的脚步已在严冬深处萌动。",
+      "customs": [
+        "Beginning the Countdown of the Nine Nines (数九 - Shǔjiǔ): Counting eighty-one cold days across nine 9-day cycles until spring bursts forth.",
+        "Coloring the Nine-Nine Cold Alleviation Chart (九九消寒图): Filling in one plum petal every day until all eighty-one blossoms bloom in spring pink.",
+        "Worshiping Heaven and Honoring Ancestors: In the Ming and Qing dynasties, emperors presided over grand sacrificial ceremonies at Beijing's Temple of Heaven.",
+        "Warm family hearth dinners gathering generations together."
+      ],
+      "customsZh": [
+        "冬至数九寒天：从冬至日起，每九天为一个“九”，历经八十一天即出九迎春，民间流传生动的《数九歌》。",
+        "点染九九消寒图：文人雅士作素梅八十一瓣，每日以朱笔染红一瓣，瓣尽春回，雅致非凡。",
+        "祭天与祭祖大典：古代帝王于冬至日亲率群臣赴天坛举行隆重的祭天大典，百姓亦在祠堂摆设丰筵告慰宗祖。",
+        "围炉取暖夜话：一年中最长的一夜，家人围坐火炉煨暖汤，促膝长谈，暖意融融。"
+      ],
+      "foods": [
+        "Northern China - Dumplings (饺子): Shaped like human ears; folklore playfully warns: 'If you don't eat dumplings on Dongzhi, your ears will freeze off!' (冬至不端饺子碗，冻掉耳朵没人管).",
+        "Southern China - Tangyuan (冬至圆 / 汤圆): Sweet pink and white glutinous rice balls; eating them signifies becoming one year wiser and family wholeness.",
+        "Mutton Broth (羊肉汤): Rich, peppery simmering broth loaded with slow-cooked mutton to infuse deep warmth against biting frost.",
+        "Sticky Rice with Red Beans (红豆糯米饭): Eaten to ward off winter ailments."
+      ],
+      "foodsZh": [
+        "北方温补水饺：北方家家户户必吃水饺。饺子形如耳朵，民间笑谈“冬至不端饺子碗，冻掉耳朵没人管”，暖胃暖身。",
+        "南方甜糯冬至圆：南方食汤圆，古人有“吃了冬至圆，长了一岁”之说，粉白小团圆润可爱，象征福顺圆满。",
+        "滋补当归羊肉汤：巴蜀与江南偏爱冬至熬制一锅滚热浓郁的羊肉汤，撒入碧绿葱花，驱寒温中，全身暖意融融。",
+        "赤豆糯米安康饭：江南传统煮红豆糯米饭，取红豆辟邪防灾、糯米温补强身之效。"
+      ],
+      "funFacts": [
+        "Zhang Zhongjing's Tender Ear Soup: The invention of dumplings is attributed to sage physician Zhang Zhongjing. During a bitter winter, seeing poor villagers with frostbitten ears, he cooked mutton, warming herbs, and encased them in ear-shaped dough dumplings ('Jiao'er'), distributing them freely to heal their frostbite!",
+        "Architectural Wonder at the Temple of Heaven: Beijing's Temple of Heaven was oriented precisely according to solar geometry so that at the noon winter solstice, the sun's rays align perfectly with the sacred imperial stones!"
+      ],
+      "funFactsZh": [
+        "张仲景“祛寒娇耳汤”：医圣张仲景见南阳百姓冬日耳朵生冻疮，便搭棚施药，将羊肉辣椒与祛寒药材切碎包成耳朵状面皮煮汤，食之者耳热身暖，此即“饺子”之祖。",
+        "北京天坛光影奇观：北京天坛皇穹宇的设计暗合冬至日照角度，正午冬至阳光恰好完全照亮神龛牌位，展示了古人精妙的天文力学造诣。"
+      ]
+    },
+    {
+      "id": "laba",
+      "name": "腊八节",
+      "namePinyin": "Làbā Jié",
+      "nameEn": "Laba Festival",
+      "type": "lunar",
+      "lunarMonth": 12,
+      "lunarDay": 8,
+      "lunarDateStr": "腊月初八",
+      "lunarDateEng": "12th Month Day 8th",
+      "icon": "🥣",
+      "accentColor": "#a855f7",
+      "aliases": [
+        "腊日",
+        "佛成道节",
+        "Laba Porridge Day"
+      ],
+      "significance": "Celebrated on the 8th day of the 12th lunar month (the 'La' month). It serves as the official clarion call and joyful countdown to the Spring Festival season. Ancient saying: 'Once Laba arrives, the New Year has truly begun' (过了腊八就是年). It also commemorates Siddhartha Gautama attaining enlightenment as the Buddha under the Bodhi tree.",
+      "significanceZh": "农历十二月初八，是辞旧迎新、拉开春节序幕的前奏。“过了腊八就是年”，年味自此日渐浓。古人在此日举行岁终“腊祭”酬神祭祖，佛教亦以此日纪念释迦牟尼佛成道，充满感恩与慈悲。",
+      "customs": [
+        "Cooking and Sharing Laba Porridge (熬腊八粥): Simmering gigantic cauldrons of porridge overnight and sharing bowls with family, neighbors, and the disadvantaged.",
+        "Curing Emerald Laba Garlic (泡腊八蒜): Peeling garlic cloves and submerging them in black vinegar; they magically turn jade-green just in time for Spring Festival dumplings!",
+        "Buddhist Temples Distributing Blessed Porridge to the public from early dawn to share blessings and warmth.",
+        "Commencing household cleaning and shopping for the upcoming Spring Festival."
+      ],
+      "customsZh": [
+        "熬煮分送腊八粥：彻夜以文火慢熬八宝稠粥，先敬祖神，次赠亲朋邻里，体现敦亲睦邻与慈爱之德。",
+        "腌制翡翠腊八蒜：剥好蒜瓣浸入香醋中密封置于低温处，数日后蒜瓣宛如碧玉翡翠，蒜香醋洌，是新年吃饺绝配。",
+        "佛寺施粥祈福：各大寺院清晨开门向大众布施香气四溢的腊八佛粥，祈愿风调雨顺、大众安康。",
+        "扫尘备年忙碌起：家家户户从这天起着手采购年货、打扫庭除，正式进入“过年节奏”。"
+      ],
+      "foods": [
+        "Laba Porridge (腊八粥 / 八宝粥): A comforting, velvety bowl combining at least eight wholesome grains, legumes, and dried fruits: glutinous rice, purple rice, red beans, lotus seeds, jujubes, chestnuts, peanuts, and walnuts.",
+        "Laba Garlic (腊八蒜): Translucent emerald-green pickled garlic, zesty, crunchy, and tangy.",
+        "Laba Tofu (腊八豆腐): Specially salted, sun-dried firm tofu squares from Anhui province.",
+        "Laba Noodles (腊八面): In Shaanxi, freshly pulled handmade noodles topped with a savory eight-bean stew."
+      ],
+      "foodsZh": [
+        "五谷腊八八宝粥：精选糯米、红豆、莲子、红枣、核桃仁、栗子、花生、枸杞等数十种杂粮果脯融汇一锅，香甜浓稠，暖心暖胃。",
+        "翡翠生香腊八蒜：用山西或镇江香醋浸泡紫皮大蒜，酸香爽脆，解腻开胃。",
+        "徽州金黄腊八豆腐：黄豆制作加盐与香料，抹于豆腐表面经冬阳风干，温润如玉，咸香可口。",
+        "关中臊子腊八面：陕西关中地区以八种豆子和肉丁做成臊子，浇于宽韧手擀面上，热气蒸腾。"
+      ],
+      "funFacts": [
+        "The Science of Emerald Garlic: The mesmerizing green color of Laba Garlic isn't food coloring! It's a natural chemical reaction between the acetic acid in rice vinegar and sulfur compounds inside cold-dormant garlic cloves, forming blue and yellow pigments that combine into emerald jade!",
+        "The Emperor's Rat Hole Congee: A famous legend tells of young Zhu Yuanzhang (founder of Ming Dynasty) imprisoned and starving during winter. He found a rat hole containing spilled wheat, beans, and grains, cooked them together into a lifesaving soup, and declared it a festival dish upon ascending the dragon throne!"
+      ],
+      "funFactsZh": [
+        "大蒜变绿科学揭秘：大蒜在低温下休眠，被酸度适宜的醋酸浸泡后，大蒜中的硫化物与酶类发生天然生化反应，生成蓝色素与黄色素，二者交织成如翡翠般纯净的翠绿色！",
+        "朱元璋掘鼠洞喝粥：相传明太祖朱元璋少时贫病交加受困监牢，天寒腹饥之时从老鼠洞里掏出红豆、糙米、麦粒合煮成果腹佳肴，登基后念念不忘，遂定为御膳岁令美点。"
+      ]
+    },
+    {
+      "id": "xiaonian",
+      "name": "小年",
+      "namePinyin": "Xiǎo Nián",
+      "nameEn": "Little New Year (Kitchen God Festival)",
+      "type": "lunar",
+      "lunarMonth": 12,
+      "lunarDay": 23,
+      "lunarDateStr": "腊月二十三/二十四",
+      "lunarDateEng": "12th Month Day 23rd/24th",
+      "icon": "🍯",
+      "accentColor": "#f43f5e",
+      "aliases": [
+        "祭灶节",
+        "灶王节",
+        "扫尘日",
+        "Kitchen God Day",
+        "Prelude to New Year"
+      ],
+      "significance": "Celebrated on the 23rd (North) or 24th (South) of the 12th lunar month. Marks the departure of the Kitchen God (灶王爷) ascending to heaven to deliver his annual report on the family's conduct to the supreme Jade Emperor. It signals the beginning of intense deep cleaning, shopping, and baking for Spring Festival.",
+      "significanceZh": "腊月二十三（北方）或二十四（南方），送灶神升天述职之日。相传灶王爷将向玉皇大帝如实汇报一家一年来的功过善恶。人们设饴糖祭奉，祈愿“上天言好事，下界保平安”。自此正式吹响欢度新春的号角。",
+      "customs": [
+        "Offering Sweets to the Kitchen God (祭灶神): Spreading honey or sticky malt sugar candy around the Kitchen God's image so his lips stick together or speak only sweet compliments in heaven!",
+        "Spring Deep Cleaning (扫尘 / 扫房): Thoroughly scouring every corner of the house; 'dust' (chén 尘) is homophonous with 'old stale energy' (chén 陈), clearing away bad luck.",
+        "Putting up window paper-cuts (贴剪纸窗花) depicting roosters, magpies, and peonies."
+      ],
+      "customsZh": [
+        "麦芽饴糖祭灶王：在灶君神像前供奉黏软香甜的灶糖，借甜味封住灶神之口，祈祷“好话传上天，坏事全隐瞒”。",
+        "迎新彻底大扫除：家家户户洒扫庭除、擦洗门窗、翻晒被褥。“尘”与“陈”同音，扫尘即除旧迎新、荡尽晦气。",
+        "门窗张贴大红窗花：巧手剪出吉祥红纸窗花，花团锦簇，喜气洋洋贴在透亮窗玻璃上。"
+      ],
+      "foods": [
+        "Zao Tang / Malt Sugar Melons (灶糖 / 关东糖): Crisp, brittle puffed maltose candies coated in toasted sesame seeds with a hollow, sweet center.",
+        "Baked Sesame Pancakes (火烧 / 烧饼): Golden crispy flatbreads eaten hot straight out of the hearth.",
+        "Steamed Tofu & Sticky Rice Treats (豆腐与年糕)."
+      ],
+      "foodsZh": [
+        "香酥关东灶糖：以麦芽糖熬制拉丝而成，外裹芝麻，酥脆中带着黏软香甜，咬一口糖香四溢。",
+        "焦香芝麻火烧：北方部分地区在小年打火烧，刚出炉外皮焦脆喷香，内瓤千层松软。",
+        "团圆豆腐与年糕：食自制水豆腐与软糯年糕，寄托“兜福”纳吉、蒸蒸日上之期许。"
+      ],
+      "funFacts": [
+        "North vs South date difference: Why is Xiaonian celebrated on the 23rd in the North and 24th in the South? In the Qing Dynasty, imperial palace courts performed sacrifices on the 23rd ('Court 23rd', 官三), while common folks in the South kept to the 24th ('People 24th', 民四)!",
+        "Traditional Kitchen God Couplet: 'Ascend to heaven and speak only good words; return to earth and bestow abundant blessings.' (上天言好事，下界保平安。)"
+      ],
+      "funFactsZh": [
+        "“官三民四”南北差异：清代朝廷定于腊月二十三在紫禁城祭灶（官三），北方百姓随之效仿；而南方民间多恪守古制于腊月二十四祭灶（民四），形成趣妙的南北时差。",
+        "经典灶王楹联：贴于灶君神龛两侧的传神对联：“上天言好事，下界保平安”，横批“一家之主”，寄托了古朴而幽默的人情味。"
+      ]
+    },
+    {
+      "id": "shangsi",
+      "name": "上巳节",
+      "namePinyin": "Shàngsì Jié",
+      "nameEn": "Shangsi Festival (Double Third)",
+      "type": "lunar",
+      "lunarMonth": 3,
+      "lunarDay": 3,
+      "lunarDateStr": "三月初三",
+      "lunarDateEng": "3rd Month Day 3rd",
+      "icon": "🌸",
+      "accentColor": "#f472b6",
+      "aliases": [
+        "三月三",
+        "春浴日",
+        "女儿节",
+        "Double Third Festival",
+        "Ancient Spring Bathing Festival"
+      ],
+      "significance": "Celebrated on the 3rd day of the 3rd lunar month. Dating back over 2,500 years, this is China's ancient festival of spring cleansing, waterside picnics, and youth romances. People gathered along riverbanks to wash away winter impurities and compose spontaneous verses.",
+      "significanceZh": "农历三月初三，古称“上巳”。起源于上古时期的水边“祓禊”习俗，人们携伴至清溪水畔洗涤尘垢以祛病消灾。亦是踏青游春、临水赋诗、男女幽会的浪漫春日狂欢。",
+      "customs": [
+        "Winding Stream Poetry Competitions (曲水流觞): Floating wine cups down winding brooks; wherever the cup swirls and stops, that person must drink and recite an impromptu poem!",
+        "Spring Waterside Bathing (祓禊 - Fuxi): Washing hands and feet in fresh mountain spring streams to shed winter illnesses.",
+        "Picking Shepherd's Purse (采地菜/荠菜) along blooming spring meadows."
+      ],
+      "customsZh": [
+        "曲水流觞雅集：文人墨客列坐曲折溪水两旁，羽觞承酒顺流而下，停在谁面前谁便须即席赋诗饮酒，风流绝俗。",
+        "临水祓除涤垢：踏青临水，采兰草芳花浸水洗手面，祓除不祥，祈求洁净安康。",
+        "田间采撷地菜：春风吹拂三月三，田野荠菜繁花盛开，妇孺结伴采摘嫩叶煮蛋迎春。"
+      ],
+      "foods": [
+        "Eggs Boiled with Shepherd's Purse (地菜煮鸡蛋): Fresh shepherd's purse herbs boiled with whole eggs, creating fragrant herbal eggs that soothe headaches and ward off dizziness.",
+        "Five-Color Sticky Rice (五色糯米饭): Beautiful rainbow-hued glutinous rice dyed with all-natural wild botanicals (maple leaves, turmeric, madder).",
+        "Wild Herb Spring Cakes (荠菜春饼 / 艾叶粑粑)."
+      ],
+      "foodsZh": [
+        "荠菜地菜煮鸡蛋：民间有云“三月三，地菜当灵丹”。新鲜野荠菜连根洗净与土鸡蛋同煮，清香四溢，有清心明目、祛风通络之奇效。",
+        "壮锦五色糯米饭：采用天然植物汁液染成红、黄、黑、紫、白五彩斑斓的糯米蒸饭，五谷芳香扑鼻，寓意吉祥五福。",
+        "翠嫩荠菜鲜肉饺：摘新鲜春荠菜剁馅包水饺，汁水清甜，鲜美无匹。"
+      ],
+      "funFacts": [
+        "The Orchid Pavilion Gathering: In 353 AD on Shangsi Festival, master calligrapher Wang Xizhi gathered 41 scholar friends at the Orchid Pavilion. Drinking wine and composing verses, he authored the 'Preface to the Poems Collected from the Orchid Pavilion' (《兰亭集序》), revered as the greatest running-script calligraphy in world history!",
+        "Celebrated enthusiastically by ethnic minorities: In Guangxi, the Zhuang ethnic group celebrates 'March 3rd' as a massive singing carnival with competitive antiphonal duets!"
+      ],
+      "funFactsZh": [
+        "《兰亭集序》天下第一行书：东晋永和九年三月三日，王羲之与谢安等四十一位名士雅集于会稽山阴之兰亭曲水流觞，王羲之挥毫写就千古无双的《兰亭集序》！",
+        "壮乡三月三歌圩盛会：中国广西壮族等少数民族将三月三定为法定的盛大传统对歌节，男女青年对唱山歌，抛绣球传情，歌声漫山遍野。"
+      ]
+    }
+  ]
+}
