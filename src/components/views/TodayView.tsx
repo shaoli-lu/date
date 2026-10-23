@@ -134,19 +134,34 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                   <span style={{ fontSize: '0.72rem', color: 'var(--primary-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Chinese Lunar Calendar · 农历</span>
-                  {lunarInfo.festivals.length > 0 && (
-                    <span style={{
-                      fontSize: '0.7rem',
-                      color: '#f59e0b',
-                      background: 'rgba(245, 158, 11, 0.15)',
-                      border: '1px solid rgba(245, 158, 11, 0.35)',
-                      padding: '1px 6px',
-                      borderRadius: '4px',
-                      fontWeight: 600
-                    }}>
-                      🏮 {lunarInfo.festivals.join(', ')}
-                    </span>
-                  )}
+                  <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {lunarInfo.solarTerm && (
+                      <span style={{
+                        fontSize: '0.7rem',
+                        color: '#f97316',
+                        background: 'rgba(249, 115, 22, 0.15)',
+                        border: '1px solid rgba(249, 115, 22, 0.35)',
+                        padding: '1px 6px',
+                        borderRadius: '4px',
+                        fontWeight: 600
+                      }}>
+                        🍂 {lunarInfo.solarTerm}
+                      </span>
+                    )}
+                    {lunarInfo.festivals.length > 0 && (
+                      <span style={{
+                        fontSize: '0.7rem',
+                        color: '#f59e0b',
+                        background: 'rgba(245, 158, 11, 0.15)',
+                        border: '1px solid rgba(245, 158, 11, 0.35)',
+                        padding: '1px 6px',
+                        borderRadius: '4px',
+                        fontWeight: 600
+                      }}>
+                        🏮 {lunarInfo.festivals.join(', ')}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
                   <span style={{ color: '#fff', fontWeight: 600, fontSize: '1.05rem' }}>{lunarInfo.fullCh}</span>
@@ -203,6 +218,43 @@ export default function TodayView({ session, refreshKey, selectedDate, onDateCha
                 <span style={{ fontSize: '0.72rem', color: '#7ec8ff', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>❄️ 数九 · Shǔjiǔ</span>
                 <span style={{ color: '#fff', fontWeight: sanjiu.isSanjiu ? 700 : 500 }}>{sanjiu.name} &nbsp;·&nbsp; {sanjiu.fullName}</span>
                 <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>{sanjiu.isSanjiu ? '三九 — Coldest days of winter ❄️' : 'Counting the cold season'}</span>
+              </div>
+            )
+          })()}
+          {(() => {
+            const holiday = getHolidayForDate(selectedDate)
+            if (!holiday || holiday.type !== 'solarTerm') return null
+            const isNonHoliday = holiday.isHoliday === false
+            return (
+              <div style={{
+                padding: '8px 12px',
+                borderRadius: '10px',
+                background: `${holiday.accentColor}14`,
+                border: `1px solid ${holiday.accentColor}40`,
+                fontSize: '0.85rem',
+                display: 'inline-flex',
+                flexDirection: 'column',
+                gap: '2px',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '0.72rem', color: holiday.accentColor, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    {holiday.icon} 24 节气 · Solar Term
+                  </span>
+                  {isNonHoliday && (
+                    <span style={{
+                      fontSize: '0.65rem',
+                      color: 'rgba(255,255,255,0.7)',
+                      background: 'rgba(255,255,255,0.08)',
+                      padding: '1px 5px',
+                      borderRadius: '4px',
+                      fontWeight: 600
+                    }}>
+                      Non-Holiday · 非假日
+                    </span>
+                  )}
+                </div>
+                <span style={{ color: '#fff', fontWeight: 600 }}>{holiday.name} &nbsp;·&nbsp; {holiday.nameEn}</span>
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem' }}>{holiday.lunarDateEng}</span>
               </div>
             )
           })()}

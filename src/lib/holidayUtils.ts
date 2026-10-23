@@ -8,6 +8,7 @@ export interface HolidayData {
   namePinyin: string
   nameEn: string
   type: 'lunar' | 'solarTerm' | 'solar'
+  isHoliday?: boolean
   lunarMonth?: number
   lunarDay?: number
   solarTermName?: string
@@ -53,8 +54,32 @@ export function getHolidayForDate(date: Date): HolidayData | null {
       }
 
       // 2. Solar Term match
-      if (h.type === 'solarTerm' && h.solarTermName && solarTerm === h.solarTermName) {
-        return h
+      if (h.type === 'solarTerm' && h.solarTermName) {
+        if (solarTerm === h.solarTermName) {
+          return h
+        }
+        // Also support matching solar terms considering timezone differences between Beijing time and local date
+        try {
+          const jieQiTable = lunar.getJieQiTable()
+          const jq = jieQiTable[h.solarTermName]
+          if (jq && jq.getYear() === solar.getYear() && jq.getMonth() === solar.getMonth()) {
+            if (jq.getDay() === solar.getDay()) {
+              return h
+            }
+            // Check if jq (UTC+8) converted to local time equals this date
+            const jqUtcMillis = Date.UTC(jq.getYear(), jq.getMonth() - 1, jq.getDay(), jq.getHour() - 8, jq.getMinute())
+            const localTermDate = new Date(jqUtcMillis)
+            if (
+              localTermDate.getFullYear() === date.getFullYear() &&
+              localTermDate.getMonth() === date.getMonth() &&
+              localTermDate.getDate() === date.getDate()
+            ) {
+              return h
+            }
+          }
+        } catch {
+          // ignore error
+        }
       }
 
       // 3. Lunar Month & Day match
@@ -98,10 +123,11 @@ export interface UpcomingHoliday {
  */
 export function getNextUpcomingHoliday(currentDate: Date, maxDaysAhead = 120): UpcomingHoliday | null {
   try {
+    const currentHoliday = getHolidayForDate(currentDate)
     for (let i = 1; i <= maxDaysAhead; i++) {
       const targetDate = addDays(currentDate, i)
       const holiday = getHolidayForDate(targetDate)
-      if (holiday) {
+      if (holiday && (!currentHoliday || holiday.id !== currentHoliday.id)) {
         return {
           holiday,
           date: targetDate,

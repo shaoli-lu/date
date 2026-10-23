@@ -752,6 +752,66 @@
         "《兰亭集序》天下第一行书：东晋永和九年三月三日，王羲之与谢安等四十一位名士雅集于会稽山阴之兰亭曲水流觞，王羲之挥毫写就千古无双的《兰亭集序》！",
         "壮乡三月三歌圩盛会：中国广西壮族等少数民族将三月三定为法定的盛大传统对歌节，男女青年对唱山歌，抛绣球传情，歌声漫山遍野。"
       ]
+    },
+    {
+      "id": "shuangjiang",
+      "name": "霜降",
+      "namePinyin": "Shuāngjiàng",
+      "nameEn": "Frost Descent (Solar Term)",
+      "type": "solarTerm",
+      "solarTermName": "霜降",
+      "isHoliday": false,
+      "lunarDateStr": "季秋之交",
+      "lunarDateEng": "Solar Term Frost Descent (~October 23/24)",
+      "icon": "🍂",
+      "accentColor": "#f97316",
+      "aliases": [
+        "霜降节气",
+        "霜降物候",
+        "二十四节气之霜降",
+        "Frost's Descent",
+        "Frost Fall",
+        "First Frost",
+        "Autumn's Final Solar Term"
+      ],
+      "significance": "Frost Descent is the 18th of the 24 solar terms and the last solar term of autumn, signaling the imminent arrival of winter. As temperatures plummet and night air cools near freezing, water vapor on the ground crystallizes into white frost. In traditional Chinese culture and wellness, it is a non-holiday solar term that holds monumental importance for harvest, enjoying fiery autumn maple foliage, eating persimmons to protect against winter illness, and nourishing the body for the cold months ahead.",
+      "significanceZh": "二十四节气中的第十八个节气，亦是秋季的最后一个节气。霜降意味着天气骤冷、初霜凝结，是秋向冬过渡的关键枢纽。《月令七十二候集解》云：“九月中，气肃而凝，露结为霜矣。”此时千里沃野、层林尽染。霜降作为传统的农耕物候节气（非假日），寄托着人们对大地丰收的感念与顺应天时的养生智慧，民间有“补冬不如补霜降”、“霜降吃柿子，冬天不感冒”等经典俗谚。",
+      "customs": [
+        "Eating Ripe Persimmons (吃红柿): A cherished custom across China. People believe eating sweet, moistening persimmons prevents colds, warms the chest, and keeps lips from cracking all winter.",
+        "Appreciating Crimson Leaves (登高赏红叶): The frosty mountain chill ignites maple and sumac groves into fiery crimson scarlet, inspired by the Tang poet Du Mu's line: 'Frosty leaves are redder than the flowers of February'.",
+        "Honoring Chrysanthemums (赏菊品秋): Frost Descent is also poetically celebrated as 'Chrysanthemum Month' (菊秋), when noble chrysanthemums flourish bravely amid the chilling morning frost.",
+        "Autumn Tonic & Warming Nourishment (进补防寒): An ancient wellness rule says 'A year of nourishment cannot match a timely Frost Descent tonic' (一年补透透，不如补霜降), stocking internal Yang warmth with soups and herbs."
+      ],
+      "customsZh": [
+        "吃红柿润燥祛寒：民间流传“霜降吃柿子，冬天不感冒”。熟透的柿子皮薄肉厚、汁水甘甜，既能润燥止咳，又兼具“事事如意”的吉祥口彩。",
+        "登高赏满山红叶：霜降时节冷空气频繁南下，漫山枫树在秋霜浸染下红如烈火。正如杜牧名句“停车坐爱枫林晚，霜叶红于二月花”，是登高赏枫的黄金时期。",
+        "举家赏傲霜金菊：深秋百花凋谢，独有菊花傲霜怒放。古人常于霜降之日举行“菊花会”，饮菊花酒、赋秋韵诗，别有雅趣。",
+        "调理脾胃贴秋膘：俗谚云“一年补透透，不如补霜降”。此时气温明显走低，人体需储备能量以御严冬，是健脾养胃、进补羊肉老鸭的绝佳时节。"
+      ],
+      "foods": [
+        "Persimmons (霜降柿子): Golden-red sweet persimmons loaded with vitamins, quenching autumn dryness and soothing throat irritation.",
+        "Nourishing Mutton Stew (滋补羊肉煲): Slow-braised tender mutton with white radish, ginger, and scallions to generate internal thermal warmth.",
+        "Old Duck Soup (慢炖老鸭汤): A classic southern Chinese tradition (especially in Fujian and Taiwan, known as 'Yingshuang Duck') to replenish fluids gently.",
+        "Roasted Sugar Chestnuts (糖炒板栗): Freshly harvested glossy chestnuts roasted with sweet malt, nourishing the spleen and kidneys."
+      ],
+      "foodsZh": [
+        "甘甜霜降红柿：熟透的柿子清甜爽润、润肺化痰，是霜降最有代表性的节气果品，寓意“事事顺心、好柿连连”。",
+        "白萝卜温补羊肉煲：北方传统霜降吃羊肉，佐以“赛人参”的新鲜白萝卜，驱散初冬寒意、温补脾肾、暖胃护阳。",
+        "闽台名俗老鸭汤：闽南、台湾素有“迎霜打鸭”之俗，老鸭滋阴润燥、不燥不腻，是深秋进补第一汤品。",
+        "香糯糖炒栗子与烤红薯：霜降栗熟，甘温健脾、补肾强筋，捧一包热气腾腾的糖炒栗子，甜香暖遍深秋街巷。"
+      ],
+      "funFacts": [
+        "The Three Phenological Phenomena (霜降三候): 1. Jackals offer sacrificial beasts (豺乃祭兽); 2. Vegetation turns yellow and falls (草木黄落); 3. Dormant insects bow into winter burrows (蛰虫咸俯).",
+        "Du Mu's Timeless Masterpiece 'Mountain Travel' (《山行》): 'Far away on cold mountain stone paths wind uphill, white clouds drift where households dwell. I stop my carriage to admire the maple grove at dusk, frosty leaves are redder than the flowers of February.' (霜叶红于二月花).",
+        "Frost Doesn't Fall from the Sky: Scientifically, frost doesn't fall from clouds like snow; near-ground moisture sublimates directly into ice crystals on chilled surfaces when ground temperature falls below 0°C!",
+        "UNESCO 24 Solar Terms: Though Frost Descent is a non-holiday working solar term, it is recognized on the UNESCO Representative List of the Intangible Cultural Heritage of Humanity as ancient astronomical wisdom."
+      ],
+      "funFactsZh": [
+        "霜降物候三候：“一候豺乃祭兽”，豺狼四处捕猎野兽陈列如祭祀；“二候草木黄落”，深秋落叶缤纷归根；“三候蛰虫咸俯”，洞中昆虫垂头入眠不再进食。",
+        "杜牧千古名作《山行》：“远上寒山石径斜，白云生处有人家。停车坐爱枫林晚，霜叶红于二月花。”写尽深秋枫叶胜过二月春花的热烈诗意。",
+        "气象冷知识“霜不是掉下来的”：科学上“霜”并非从天空落下的降水，而是地表附近水汽遇摄氏零度以下低温物体，直接凝华而成的细微白色冰晶。",
+        "联合国非遗与“非假日”节气：霜降虽非法定休假日，但作为中国二十四节气的重要组成部分，被誉为“中国第五大发明”，列入联合国人类非遗名录。"
+      ]
     }
   ]
 }
