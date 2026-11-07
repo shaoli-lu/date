@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { HolidayData, ALL_HOLIDAYS, UpcomingHoliday } from '@/lib/holidayUtils'
 import { Sparkles, Utensils, Compass, BookOpen, ChevronRight, X, Calendar as CalendarIcon, Info } from 'lucide-react'
 import { format } from 'date-fns'
@@ -23,6 +24,11 @@ export default function HolidaySpotlight({
   const [modalHoliday, setModalHoliday] = useState<HolidayData | null>(null)
   const [modalTab, setModalTab] = useState<'significance' | 'customs' | 'foods' | 'facts'>('significance')
   const [modalFilter, setModalFilter] = useState<'all' | 'holiday' | 'solarTerm'>('all')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const activeHoliday = currentHoliday
 
@@ -147,12 +153,12 @@ export default function HolidaySpotlight({
           {/* Tabs Navigation */}
           <div
             style={{
-              display: 'flex',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
               gap: '6px',
               marginTop: '16px',
               borderBottom: '1px solid rgba(255,255,255,0.1)',
               paddingBottom: '8px',
-              overflowX: 'auto',
             }}
           >
             {[
@@ -163,18 +169,20 @@ export default function HolidaySpotlight({
             ].map(tab => (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => setActiveTab(tab.id as any)}
                 style={{
                   background: activeTab === tab.id ? `${activeHoliday.accentColor}25` : 'transparent',
                   border: activeTab === tab.id ? `1px solid ${activeHoliday.accentColor}60` : '1px solid transparent',
                   borderRadius: '8px',
                   color: activeTab === tab.id ? '#fff' : 'rgba(255,255,255,0.6)',
-                  padding: '6px 12px',
+                  padding: '8px 10px',
                   fontSize: '0.82rem',
                   fontWeight: activeTab === tab.id ? 600 : 400,
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
                   gap: '6px',
                   whiteSpace: 'nowrap',
                   transition: 'all 0.2s',
@@ -436,21 +444,22 @@ export default function HolidaySpotlight({
       )}
 
       {/* 3. Modal / Drawer for Exploring All Festivals */}
-      {showAllModal && (
+      {showAllModal && mounted && createPortal(
         <div
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.75)',
-            backdropFilter: 'blur(8px)',
-            zIndex: 4000,
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.82)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            zIndex: 9998,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '20px',
+            padding: '16px',
+            paddingTop: 'calc(16px + env(safe-area-inset-top, 0px))',
+            paddingBottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
+            overflowY: 'auto',
           }}
           onClick={() => setShowAllModal(false)}
         >
@@ -459,15 +468,16 @@ export default function HolidaySpotlight({
             style={{
               width: '100%',
               maxWidth: '850px',
-              maxHeight: '85vh',
+              maxHeight: 'min(88vh, 88dvh)',
               overflowY: 'auto',
-              padding: '24px',
+              padding: '20px',
               borderRadius: '20px',
               border: '1px solid rgba(102, 252, 241, 0.3)',
               boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
               display: 'flex',
               flexDirection: 'column',
               gap: '16px',
+              margin: 'auto',
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -602,25 +612,27 @@ export default function HolidaySpotlight({
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* 4. Single Holiday Detail Viewer Modal */}
-      {modalHoliday && (
+      {modalHoliday && mounted && createPortal(
         <div
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.8)',
-            backdropFilter: 'blur(8px)',
-            zIndex: 5000,
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.82)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            zIndex: 9999,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '20px',
+            padding: '16px',
+            paddingTop: 'calc(16px + env(safe-area-inset-top, 0px))',
+            paddingBottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
+            overflowY: 'auto',
           }}
           onClick={() => setModalHoliday(null)}
         >
@@ -628,25 +640,26 @@ export default function HolidaySpotlight({
             className="glass-panel"
             style={{
               width: '100%',
-              maxWidth: '750px',
-              maxHeight: '85vh',
+              maxWidth: '720px',
+              maxHeight: 'min(88vh, 88dvh)',
               overflowY: 'auto',
-              padding: '24px',
+              padding: '20px',
               borderRadius: '20px',
               border: `1px solid ${modalHoliday.accentColor}60`,
               boxShadow: `0 20px 50px rgba(0,0,0,0.6), 0 0 30px ${modalHoliday.accentColor}25`,
               display: 'flex',
               flexDirection: 'column',
               gap: '16px',
+              margin: 'auto',
             }}
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <span style={{ fontSize: '2.5rem' }}>{modalHoliday.icon}</span>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px', width: '100%' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, flex: 1 }}>
+                <span style={{ fontSize: '2.4rem', lineHeight: 1, flexShrink: 0 }}>{modalHoliday.icon}</span>
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
                     <span
                       style={{
                         fontSize: '0.72rem',
@@ -656,6 +669,7 @@ export default function HolidaySpotlight({
                         background: `${modalHoliday.accentColor}25`,
                         color: modalHoliday.accentColor,
                         border: `1px solid ${modalHoliday.accentColor}50`,
+                        whiteSpace: 'nowrap',
                       }}
                     >
                       {modalHoliday.isHoliday === false
@@ -668,39 +682,52 @@ export default function HolidaySpotlight({
                       {modalHoliday.lunarDateStr} · {modalHoliday.lunarDateEng}
                     </span>
                   </div>
-                  <h2 style={{ fontSize: '1.6rem', color: '#fff', margin: '4px 0 0 0', display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-                    {modalHoliday.name}
-                    <span style={{ fontSize: '1.05rem', color: modalHoliday.accentColor, fontWeight: 500 }}>
+                  <h2 style={{ fontSize: '1.5rem', color: '#fff', margin: '4px 0 0 0', display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
+                    <span>{modalHoliday.name}</span>
+                    <span style={{ fontSize: '1rem', color: modalHoliday.accentColor, fontWeight: 500 }}>
                       {modalHoliday.nameEn}
                     </span>
                   </h2>
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setModalHoliday(null)}
                 style={{
-                  background: 'transparent',
-                  border: 'none',
-                  color: 'rgba(255,255,255,0.7)',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: 'rgba(255,255,255,0.85)',
                   cursor: 'pointer',
                   padding: '6px',
                   borderRadius: '50%',
                   display: 'grid',
                   placeItems: 'center',
+                  flexShrink: 0,
+                  width: '32px',
+                  height: '32px',
                 }}
+                aria-label="Close"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
             {/* Tabs */}
             <div
               style={{
-                display: 'flex',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
                 gap: '6px',
                 borderBottom: '1px solid rgba(255,255,255,0.1)',
                 paddingBottom: '8px',
-                overflowX: 'auto',
+                position: 'sticky',
+                top: 0,
+                zIndex: 10,
+                background: 'rgba(20, 26, 35, 0.95)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                marginTop: '-4px',
+                paddingTop: '4px',
               }}
             >
               {[
@@ -711,20 +738,23 @@ export default function HolidaySpotlight({
               ].map(tab => (
                 <button
                   key={tab.id}
+                  type="button"
                   onClick={() => setModalTab(tab.id as any)}
                   style={{
                     background: modalTab === tab.id ? `${modalHoliday.accentColor}25` : 'transparent',
                     border: modalTab === tab.id ? `1px solid ${modalHoliday.accentColor}60` : '1px solid transparent',
                     borderRadius: '8px',
                     color: modalTab === tab.id ? '#fff' : 'rgba(255,255,255,0.6)',
-                    padding: '6px 12px',
+                    padding: '8px 10px',
                     fontSize: '0.82rem',
                     fontWeight: modalTab === tab.id ? 600 : 400,
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '6px',
                     whiteSpace: 'nowrap',
+                    transition: 'all 0.2s',
                   }}
                 >
                   {tab.icon}
@@ -825,7 +855,8 @@ export default function HolidaySpotlight({
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   )
