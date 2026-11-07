@@ -1,0 +1,957 @@
+{
+  "holidays": [
+    {
+      "id": "us_new_years_day",
+      "name": "元旦 · 新年",
+      "namePinyin": "Yuándàn / Xīnnián",
+      "nameEn": "New Year's Day",
+      "type": "usFederal",
+      "country": "US",
+      "solarMonth": 1,
+      "solarDay": 1,
+      "lunarDateStr": "1月1日",
+      "lunarDateEng": "January 1st",
+      "icon": "🎉",
+      "accentColor": "#38bdf8",
+      "aliases": ["New Year", "Jan 1", "元旦节", "新年", "元旦"],
+      "significance": "Celebrates the very first day of the Gregorian calendar year. In the United States, it is a federal holiday dedicated to fresh beginnings, personal resolutions, hopeful aspirations, and spending time with loved ones.",
+      "significanceZh": "公历新年的开端，是美国联邦法定节假日。象征着辞旧迎新、重新出发，人们在此日制定新年计划与目标（Resolutions），祈愿新的一年健康平安、事业顺遂。",
+      "customs": [
+        "Watching the Times Square Ball Drop at midnight with confetti showers and a champagne toast.",
+        "Making New Year's resolutions to improve health, habits, learning, and relationships.",
+        "Watching the annual Tournament of Roses Parade and college football Rose Bowl games.",
+        "Participating in polar bear plunges—daring winter swims in icy ocean waters for charity."
+      ],
+      "customsZh": [
+        "时代广场水晶球倒计时：午夜倒数计时，伴随漫天飞舞的彩色碎纸与香槟举杯欢庆。",
+        "立下新年愿望（Resolutions）：设定新年健康、事业与生活目标，寄托积极进取的新期许。",
+        "收看玫瑰花车大游行：元旦清晨观赏加州帕萨迪纳历史悠久的华丽玫瑰花车与乐团巡游。",
+        "北极熊冬泳挑战：全美各地勇敢者跳入冰冷海水或湖泊冬泳，以此迎接新年并为慈善筹款。"
+      ],
+      "foods": [
+        "Black-eyed peas and collard greens (Southern tradition where peas symbolize coins and greens represent green cash bills).",
+        "Golden skillet cornbread (symbolizing gold bars and financial prosperity).",
+        "Pork and sauerkraut (popular in Pennsylvania and the Midwest for progress, as pigs root forward).",
+        "Chilled champagne or sparkling apple cider for midnight celebratory toasts."
+      ],
+      "foodsZh": [
+        "黑眼豆与羽衣甘蓝：美国南方传统美食，圆圆的黑眼豆形似硬币，绿意盎然的羽衣甘蓝如美钞，寓意财源滚滚。",
+        "金黄玉米面包：外酥里嫩的金黄玉米面包寓意“金条盈门”、富足美满。",
+        "猪肉酸菜炖肉：美东与中西部传统，因猪拱食时永远向前，寓意新的一年步步向前、不走回头路。",
+        "冰镇香槟与起泡酒：跨年钟声敲响时的必备饮品，气泡升腾象征新年蒸蒸日上。"
+      ],
+      "funFacts": [
+        "The Times Square Ball Drop tradition started on December 31, 1907, with a 700-pound ball made of iron and wood.",
+        "The song 'Auld Lang Syne', based on Robert Burns' 1788 Scottish poem, is sung across the nation at the stroke of midnight.",
+        "January is named after Janus, the Roman god of doors and beginnings, who had two faces to look backward at the past and forward into the future.",
+        "Babies born on January 1st are affectionately celebrated as 'New Year's Babies' and often receive special gifts from local communities."
+      ],
+      "funFactsZh": [
+        "时代广场落球始于1907年：最初由铁和木头制成、重达700磅并装有100个白炽灯泡，如今已升级为璀璨夺目的沃特福德水晶球。",
+        "《友谊地久天长》午夜合唱：源自苏格兰诗人罗伯特·彭斯1788年的诗作，是跨年倒计时结束瞬间全美必唱的经典温情曲目。",
+        "一月之神雅努斯：January得名自古罗马门神雅努斯（Janus），他长有两张脸孔，一张回望过去，一张展望未来。",
+        "“元旦宝宝”幸运礼：各州在1月1日零点率先诞生的婴儿被称为New Year's Baby，常会收获医院与社区赠送的终生纪念与贺礼。"
+      ]
+    },
+    {
+      "id": "us_mlk_day",
+      "name": "马丁·路德·金纪念日",
+      "namePinyin": "Mǎdīng Lùdé Jīn Jìniànrì",
+      "nameEn": "Martin Luther King Jr. Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "3rd-monday",
+      "solarMonth": 1,
+      "lunarDateStr": "1月第三个星期一",
+      "lunarDateEng": "3rd Monday of January",
+      "icon": "🕊️",
+      "accentColor": "#818cf8",
+      "aliases": ["MLK Day", "King Day", "马丁路德金日", "民权纪念日"],
+      "significance": "Honors the life, legacy, and enduring dream of civil rights leader Dr. Martin Luther King Jr., championing racial justice, equality, and nonviolent social change across the nation.",
+      "significanceZh": "全美联邦法定节假日，旨在纪念非裔美国人民权领袖马丁·路德·金博士（Dr. Martin Luther King Jr.）的卓越功绩，倡导种族平等、非暴力抗争与社会正义。",
+      "customs": [
+        "National Day of Service: Americans participate in community service projects under the banner 'A Day On, Not a Day Off'.",
+        "Listening to recordings and readings of the historic 1963 'I Have a Dream' speech.",
+        "Civil rights marches, university symposiums, and peaceful interfaith unity vigils.",
+        "Visiting the Martin Luther King Jr. Memorial on the National Mall in Washington, D.C."
+      ],
+      "customsZh": [
+        "全国社区服务日：全美将此日视为“服务社会之日而非偷闲之日”（A Day On, Not a Day Off），数百万民众参与志愿服务与公益奉献。",
+        "重温《我有一个梦想》名篇：各界重播并诵读1963年华盛顿大游行上震撼历史的民权演讲。",
+        "民权纪念游行与学术研讨：大学与社区举办民权运动纪念游行、论坛与多元文化交流。",
+        "瞻仰华盛顿纪念雕像：民众前往国家广场的马丁·路德·金“绝望之石中凿出希望之石”雕像献花致敬。"
+      ],
+      "foods": [
+        "Traditional Southern soul food shared at community potlucks and fellowship dinners.",
+        "Crispy fried chicken and homestyle macaroni and cheese.",
+        "Slow-cooked collard greens seasoned with smoked turkey or ham hocks.",
+        "Sweet potato pie and Georgia peach cobbler (honoring Dr. King's Atlanta, Georgia roots)."
+      ],
+      "foodsZh": [
+        "传统非裔灵魂美食（Soul Food）：社区聚餐常备经典菜式，承载南方非裔文化历史沉淀与社区亲情。",
+        "美式香酥炸鸡与浓郁芝士焗通心粉（Mac & Cheese）：家常欢聚餐桌上的经久不衰主角。",
+        "慢火煨炖羽衣甘蓝：配以熏火鸡肉文火慢熬，入口鲜香柔嫩。",
+        "红薯派与佐治亚蜜桃派：向出生于佐治亚州亚特兰大的金博士致敬的经典家乡甜点。"
+      ],
+      "funFacts": [
+        "Signed into federal law by President Ronald Reagan in 1983 and officially first observed nationwide in 1986.",
+        "It is the only federal holiday designated by Congress as a National Day of Service.",
+        "Stevie Wonder's popular 1980 song 'Happy Birthday' was a rallying anthem in the public campaign to establish the holiday.",
+        "Dr. King was only 35 years old when he was awarded the Nobel Peace Prize in 1964, the youngest recipient at that time."
+      ],
+      "funFactsZh": [
+        "历时15年立法通过：里根总统于1983年签署联邦法案，1986年正式首次在全美联邦层面庆祝。",
+        "唯一的“国家服务日”法定假日：美国国会唯一赋予“全美义务志愿服务日”地位的联邦节日。",
+        "史蒂夫·旺达的名曲助力：著名盲人歌手Stevie Wonder于1980年创作的热门单曲《Happy Birthday》，是推动节日立法的重要文化催化剂。",
+        "最年轻的诺贝尔和平奖得主：1964年金博士获颁诺贝尔和平奖时年仅35岁，是当时历史上最年轻的和平奖得主。"
+      ]
+    },
+    {
+      "id": "us_valentines_day",
+      "name": "情人节 · 圣瓦伦丁节",
+      "namePinyin": "Qíngrén Jié",
+      "nameEn": "Valentine's Day",
+      "type": "usObservance",
+      "country": "US",
+      "solarMonth": 2,
+      "solarDay": 14,
+      "lunarDateStr": "2月14日",
+      "lunarDateEng": "February 14th",
+      "icon": "💖",
+      "accentColor": "#f43f5e",
+      "aliases": ["Saint Valentine's Day", "圣瓦伦丁节", "西方情人节", "情人节"],
+      "significance": "A romantic and affectionate celebration of love, companionship, and deep appreciation shared among couples, friends, and family members through heartfelt gifts and cards.",
+      "significanceZh": "西方极具影响力的浪漫节日，旨在赞美真挚爱情、深厚友情与亲情羁绊。恋人与友人通过互赠贺卡、鲜花与巧克力表达爱慕与感激之情。",
+      "customs": [
+        "Sending romantic greeting cards ('valentines') adorned with lace, red hearts, and Cupid.",
+        "Gifting long-stemmed red roses (the universal floral symbol of passionate love).",
+        "Exchanging heart-shaped boxes of gourmet chocolates and handwritten love letters.",
+        "Enjoying romantic candlelit dinners at favorite restaurants or cozy home-cooked meals."
+      ],
+      "customsZh": [
+        "互赠情人节贺卡：寄送印有丘比特之箭与红心的精美贺卡，书写真挚爱意誓言。",
+        "赠送红玫瑰花束：红玫瑰是传达深厚爱意的永恒花语，此日全美花店鲜花销售达到年度巅峰。",
+        "心形巧克力礼盒：赠送系着红丝带的精巧心形巧克力礼盒，甜蜜入口滋养浪漫情怀。",
+        "烛光浪漫晚餐：情侣共赴法式或意式高级餐厅，在柔和烛光与优雅音乐中共度二人世界。"
+      ],
+      "foods": [
+        "Heart-shaped chocolates and decadent dark chocolate truffles.",
+        "Pastel conversation heart candies stamped with cute phrases like 'BE MINE' and 'XOXO'.",
+        "Chocolate-covered fresh strawberries drizzled with white chocolate.",
+        "Sparkling rosé wine and vintage red champagne."
+      ],
+      "foodsZh": [
+        "手工松露黑巧克力：浓郁醇厚的丝滑黑巧克力与坚果夹心，甜中带苦如恋爱心境。",
+        "表白对话糖（Conversation Hearts）：印有“BE MINE”、“KISS ME”、“XOXO”的经典马卡龙色彩味糖果。",
+        "白巧脆皮草莓：红艳多汁的鲜草莓裹满醇厚巧克力酱，果香与奶香交融。",
+        "桃红起泡酒与陈年红酒：为浪漫夜晚烘托优雅气氛的餐桌佳酿。"
+      ],
+      "funFacts": [
+        "Over 145 million Valentine's greeting cards are purchased each year in the United States alone.",
+        "Richard Cadbury produced the very first commercial heart-shaped box of chocolates in 1861.",
+        "California produces roughly 60% of all domestically grown roses in the United States.",
+        "In the city of Verona, Italy (the home of Romeo and Juliet), thousands of letters addressed to 'Juliet' arrive every Valentine's Day."
+      ],
+      "funFactsZh": [
+        "全美年销贺卡1.45亿张：使情人节成为仅次于圣诞节的全美第二大贺卡寄送节日。",
+        "心形巧克力的诞生地：英国吉百利（Cadbury）创始人理查德·吉百利于1861年发明了世界上首个心形巧克力盒。",
+        "加州玫瑰之冠：全美本土培育的玫瑰约60%来自阳光充沛的加利福尼亚州花田。",
+        "寄给朱丽叶的信：罗密欧与朱丽叶的故乡意大利维罗纳，每年情人节都会收到全球数千封写给“朱丽叶”的倾诉信件。"
+      ]
+    },
+    {
+      "id": "us_presidents_day",
+      "name": "总统日 · 华盛顿诞辰",
+      "namePinyin": "Zǒngtǒng Rì",
+      "nameEn": "Presidents' Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "3rd-monday",
+      "solarMonth": 2,
+      "lunarDateStr": "2月第三个星期一",
+      "lunarDateEng": "3rd Monday of February",
+      "icon": "🏛️",
+      "accentColor": "#60a5fa",
+      "aliases": ["Washington's Birthday", "华盛顿诞辰日", "林肯纪念日", "总统日"],
+      "significance": "Officially designated as Washington's Birthday, it celebrates the first US President George Washington, Abraham Lincoln, and the leadership of all who have served as President of the United States.",
+      "significanceZh": "联邦官方名称为“华盛顿诞辰日”，旨在缅怀美国开国元勋乔治·华盛顿与解放黑奴的亚伯拉罕·林肯，并致敬历任合众国总统的执政奉献。",
+      "customs": [
+        "Reading George Washington's 1796 Farewell Address in the US Senate, an annual tradition since 1896.",
+        "Visiting presidential historic sites like Mount Vernon (Virginia) and Springfield (Illinois).",
+        "Patriotic history reenactments and historical exhibits in museums and libraries.",
+        "Enjoying a 3-day holiday weekend often celebrated with nationwide winter sales and travel."
+      ],
+      "customsZh": [
+        "参议院诵读华盛顿告别演说：自1896年起，美国国会参议院每年总统日均举行两党议员轮流诵读华盛顿告别书的百年传统。",
+        "寻访总统故居与纪念馆：民众前往弗吉尼亚州华盛顿故居芒特弗农庄园或林肯纪念堂游览缅怀。",
+        "历史情景重现与总统巡展：国家历史公园与博物馆举办十八世纪服饰展览与历史回顾演说。",
+        "三日长假出游与促销：由于连休三日，全美百货公司与汽车展厅均会推出著名的“总统日大促销”。"
+      ],
+      "foods": [
+        "Traditional cherry pie (honoring the iconic legend of young Washington and the cherry tree).",
+        "Martha Washington's Great Cake (a spiced fruitcake made from an authentic 18th-century recipe).",
+        "Apple pandowdy and colonial-era roasted meats.",
+        "Favorite dishes of prominent presidents, such as Virginia ham and Jefferson-style mac and cheese."
+      ],
+      "foodsZh": [
+        "经典美式樱桃派：源自华盛顿童年“砍倒樱桃树勇于认错”的诚实传说，红樱桃派成为总统日标志性美点。",
+        "玛莎·华盛顿大蛋糕：采用十八世纪第一夫人玛莎·华盛顿流传至今的原版肉桂果仁香料蛋糕配方。",
+        "殖民时期传统苹果酥与烤肉：烘托美利坚立国之初的质朴饮食风味。",
+        "历任总统挚爱美食：如托马斯·杰斐逊从欧洲引入的焗烤通心粉与弗吉尼亚熏火腿拼盘。"
+      ],
+      "funFacts": [
+        "Federal law still officially calls the holiday 'Washington's Birthday', though the Uniform Monday Holiday Act of 1968 shifted it to a Monday.",
+        "George Washington was actually born on February 22, 1732, and Abraham Lincoln was born on February 12, 1809.",
+        "The cherry tree story was first published in 1806 by biographer Mason Locke Weems to illustrate Washington's sterling integrity.",
+        "Presidents' Day never actually falls on Washington's actual birthday (February 22), as the third Monday is always between Feb 15 and 21!"
+      ],
+      "funFactsZh": [
+        "联邦法典中的官方真名：虽然民间普遍称作“总统日”，但在美国联邦法典第5卷第6103条中，该法定假日始终名为“Washington's Birthday”。",
+        "华盛顿与林肯的双诞：华盛顿生于1732年2月22日，林肯生于1809年2月12日，二月因而被视为最具总统渊源之月。",
+        "樱桃树传说的由来：传记作家梅森·威姆斯在华盛顿逝世后所著传记中生动撰写了诚实砍树故事，影响了数代美国青少年的品德启蒙。",
+        "永远对不上的生日：由于“第三个星期一”最早落在2月15日，最迟2月21日，因此节日本身永远不可能与华盛顿真实的2月22日生日重叠！"
+      ]
+    },
+    {
+      "id": "us_st_patricks_day",
+      "name": "圣帕特里克节",
+      "namePinyin": "Shèng Pàtèlǐkè Jié",
+      "nameEn": "St. Patrick's Day",
+      "type": "usObservance",
+      "country": "US",
+      "solarMonth": 3,
+      "solarDay": 17,
+      "lunarDateStr": "3月17日",
+      "lunarDateEng": "March 17th",
+      "icon": "☘️",
+      "accentColor": "#22c55e",
+      "aliases": ["Saint Patrick's Day", "绿帽子节", "爱尔兰节", "圣派翠克节"],
+      "significance": "Celebrates the patron saint of Ireland and Irish-American heritage and culture. Characterized by wearing green, joyous street parades, and festive camaraderie across the United States.",
+      "significanceZh": "纪念爱尔兰守护圣徒圣帕特里克，是全美庆祝爱尔兰裔传统文化与多元族裔融合的欢乐盛会。以满街翠绿、欢歌热舞与热烈游行著称。",
+      "customs": [
+        "Wearing green clothing or shamrock pins (legend says wearing green makes you invisible to leprechauns who pinch!).",
+        "The Chicago River is dyed a vivid emerald green using eco-friendly vegetable dye, a tradition since 1962.",
+        "Massive street parades in New York City (the oldest and largest civilian parade in the US), Boston, and Chicago.",
+        "Playing traditional Celtic bagpipes, fiddle music, and lively Irish step dancing (Riverdance style)."
+      ],
+      "customsZh": [
+        "身着翠绿装束：佩戴三叶草胸针与绿色服饰（民间传说穿绿色能隐身免受淘气爱尔兰小矮妖Leprechaun的掐捏）。",
+        "芝加哥河“染绿”奇景：自1962年起，芝加哥工会每年使用环保植物染剂将市中心整条芝加哥河染成明艳翡翠绿，数日不退。",
+        "纽约第五大道盛大游行：始于1762年的纽约圣帕特里克节游行是全美历史最悠久、规模最大的无机动车民间游行。",
+        "风笛演奏与爱尔兰踢踏舞：风笛方阵吹响悠扬凯尔特乐章，街头舞者表演铿锵激昂的爱尔兰踢踏舞。"
+      ],
+      "foods": [
+        "Corned beef and cabbage with tender red potatoes and carrots.",
+        "Traditional Irish soda bread studded with raisins and baked golden-brown.",
+        "Hearty shepherd's pie made with seasoned minced meat and creamy mashed potato crust.",
+        "Festive green beer, creamy Irish stouts (like Guinness), and minty green milkshakes."
+      ],
+      "foodsZh": [
+        "腌牛肉炖卷心菜（Corned Beef & Cabbage）：爱尔兰移民融入美洲大陆后开创的标志性节庆主菜，肉质软烂醇香。",
+        "爱尔兰苏打面包（Soda Bread）：不用酵母而以小苏打发酵的传统金黄面包，外壳焦脆内里松软，常伴有甜葡萄干。",
+        "经典牧羊人派（Shepherd's Pie）：香浓肉酱铺底，上层覆盖厚厚一层金黄焦香的奶油土豆泥烘烤而成。",
+        "绿色啤酒与健力士黑啤：酒吧特调的翠绿生啤，以及泡沫浓密醇郁的传统爱尔兰司陶特黑啤酒。"
+      ],
+      "funFacts": [
+        "Saint Patrick wasn't actually Irish—he was born in Roman Britain in the late 4th century and later brought Christianity to Ireland.",
+        "The very first St. Patrick's Day parade took place in America in 1601 in what is now St. Augustine, Florida!",
+        "The shamrock (three-leaf clover) was used by St. Patrick as a metaphor to explain the Christian Holy Trinity.",
+        "More people of Irish ancestry live in the United States (approx. 31 million) than in Ireland itself (approx. 5 million)!"
+      ],
+      "funFactsZh": [
+        "圣帕特里克并不是爱尔兰人：他于公元4世纪末出生在不列颠的罗马家庭，年少被海盗掳至爱尔兰，后历经磨难成为传教士。",
+        "世界上第一场游行发生在美国：1601年，位于如今佛罗里达州圣奥古斯丁的定居点举办了历史上首次圣帕特里克节游行，早于爱尔兰本土游行。",
+        "三叶草的三位一体寓意：圣帕特里克当年借用满山的三叶草向当地人形象诠释圣父、圣子与圣灵的三位一体教义。",
+        "在美爱尔兰后裔远超本土：目前全美拥有爱尔兰血统的人口超过3100万，是爱尔兰本土人口（约500万）的六倍有余！"
+      ]
+    },
+    {
+      "id": "us_easter",
+      "name": "复活节",
+      "namePinyin": "Fùhuó Jié",
+      "nameEn": "Easter Sunday",
+      "type": "usObservance",
+      "country": "US",
+      "rule": "easter",
+      "lunarDateStr": "春分月圆后首个星期日",
+      "lunarDateEng": "First Sunday after First Full Moon in Spring",
+      "icon": "🐰",
+      "accentColor": "#e879f9",
+      "aliases": ["Pascha", "Resurrection Sunday", "复活节星期日"],
+      "significance": "The most sacred holiday in the Christian calendar, celebrating the resurrection of Jesus Christ on the third day after his crucifixion. Represents renewed life, hope, forgiveness, and the vibrant renewal of spring.",
+      "significanceZh": "基督教最重要的节日，纪念耶稣基督受难后第三天死而复活。象征着生命战胜死亡、希望新生与大地春回，满载宽恕、仁爱与蓬勃生机。",
+      "customs": [
+        "Easter Egg Hunts: Children eagerly search lawns and parks for hidden dyed hard-boiled eggs or treat-filled plastic eggs.",
+        "The White House Easter Egg Roll: An iconic annual tradition on the South Lawn hosted by the President and First Lady since 1878.",
+        "Waking up to Easter baskets filled with chocolate bunnies, marshmallow Peeps, and jellybeans.",
+        "Attending Sunday church services dressed in cheerful pastel springtime attire."
+      ],
+      "customsZh": [
+        "全家彩蛋大搜寻（Egg Hunt）：孩子们提着小竹篮，在草坪与花园树丛中竞相寻找五彩斑斓的熟鸡蛋或藏有小礼物的塑料蛋。",
+        "白宫滚彩蛋大赛：始于1878年拉瑟福德·B·海斯总统时期的白宫南草坪年度盛事，第一家庭与全美儿童共度竞技时光。",
+        "复活节兔子礼篮：清晨醒来发现复活节兔子（Easter Bunny）留下的满满礼篮，装满巧克力小兔、棉花糖Peeps与彩虹软糖。",
+        "身着浅彩春装参加礼拜：全家穿戴粉嫩马卡龙色系的春季正装礼服前往教堂参加赞美弥撒。"
+      ],
+      "foods": [
+        "Baked spiral-sliced honey ham glazed with brown sugar and pineapple.",
+        "Deviled eggs sprinkled with smoked paprika and chives.",
+        "Traditional hot cross buns marked with a cross on top.",
+        "Hollow or solid milk chocolate bunnies, marshmallow Peeps, and gourmet carrot cake."
+      ],
+      "foodsZh": [
+        "蜜汁菠萝烤火腿：螺旋切片的大火腿涂抹红糖蜂蜜果酱慢烤，肉汁丰盈咸甜适口，是复活节大餐的灵魂担当。",
+        "魔鬼蛋（Deviled Eggs）：蛋黄与蛋黄酱、芥末精细搅拌再回填至蛋白中，撒以烟熏红椒粉的开胃经典。",
+        "热十字面包（Hot Cross Buns）：表面划有象征十字架面纹的香甜肉桂葡萄干软面包，香气四溢。",
+        "巧克力小兔与胡萝卜蛋糕：香浓的空心或实心牛奶巧克力兔子、色彩缤纷的小鸡棉花糖与奶油芝士胡萝卜蛋糕。"
+      ],
+      "funFacts": [
+        "The date of Easter changes every year because it is computed based on the astronomical vernal equinox and lunar full moon cycle.",
+        "The Easter Bunny concept originated in Germany as the 'Osterhase', a folkloric hare that judged whether children were well-behaved.",
+        "Over 1.5 billion marshmallow Peeps are produced annually in the United States, predominantly for Easter.",
+        "The world's tallest chocolate Easter egg was crafted in Italy in 2011, standing over 34 feet tall and weighing over 15,000 pounds!"
+      ],
+      "funFactsZh": [
+        "移动的节日日期：复活节根据天文春分点及春分后的首个满月计算，因此每年日期在3月22日至4月25日之间规律变动。",
+        "复活节兔子的源起：源自德国民间传说中会下蛋的野兔“Osterhase”，后来德国移民将此风俗带入宾夕法尼亚并传遍全美。",
+        "年产15亿只棉花糖小鸡：全美每年生产逾15亿只经典棉花糖Peeps，其中绝大部分在复活节期间被热情采购。",
+        "世界最大巧克力彩蛋：2011年吉尼斯世界纪录记载的一枚巨型巧克力蛋高逾34英尺（约10.3米），重达15800多磅！"
+      ]
+    },
+    {
+      "id": "us_mothers_day",
+      "name": "母亲节",
+      "namePinyin": "Mǔqīn Jié",
+      "nameEn": "Mother's Day",
+      "type": "usObservance",
+      "country": "US",
+      "rule": "2nd-sunday",
+      "solarMonth": 5,
+      "lunarDateStr": "5月第二个星期日",
+      "lunarDateEng": "2nd Sunday of May",
+      "icon": "💐",
+      "accentColor": "#f472b6",
+      "aliases": ["Mothering Sunday", "妈妈节", "母亲节"],
+      "significance": "A heartfelt celebration honoring mothers, grandmothers, maternal figures, and the profound, selfless contributions they make to their families and society.",
+      "significanceZh": "感念母爱、孝敬长辈的温馨节日。向全天下的母亲、祖母与母职抚养者表达由衷的感激与无微不至的爱意。",
+      "customs": [
+        "Treating mom to Sunday brunch, preparing breakfast in bed, and giving her a complete day of relaxation.",
+        "Giving colorful bouquets of fresh carnations, roses, peonies, or lilies.",
+        "Exchanging heartfelt handmade cards and thoughtful sentimental gifts.",
+        "Holding multi-generational family gatherings celebrating grandmothers and mothers together."
+      ],
+      "customsZh": [
+        "早午餐款待与床上早餐：清晨为母亲端上精心烹饪的热咖啡与松饼早餐，或全家陪同享用优雅周末早午餐。",
+        "赠送粉红康乃馨与繁花花束：康乃馨是母爱的标志花卉，象征纯洁、恒久、高贵与温暖。",
+        "手作感谢卡片与贴心礼物：孩子们手绘贺卡、书写感恩字句，献上美容SPA护理礼券或珠宝饰物。",
+        "三代同堂温情团聚：母亲与外婆、祖母齐聚一堂，共度无忧无虑的天伦之乐时光。"
+      ],
+      "foods": [
+        "Mother's Day Champagne Brunch with Eggs Benedict and Belgian waffles.",
+        "Fresh strawberry shortcake and lemon berry tarts.",
+        "Assorted delicate tea sandwiches and afternoon scones with clotted cream.",
+        "Mimosa cocktails (chilled sparkling wine mixed with fresh orange juice)."
+      ],
+      "foodsZh": [
+        "经典班尼迪克蛋（Eggs Benedict）：流心荷包蛋配英式松饼与荷兰酱，是母亲节早午餐的无冕之王。",
+        "鲜草莓酥饼与柠檬浆果塔：清爽酸甜的春令莓果甜点，口感轻盈不甜腻。",
+        "英式三层下午茶点心：精巧的三文鱼黄瓜手指三明治，搭配配有凝脂奶油的现烤司康饼。",
+        "含羞草鸡尾酒（Mimosa）：冰爽起泡香槟融汇新鲜橙汁的优雅亮黄饮品，为敬爱母亲干杯。"
+      ],
+      "funFacts": [
+        "Founded by Anna Jarvis of West Virginia in 1908 to honor her late mother, who had been a peace activist during the Civil War.",
+        "President Woodrow Wilson signed a joint congressional resolution in 1914 establishing the second Sunday in May as an official national observance.",
+        "Mother's Day is consistently the busiest dining-out day of the entire year for American restaurants.",
+        "More phone calls are made on Mother's Day across the United States than on any other single day of the year!"
+      ],
+      "funFactsZh": [
+        "创始人安娜·贾维斯的执着：西弗吉尼亚州的Anna Jarvis于1908年发起纪念活动以悼念其热心公益的母亲，并推动成为全美节日。",
+        "1914年威尔逊总统立法：伍德罗·威尔逊总统签署国会两院联合决议案，正式将五月第二个星期日定为全美法定母亲节。",
+        "全美餐厅年度最忙碌之日：美国餐饮协会统计表明，母亲节外出就餐人数与订座量高居全年第一，远超情人节与父亲节。",
+        "电话网络呼叫峰值：全美电话与视频通话量在母亲节这一天达到年度历史最高点，数以亿计的儿女致电问安。"
+      ]
+    },
+    {
+      "id": "us_memorial_day",
+      "name": "阵亡将士纪念日 · 国殇日",
+      "namePinyin": "Zhènwáng Jiāngshì Jìniànrì",
+      "nameEn": "Memorial Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "last-monday",
+      "solarMonth": 5,
+      "lunarDateStr": "5月最后一个星期一",
+      "lunarDateEng": "Last Monday of May",
+      "icon": "🎖️",
+      "accentColor": "#ef4444",
+      "aliases": ["Decoration Day", "国殇日", "阵亡将士日"],
+      "significance": "A solemn federal holiday honoring and mourning the military personnel who died while serving in the United States Armed Forces. Also traditionally marks the unofficial start of the summer season.",
+      "significanceZh": "全美联邦法定节假日，庄严悼念在服役期间为保卫国家而英勇捐躯的美国武装部队军人。民间同时将其视作夏季热烈开启的传统风向标。",
+      "customs": [
+        "Visiting military cemeteries and placing small American flags on every grave (known as 'Flags In' at Arlington National Cemetery).",
+        "National Moment of Remembrance: An official pause of reflection observed across the US at 3:00 PM local time.",
+        "Flying the US flag at half-staff until noon, then raising it briskly to the top until sunset.",
+        "Memorial Day community parades, patriotic concerts, and welcoming the warm summer weather with outdoor cookouts."
+      ],
+      "customsZh": [
+        "公墓插旗仪式（Flags In）：阿灵顿国家公墓士兵与志愿者在数十万座将士墓碑前整齐插上小型美国国旗致哀。",
+        "全美默哀一分钟（3:00 PM）：根据国会决议，全美民众在当地时间下午3点自发暂停活动默哀一分钟。",
+        "国旗半旗礼仪：全美悬挂的国旗自日出起降半旗至正午12点以悼念逝者，正午升至顶端以示国家坚韧重生。",
+        "夏季户外烧烤与庆典：作为连休三天的夏令序曲，全美家庭组织庭院烧烤野餐，拉开夏季休闲大幕。"
+      ],
+      "foods": [
+        "Grilled burgers, all-beef hot dogs, and barbecue chicken fresh from the backyard grill.",
+        "Classic American potato salad and creamy coleslaw.",
+        "Fresh sweet corn on the cob charred over open flames.",
+        "Chilled watermelon slices and berry cobblers."
+      ],
+      "foodsZh": [
+        "炭烤汉堡与纯牛肉热狗：庭院炭火滋滋作响，烤肉香气四溢，是美式夏日聚会的标准招牌菜。",
+        "经典土豆沙拉与卷心菜沙拉：香浓蛋黄酱配芥末拌匀的粉糯土豆丁，冰凉解腻。",
+        "炭火焦香甜玉米：刷上黄油与海盐慢火熏烤出的甜脆新鲜甜玉米棒。",
+        "冰镇西瓜与浆果馅饼：汁水淋漓的爽口红瓤大西瓜，盛夏风情的绝美句点。"
+      ],
+      "funFacts": [
+        "Originally called 'Decoration Day' after the American Civil War, when citizens decorated the graves of fallen soldiers with spring wildflowers.",
+        "Waterloo, New York was officially recognized by Congress and President Lyndon B. Johnson in 1966 as the birthplace of Memorial Day.",
+        "The red field poppy is a recognized emblem of remembrance, inspired by the World War I poem 'In Flanders Fields'.",
+        "The Indianapolis 500 (Indy 500) motor race has been run over Memorial Day weekend almost every year since 1911."
+      ],
+      "funFactsZh": [
+        "曾名“装点日”（Decoration Day）：南北战争后，民众采摘春季野花装点南北两军阵亡士兵墓地，因而得名。",
+        "法定发源地滑铁卢市：1966年约翰逊总统与国会正式认定纽约州滑铁卢市为该纪念日的诞生地。",
+        "红罂粟花的纪念徽标：源自一战著名诗篇《在佛兰德斯战场》，人们佩戴鲜红红罂粟胸花寄托永不忘却的敬意。",
+        "百年印第500大赛：世界最著名的单日赛车盛事“印第安纳波利斯500”自1911年起便在阵亡将士纪念日周末鸣枪开跑。"
+      ]
+    },
+    {
+      "id": "us_fathers_day",
+      "name": "父亲节",
+      "namePinyin": "Fùqīn Jié",
+      "nameEn": "Father's Day",
+      "type": "usObservance",
+      "country": "US",
+      "rule": "3rd-sunday",
+      "solarMonth": 6,
+      "lunarDateStr": "6月第三个星期日",
+      "lunarDateEng": "3rd Sunday of June",
+      "icon": "👔",
+      "accentColor": "#38bdf8",
+      "aliases": ["Dad's Day", "爸爸节", "父亲节"],
+      "significance": "A warm holiday honoring fathers, stepfathers, grandfathers, and paternal figures, celebrating their strength, guidance, mentorship, and nurturing love.",
+      "significanceZh": "颂扬父爱、感恩如山的节日。向父亲、祖父及所有父职榜样表达敬仰与感恩，铭记他们为家庭遮风挡雨的无私担当。",
+      "customs": [
+        "Gifting dad classic presents like silk neckties, barbecue grilling tools, high-tech gadgets, or outdoor gear.",
+        "Spending quality outdoor time together: backyard barbecues, fishing on the lake, or a round of golf.",
+        "Kids preparing handcrafted cards and breakfast feasts with dad's favorite foods.",
+        "Watching sporting events, Major League Baseball games, or the final round of the US Open golf tournament."
+      ],
+      "customsZh": [
+        "赠送实用贴心礼品：领带、袖扣、高级烧烤工具套装、剃须刀或户外科技装备等经典礼物。",
+        "父子/父女户外共聚：陪伴父亲在湖畔垂钓、打高尔夫球或在后院亲手架炉熏烤烤肉。",
+        "爱心自制手绘卡片：孩子们书写“世界上最棒的老爸”（Best Dad Ever）手绘画卷与心意长信。",
+        "观看美国高尔夫公开赛决胜轮：全美公开赛（US Open）决赛轮传统上选在父亲节当天决出冠军，全家收看其乐融融。"
+      ],
+      "foods": [
+        "Smoked baby back ribs slathered in tangy barbecue sauce.",
+        "Juicy grilled ribeye or T-bone steaks cooked to perfection.",
+        "Loaded baked potatoes with sour cream, bacon bits, and cheddar.",
+        "Classic American apple pie with vanilla ice cream (à la mode)."
+      ],
+      "foodsZh": [
+        "烟熏秘制美式猪肋排：涂满浓郁甜辣烧烤酱、慢熏至骨肉分离的招牌大排。",
+        "厚切多汁炭烤眼肉牛排（Ribeye）：外表焦褐焦香、内里鲜嫩多汁的顶级牛排盛宴。",
+        "豪华芝士烤土豆（Loaded Potato）：烤得粉软的爱达荷大土豆塞满酸奶油、香脆培根碎与切达芝士。",
+        "美式苹果派配香草冰淇淋（À la Mode）：热腾腾的肉桂苹果馅派扣上一大勺冰凉细腻的香草冰淇淋。"
+      ],
+      "funFacts": [
+        "Founded by Sonora Smart Dodd of Spokane, Washington in 1910, who was raised along with her five brothers by her single-parent Civil War veteran father.",
+        "President Richard Nixon signed the official presidential proclamation making Father's Day a permanent national observance in 1972.",
+        "Neckties are historically the single most popular gift given to fathers on Father's Day.",
+        "In the United States, roses are the official flower of Father's Day: red roses for living fathers and white roses in memory of deceased fathers."
+      ],
+      "funFactsZh": [
+        "华盛顿州多德夫人的孝心：Sonora Smart Dodd自幼目睹单亲军人老爸独自抚养6个子女成才，深受触动，于1910年发起创立。",
+        "1972年尼克松正式立法：历经数十年推动，尼克松总统于1972年正式签署总统公告，确立全美永久法定纪念日。",
+        "送领带的历史第一：领带长年蝉联全美父亲节礼物赠送榜单首位。",
+        "父亲节的官方花卉是玫瑰：红玫瑰代表在世的健朗老爸，白玫瑰则献给已故受缅怀的慈爱父亲。"
+      ]
+    },
+    {
+      "id": "us_juneteenth",
+      "name": "六月节 · 全国独立日",
+      "namePinyin": "Liùyuè Jié",
+      "nameEn": "Juneteenth National Independence Day",
+      "type": "usFederal",
+      "country": "US",
+      "solarMonth": 6,
+      "solarDay": 19,
+      "lunarDateStr": "6月19日",
+      "lunarDateEng": "June 19th",
+      "icon": "⛓️",
+      "accentColor": "#f59e0b",
+      "aliases": ["Freedom Day", "Jubilee Day", "Emancipation Day", "六月节", "全国独立日"],
+      "significance": "Commemorates June 19, 1865, when Union Major General Gordon Granger arrived in Galveston, Texas to announce General Order No. 3, proclaiming freedom to the last remaining enslaved African Americans. Celebrates freedom, resilience, and African American achievement.",
+      "significanceZh": "全美最新确立的联邦法定节假日（2021年立国法）。纪念1865年6月19日联邦军队进驻得州加尔维斯顿颁布总命令宣告南方最后批奴隶重获自由。象征自由平等、民族坚韧与非裔卓越成就。",
+      "customs": [
+        "Public readings of the 1863 Emancipation Proclamation and historic General Order No. 3.",
+        "Vibrant street festivals with African drumming, gospel music, spoken word poetry, and marching bands.",
+        "Family reunions, fellowship picnics, and community awards ceremonies celebrating Black culture and excellence.",
+        "Reflective historical education programs in libraries, schools, and cultural centers."
+      ],
+      "customsZh": [
+        "宣读《解放黑人奴隶宣言》：公共集会上隆重诵读林肯总统1863年宣言与著名的加尔维斯顿“第三号总命令”。",
+        "非洲鼓乐与福音歌咏大巡游：街头奏响激昂的非洲手鼓、福音赞歌与爵士摇摆，庆祝自由与重生。",
+        "黑人文化与社区卓越表彰：家庭团聚野餐，社区向民权青年与杰出模范颁发年度奖项。",
+        "非裔历史教育与追思会：各大图书馆与博物馆举办黑人争取自由历史的深度研讨与展览。"
+      ],
+      "foods": [
+        "Traditional 'red foods' symbolizing resilience, sacrifice, and joy (such as red velvet cake and strawberry pie).",
+        "Texas-style smoked barbecue brisket and savory pork ribs.",
+        "Refreshing red hibiscus tea (sorrel drink) and classic strawberry lemonade.",
+        "Crispy fried catfish served with hot corn hushpuppies and collard greens."
+      ],
+      "foodsZh": [
+        "传统“红色盛宴”（Red Foods）：红色象征祖先的坚韧与生命力，红丝绒蛋糕、红草莓馅饼是席间必备亮彩。",
+        "德克萨斯风味烟熏牛胸肉：向六月节诞生地得克萨斯致敬的柴火慢熏牛胸肉与喷香猪肋排。",
+        "红槿花茶（Sorrel）与草莓柠檬水：源自西非传统的红木槿花草茶，清凉酸甜解暑生津。",
+        "香酥炸鲶鱼与炸玉米丸（Hushpuppies）：金黄外酥、肉质鲜滑的南部名菜，佐以甘蓝配菜。"
+      ],
+      "funFacts": [
+        "Texas was the very first state to declare Juneteenth an official state holiday in 1980.",
+        "It was officially signed into federal law as the 11th federal holiday by President Joe Biden on June 17, 2021.",
+        "The Juneteenth flag, created in 1997 by Ben Haith, features a bursting star inside an arched red-and-blue horizon, symbolizing new horizons for African Americans.",
+        "The port of Galveston, Texas, where the historic announcement took place, features a designated commemorative historical marker and walking trail."
+      ],
+      "funFactsZh": [
+        "得克萨斯首开先河：1980年得州率先将其立为该州官方节日，成为全美首个官方承认六月节的州。",
+        "半个世纪以来首个新增联邦假日：2021年6月17日拜登总统签署立法，是自1983年确立马丁·路德·金日以来美国新增的首个联邦法定假日。",
+        "六月节专属旗帜：由活动家Ben Haith于1997年设计，红蓝弧形地平线中央绽放一颗璀璨白星，象征非裔美国人开启崭新曙光。",
+        "加尔维斯顿历史地标：当年联邦军进驻的加尔维斯顿港口如今设立了历史纪念步道与浮雕壁画，吸引全球游人探访。"
+      ]
+    },
+    {
+      "id": "us_independence_day",
+      "name": "独立日 · 美国国庆节",
+      "namePinyin": "Dúlì Rì",
+      "nameEn": "Independence Day (4th of July)",
+      "type": "usFederal",
+      "country": "US",
+      "solarMonth": 7,
+      "solarDay": 4,
+      "lunarDateStr": "7月4日",
+      "lunarDateEng": "July 4th",
+      "icon": "🎆",
+      "accentColor": "#ef4444",
+      "aliases": ["4th of July", "Fourth of July", "July 4", "美国国庆节", "独立日"],
+      "significance": "Celebrates the adoption of the Declaration of Independence by the Continental Congress on July 4, 1776, announcing the thirteen colonies' separation from the Kingdom of Great Britain and the birth of the United States of America.",
+      "significanceZh": "全美最重要的爱国节日（国庆节）。纪念大陆会议于1776年7月4日正式通过《独立宣言》，宣告北美十三殖民地摆脱英国统治，美利坚合众国由此诞生。",
+      "customs": [
+        "Mesmerizing fireworks displays lighting up city skylines and country towns across the nation.",
+        "Community 4th of July parades featuring veterans, fire engines, marching bands, and Uncle Sam.",
+        "Wearing patriotic red, white, and blue clothing and waving miniature American flags.",
+        "Backyard family cookouts, beach outings, pool parties, and watching Major League Baseball games."
+      ],
+      "customsZh": [
+        "璀璨烟花盛典：全美各城镇当晚同步举行规模空前的烟火大会，如纽约梅西烟火秀、华盛顿国家广场烟花秀等。",
+        "国庆爱国盛大游行：老兵方阵、消防车队、军乐队与身披星条旗的山姆大叔巡游街头，锣鼓喧天。",
+        "红白蓝三色盛装：全家老小身穿红、白、蓝三色服饰，手摇微型星条旗欢庆自由。",
+        "庭院烧烤与沙滩派对：烤架炭火不息，举家共赴海滩或泳池戏水消暑，收看经典美职棒大联盟比赛。"
+      ],
+      "foods": [
+        "All-American grilled hot dogs and classic cheeseburgers.",
+        "Barbecued pork ribs, grilled chicken drumsticks, and charred corn.",
+        "Red, white, and blue fruit parfaits layered with strawberries, blueberries, and whipped cream.",
+        "Sweet cold watermelon slices, potato chips, and homemade lemonade."
+      ],
+      "foodsZh": [
+        "美式热狗与多汁芝士汉堡：国庆烧烤不可动摇的双子星，搭配芥末、酸黄瓜酱与番茄酱。",
+        "炭烤手撕猪肋排与蜜汁鸡腿：香气浓郁的慢熏肉品，涂抹厚厚一层红艳烟熏烧烤酱。",
+        "红白蓝三色浆果芭菲：鲜红草莓、深蓝蓝莓与雪白鲜奶油层层叠放，完美还原星条旗色彩。",
+        "冰甜大西瓜与冰镇柠檬水：清凉甘甜的冰镇西瓜块配上鲜榨柠檬汁，沁人心脾。"
+      ],
+      "funFacts": [
+        "Americans consume an estimated 150 million hot dogs on the 4th of July alone—enough to stretch from Washington D.C. to Los Angeles more than five times!",
+        "Nathan's Famous Hot Dog Eating Contest has been held at Coney Island, New York on July 4th every year since 1916.",
+        "Thomas Jefferson and John Adams, both founding fathers, Declaration drafters, and US Presidents, died on the very same day: July 4, 1826—exactly 50 years after 1776!",
+        "The Declaration of Independence was actually signed on August 2, 1776, but the Continental Congress approved the final wording on July 4th."
+      ],
+      "funFactsZh": [
+        "单日吃掉1.5亿根热狗：全美在独立日当天吃掉约1.5亿根热狗，连起来足可从华盛顿到洛杉矶往返五趟以上！",
+        "康尼岛吃热狗世纪大赛：纽约康尼岛著名的Nathan's热狗竞吃大赛自1916年起每年7月4日举行，见证多项世界纪录诞生。",
+        "两位开国总统同日归真：起草《独立宣言》的第二任总统约翰·亚当斯与第三任总统托马斯·杰斐逊，均在1826年7月4日同一天辞世，恰逢建国50周年整！",
+        "7月4日是文本批准日：大陆会议于7月4日最终批准了宣言定稿，而全体代表正式签名仪式实际上发生于同年8月2日。"
+      ]
+    },
+    {
+      "id": "us_labor_day",
+      "name": "劳动节",
+      "namePinyin": "Láodòng Jié",
+      "nameEn": "Labor Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "1st-monday",
+      "solarMonth": 9,
+      "lunarDateStr": "9月第一个星期一",
+      "lunarDateEng": "1st Monday of September",
+      "icon": "🛠️",
+      "accentColor": "#3b82f6",
+      "aliases": ["Labor Day Weekend", "美国劳动节", "工会节"],
+      "significance": "Honors the American labor movement and the hard work, resilience, and achievements of workers who have built and strengthened the nation's economic engine and infrastructure.",
+      "significanceZh": "全美联邦法定节假日。向推动国家经济发展、建设基础设施的广大美国劳动阶层与工会运动致敬，亦标志着夏季尾声与新学年的开启。",
+      "customs": [
+        "Labor union parades celebrating organized workers, skilled trades, and public servants.",
+        "Enjoying the 3-day holiday weekend with road trips, camping, or lakeside weekend getaways.",
+        "Hosting late-summer farewell cookouts with friends and neighbors.",
+        "Back-to-school shopping and massive retail holiday sales."
+      ],
+      "customsZh": [
+        "工会劳动者盛大游行：各行各业技术工匠、护士、教师、建筑工人身着制服整齐走上街头巡游。",
+        "三日长假近郊公路游：趁着开学前的最后长周末，举家自驾露营、湖畔度假屋泛舟或海滨休闲。",
+        "告别盛夏晚期露天烧烤：亲友邻里齐聚庭院，享受夏末初秋天高气爽的舒适微风。",
+        "返校季大采购与商场促销：各大零售百货推出学生返校文具与秋冬季服饰年度大折促销。"
+      ],
+      "foods": [
+        "Slow-smoked pulled pork sliders topped with tangy vinegar coleslaw.",
+        "Grilled bratwurst sausages served on toasted potato rolls with spicy brown mustard.",
+        "Summer pasta salad tossed with cherry tomatoes, mozzarella pearls, and Italian vinaigrette.",
+        "Fresh late-summer Georgia peach pie and blackberry cobbler."
+      ],
+      "foodsZh": [
+        "手撕猪肉小汉堡（Pulled Pork Sliders）：慢烤至酥烂的手撕猪肉拌入烟熏酱，搭配酸甜爽口生菜丝。",
+        "炭烤德式白香肠（Bratwurst）：焦香爆汁的香肠夹入烘热面包，抹上一层辛香法式芥末酱。",
+        "意式通心粉冷沙拉：五彩小番茄、小马苏里拉奶酪球、黑橄榄与意式油醋汁拌匀的冰爽开胃菜。",
+        "夏末鲜桃派与黑莓甜酥：采摘当季多汁鲜桃与黑莓烤制，果香浓郁、酸甜交织。"
+      ],
+      "funFacts": [
+        "First celebrated in New York City on September 5, 1882, organized by the Central Labor Union.",
+        "President Grover Cleveland made it an official federal holiday in 1894 following the Pullman railroad strike.",
+        "The old fashion rule 'Don't wear white after Labor Day' originated in the late 19th century as wealthy elites transitioned from summer white linens to autumn dark woolens.",
+        "The NFL and college football regular seasons traditionally kick off around Labor Day weekend, initiating the American football season."
+      ],
+      "funFactsZh": [
+        "1882年纽约首度开创：纽约市中央劳工工会于1882年9月5日组织了全美历史上第一场劳动节游行与野餐。",
+        "克利夫兰总统1894年立法：在著名的普尔曼铁路大罢工动荡后，克利夫兰总统签署法案确立其为全国法定假日。",
+        "“劳动节后不穿白衣”的时尚起源：源自19世纪末上流社会社交规范，白衣代表夏季度假休闲，节后换穿深色厚呢服饰代表回归都市严谨工作。",
+        "美式橄榄球狂欢季揭幕：大学橄榄球（NCAA）与美国职业橄榄球联盟（NFL）正赛传统上于劳动节长周末重磅开锣。"
+      ]
+    },
+    {
+      "id": "us_columbus_day",
+      "name": "哥伦布日 · 原住民日",
+      "namePinyin": "Gēlúnbù Rì",
+      "nameEn": "Columbus Day / Indigenous Peoples' Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "2nd-monday",
+      "solarMonth": 10,
+      "lunarDateStr": "10月第二个星期一",
+      "lunarDateEng": "2nd Monday of October",
+      "icon": "⛵",
+      "accentColor": "#0ea5e9",
+      "aliases": ["Indigenous Peoples' Day", "哥伦布纪念日", "原住民日", "哥伦布日"],
+      "significance": "Commemorates the historic arrival of Christopher Columbus in the Americas on October 12, 1492, while simultaneously celebrating and honoring the heritage, cultures, and resilience of Native American Indigenous peoples.",
+      "significanceZh": "全美联邦法定节假日。纪念1492年10月12日哥伦布船队登陆美洲大陆的历史转折点；同时越来越多州与城市并称“原住民日”，致敬美洲原住民深邃独特的历史文化与主权尊严。",
+      "customs": [
+        "Italian-American heritage parades celebrating Italian culture, cuisine, and heritage (notably New York City's Columbus Day Parade).",
+        "Indigenous Peoples' Day powwows, traditional Native American dancing, drumming, and art exhibitions.",
+        "Educational lectures and discussions on indigenous sovereignty and transatlantic exploration.",
+        "Enjoying a crisp autumn long weekend often featuring fall foliage viewing trips in New England."
+      ],
+      "customsZh": [
+        "意大利裔文化大游行：纽约第五大道举办全美最大的意大利裔庆祝游行，展示意大利文化、美食与乐团风采。",
+        "原住民传统歌舞集会（Powwow）：原住民部落身着传统羽冠华服举行古老鼓乐集会，展示本土手工织品与银饰。",
+        "历史与文化专题研讨：大学与文化机构探讨跨大西洋航海大发现对世界历史与本土族群的深远影响。",
+        "秋季红叶赏秋周末：正值新英格兰枫叶红透之际，民众趁长周末驱车北上观赏满山绚烂秋色。"
+      ],
+      "foods": [
+        "Authentic Italian pasta dishes, fresh handmade cannoli, and rustic focaccia bread.",
+        "Native American fry bread and Navajo tacos topped with seasoned beef, beans, and cheese.",
+        "Traditional Three Sisters Stew (corn, beans, and squash—the sacred agricultural triad of Native tribes).",
+        "Warm spiced apple cider and pumpkin seed snacks."
+      ],
+      "foodsZh": [
+        "地道意式面食与酥皮西西里奶酪卷（Cannoli）：庆祝意裔传统的意式海鲜千层面与奶酪卷。",
+        "美洲原住民炸面包塔可（Fry Bread Taco）：金黄酥脆的现炸原住民面饼，铺上喷香肉馅、红豆与鲜切生菜。",
+        "三姐妹炖菜（Three Sisters Stew）：美洲原住民玉米、豆类、南瓜“三姐妹”相伴共生农耕智慧烹就的营养浓汤。",
+        "暖胃肉桂苹果热饮：深秋街头热饮慢熬苹果酒，香甜暖心驱散凉意。"
+      ],
+      "funFacts": [
+        "First celebrated by the Society of St. Tammany in New York in 1792, marking the 300th anniversary of the voyage.",
+        "President Benjamin Harrison proclaimed a national holiday in 1892 following the 400th anniversary.",
+        "South Dakota was the very first state to officially rename the holiday Native American Day in 1990.",
+        "In 2021, President Joe Biden issued the first-ever presidential proclamation officially designating Indigenous Peoples' Day."
+      ],
+      "funFactsZh": [
+        "1792年300周年纪念：纽约塔曼尼协会早在1792年便组织了美国有记载以来的首次纪念庆典。",
+        "1892年本杰明·哈里森总统公告：在哥伦布航海400周年之际，全美学校首次举行了升旗致敬誓词仪式。",
+        "南达科他州率先变革：南达科他州于1990年成为全美首个官方确立“美洲原住民日”替代该假日的州邦。",
+        "2021年首份总统级原住民日公告：拜登总统于2021年签署了首份承认“原住民日”的正式白宫总统公告。"
+      ]
+    },
+    {
+      "id": "us_halloween",
+      "name": "万圣节前夜 · 万圣夜",
+      "namePinyin": "Wànshèng Yè",
+      "nameEn": "Halloween",
+      "type": "usObservance",
+      "country": "US",
+      "solarMonth": 10,
+      "solarDay": 31,
+      "lunarDateStr": "10月31日",
+      "lunarDateEng": "October 31st",
+      "icon": "🎃",
+      "accentColor": "#f97316",
+      "aliases": ["All Hallows' Eve", "万圣节前夕", "万圣前夜", "万圣节"],
+      "significance": "Originated from the ancient Celtic autumn festival of Samhain, marking the harvest's end and winter's beginning. Today it is a thrilling cultural celebration of imagination, costumes, spooky folklore, and sweet treats.",
+      "significanceZh": "源于古凯尔特人萨温节（Samhain），标志着丰收落幕与严冬降临。如今已演化为洋溢着奇思妙想、变装狂欢、南瓜雕刻与挨家挨户讨糖的国民级民俗盛会。",
+      "customs": [
+        "Trick-or-Treating: Children don costumes and carry treat buckets from house to house shouting 'Trick or treat!'.",
+        "Carving glowing Jack-o'-Lanterns out of hollowed-out fresh pumpkins with spooky or artistic faces.",
+        "Dressing up in elaborate costumes ranging from scary monsters and witches to superheroes and pop culture icons.",
+        "Visiting haunted houses, exploring corn mazes, and bobbing for apples in water buckets."
+      ],
+      "customsZh": [
+        "不给糖就捣蛋（Trick-or-Treat）：孩子们装扮成各式角色，提着小南瓜桶挨家挨户敲门索要糖果欢笑连连。",
+        "雕刻南瓜杰克灯（Jack-o'-Lantern）：挖空大南瓜，雕刻怪诞或逗趣面容，内点烛火照亮门廊长夜。",
+        "群魔乱舞变装派对：民众各显神通身着幽灵、巫师、超级英雄、流行文化巨星等五花八门服饰狂欢。",
+        "探秘鬼屋迷宫与咬苹果（Apple Bobbing）：挑战惊险刺激的实景鬼屋，在水盆中不用手仅用嘴叼出浮起的新鲜苹果。"
+      ],
+      "foods": [
+        "Classic tri-colored candy corn and assorted Halloween chocolates.",
+        "Crispy caramel apples coated in golden caramel and chopped roasted peanuts.",
+        "Oven-roasted pumpkin seeds seasoned with sea salt and smoked paprika.",
+        "Hot spiced apple cider accompanied by fresh apple cider doughnuts."
+      ],
+      "foodsZh": [
+        "三色玉米糖（Candy Corn）：黄、橙、白三色相间的传统万圣节经典甜糖果，甜蜜童年记忆。",
+        "太妃焦糖苹果（Caramel Apples）：新鲜脆红苹果裹满浓郁焦糖与碎花生仁，外脆甜内爽口。",
+        "香烤酥脆南瓜籽：雕刻南瓜时保留的籽洗净晾干，撒上海盐、黑胡椒烘烤酥脆。",
+        "热肉桂苹果酒与苹果甜甜圈：农场现榨热苹果汁配以肉桂粉糖霜甜甜圈，浓缩秋日丰饶馨香。"
+      ],
+      "funFacts": [
+        "Jack-o'-Lanterns were originally carved from turnips, beets, and potatoes in Ireland and Scotland before immigrants found American pumpkins much easier to hollow out!",
+        "Americans spend over $10 billion on Halloween costumes, decorations, and candy each year.",
+        "The legend of the Headless Horseman by Washington Irving (The Legend of Sleepy Hollow, 1820) remains America's foremost Halloween literary classic.",
+        "Black cats and owls are folklore staples because ancient Celts believed cats were familiars with acute second sight."
+      ],
+      "funFactsZh": [
+        "杰克南瓜灯原本是大头菜：古爱尔兰人原在芜菁、甜菜和大萝卜上雕刻骷髅以驱邪，移民美洲后发现硕大金黄的南瓜更易雕琢。",
+        "百亿美元消费狂欢：全美每年在万圣节服装、庭院装饰及糖果上的花费高达100多亿美元。",
+        "《无头骑士》不朽文学名著：华盛顿·欧文1820年创作的《沉睡谷传奇》中的断头骑士传说，是美式万圣节永恒的文化符号。",
+        "黑猫与猫头鹰的古老意象：中世纪民间坚信黑猫具备通灵敏锐感官，与女巫形象一同化为万圣夜不可或缺的暗夜图腾。"
+      ]
+    },
+    {
+      "id": "us_veterans_day",
+      "name": "退伍军人节 · 老兵节",
+      "namePinyin": "Tuìwǔ Jūnrén Jié",
+      "nameEn": "Veterans Day",
+      "type": "usFederal",
+      "country": "US",
+      "solarMonth": 11,
+      "solarDay": 11,
+      "lunarDateStr": "11月11日",
+      "lunarDateEng": "November 11th",
+      "icon": "🦅",
+      "accentColor": "#10b981",
+      "aliases": ["Armistice Day", "老兵节", "退役军人日", "退伍军人节"],
+      "significance": "A federal holiday honoring all military veterans who have served honorably in the United States Armed Forces during both wartime and peacetime, thanking them for their dedicated patriotism and sacrifice.",
+      "significanceZh": "全美联邦法定节假日。向合众国陆海空、海军陆战队、海岸警卫队及太空军的所有退役退伍军人致以最崇高的敬意，感念他们在战时与和平时期为国家安全作出的牺牲与奉献。",
+      "customs": [
+        "The Presidential Wreath-Laying Ceremony at the Tomb of the Unknown Soldier in Arlington National Cemetery at exactly 11:00 AM.",
+        "Observing a nationwide two-minute silence of respect and gratitude at 11:00 AM.",
+        "Community Veterans Day parades featuring military marching bands, veteran organizations, and patriotic floats.",
+        "Restaurants and businesses nationwide offer free meals, coffee, and discounts to active military and veterans."
+      ],
+      "customsZh": [
+        "无名烈士墓献花仪式：上午11点整，美国总统或副总统在阿灵顿国家公墓无名烈士墓前献上花圈并发表纪念演说。",
+        "两分钟全美默哀：纪念第一次世界大战停战时刻（11月11日11点），全美默哀两分钟以表追思。",
+        "全美退伍军人游行：各州城镇举办老兵盛大巡游，退役功勋老兵身着军服接受民众夹道欢呼与掌声致敬。",
+        "餐饮与商家免费致敬：全美数千家餐饮连锁与零售企业在此日为现役与退役军人提供免费正餐、咖啡与专属折扣。"
+      ],
+      "foods": [
+        "Hearty all-American roast beef dinner with gravy, roasted vegetables, and mashed potatoes.",
+        "Warm homemade American apple pie topped with cinnamon and vanilla ice cream.",
+        "Pancake breakfasts hosted by local VFW (Veterans of Foreign Wars) and American Legion posts.",
+        "Complimentary steak dinners and dessert spreads shared with fellow servicemembers."
+      ],
+      "foodsZh": [
+        "美式传统香烤牛肉大餐：配以浓郁肉汁、烤胡萝卜与奶油土豆泥，质朴厚重饱含暖意。",
+        "热腾腾手作苹果派：香气扑鼻的经典美式苹果肉桂馅饼，慰劳卫国英雄。",
+        "老兵协会热松饼早餐：各地海外退伍军人协会（VFW）清晨举办热乎乎的黄油枫糖松饼聚餐。",
+        "感恩牛排晚宴：亲朋相聚一堂，为老兵长辈切牛排敬酒，共叙军旅戎马岁月。"
+      ],
+      "funFacts": [
+        "Originally established as 'Armistice Day' by President Woodrow Wilson in 1919 to mark the exact moment World War I ended: the 11th hour of the 11th day of the 11th month in 1918.",
+        "Renamed 'Veterans Day' by President Dwight D. Eisenhower in 1954 to honor American veterans of all wars, not just World War I.",
+        "Unlike Memorial Day (which specifically remembers those who died in service), Veterans Day celebrates all military veterans, living and dead.",
+        "There is no apostrophe in Veterans Day: the US Department of Veterans Affairs explains that it is not a day that belongs to veterans, but a day to honor all veterans."
+      ],
+      "funFactsZh": [
+        "始于一战停战纪念日：威尔逊总统于1919年确立Armistice Day，纪念1918年11月11日第11个小时敲响的一战停火钟声。",
+        "艾森豪威尔总统扩大命名：1954年艾森豪威尔总统正式签署法令更名为“Veterans Day”，向所有历史战役及和平时期的老兵共同致敬。",
+        "退伍军人节与国殇日的区别：阵亡将士纪念日（五月）专属缅怀牺牲捐躯的烈士；而退伍军人节（十一月）则致敬所有健在与逝去的全体退役军人。",
+        "语法冷知识“没有撇号”：根据美国退伍军人事务部官方释义，“Veterans Day”没有所有格撇号（不是Veteran's），因为它属于表彰全员的专属属性名词。"
+      ]
+    },
+    {
+      "id": "us_thanksgiving",
+      "name": "感恩节",
+      "namePinyin": "Gǎn'ēn Jié",
+      "nameEn": "Thanksgiving Day",
+      "type": "usFederal",
+      "country": "US",
+      "rule": "4th-thursday",
+      "solarMonth": 11,
+      "lunarDateStr": "11月第四个星期四",
+      "lunarDateEng": "4th Thursday of November",
+      "icon": "🦃",
+      "accentColor": "#ea580c",
+      "aliases": ["Turkey Day", "感恩节", "Thanksgiving", "火鸡节"],
+      "significance": "A quintessential American federal holiday centered on family reunions, bountiful harvests, expressing gratitude for life's blessings, and sharing an abundant feast with loved ones.",
+      "significanceZh": "全美最重要、最具温情的家庭团聚节日。阖家千里返乡围坐丰盛餐桌前，感谢上苍赐予的大地丰收、生活福祉与亲朋挚爱，充满温情与感恩情怀。",
+      "customs": [
+        "Preparing and roasting a grand golden turkey with herb-seasoned savory stuffing.",
+        "Watching the world-famous Macy's Thanksgiving Day Parade down the streets of Manhattan with giant character balloons.",
+        "Watching live Thanksgiving NFL football games with family and friends.",
+        "The annual White House Presidential Turkey Pardon ceremony, sparing a lucky turkey from the dinner table."
+      ],
+      "customsZh": [
+        "慢火烤全火鸡：将填满香草坚果面包馅的硕大火鸡送入烤箱数小时慢火精烤，直至表皮金黄油亮酥脆。",
+        "梅西感恩节大游行：全美数千万家庭守候收看纽约曼哈顿街头的巨型充气卡通气球、百老汇歌舞与欢庆花车。",
+        "全家收看感恩节NFL橄榄球联赛：达拉斯牛仔队与底特律雄狮队的传统赛事是全美客厅的节日背景音。",
+        "白宫特赦火鸡仪式：自老布什总统起正式固定为每年白宫年度传统幽默仪式，被特赦的幸运火鸡得以安度余生。"
+      ],
+      "foods": [
+        "Roast turkey served with rich brown giblet gravy and sweet-tart cranberry sauce.",
+        "Creamy mashed potatoes and traditional green bean casserole topped with crispy fried onions.",
+        "Candied yams baked with sweet brown sugar, butter, and melted mini marshmallows.",
+        "Spiced pumpkin pie served with a dollop of fresh whipped cream and Southern pecan pie."
+      ],
+      "foodsZh": [
+        "金黄多汁烤火腿与火鸡：搭配香浓火鸡肉汁（Gravy）与酸甜解腻的新鲜蔓越莓酱（Cranberry Sauce）。",
+        "黄油奶油土豆泥与奶油四季豆煲：绵密如云朵的土豆泥，以及铺满香脆洋葱碎的浓郁绿豆煲（Green Bean Casserole）。",
+        "棉花糖焗甜薯（Candied Yams）：橙黄甜红薯拌入红糖黄油烘烤，表层覆盖烤至微焦拉丝的迷你棉花糖。",
+        "肉桂南瓜派与美洲碧根果派（Pecan Pie）：佐以香甜奶油花，每一口都是浓郁醇厚的深秋丰收滋味。"
+      ],
+      "funFacts": [
+        "The first Thanksgiving was celebrated in the autumn of 1621 by the Plymouth Pilgrims and the Wampanoag Native Americans.",
+        "President Abraham Lincoln proclaimed Thanksgiving a national annual holiday in 1863 in the midst of the American Civil War.",
+        "An estimated 46 million turkeys are consumed in the United States on Thanksgiving Day alone.",
+        "The day following Thanksgiving is known as 'Black Friday', historically the busiest shopping and retail day of the year kicking off the holiday gift season."
+      ],
+      "funFactsZh": [
+        "1621年首次感恩盛宴：普利茅斯清教徒移民与万帕诺亚格印第安部落共同举行为期三天的秋收庆典，成为感恩节渊源。",
+        "林肯总统确立全国法定日：1863年南北战争最艰难时刻，林肯总统发表公告正式将感恩节定为全美每年法定庆祝的全国假日。",
+        "单日消耗4600万只火鸡：全美在感恩节一天内享用约4600万只肥美火鸡，几乎家家餐桌必备。",
+        "“黑色星期五”年度购物狂欢：感恩节次日黎明开启的全美实体商场大促销，标志着年度最盛大节日采购季全面爆发。"
+      ]
+    },
+    {
+      "id": "us_christmas",
+      "name": "圣诞节",
+      "namePinyin": "Shèngdàn Jié",
+      "nameEn": "Christmas Day",
+      "type": "usFederal",
+      "country": "US",
+      "solarMonth": 12,
+      "solarDay": 25,
+      "lunarDateStr": "12月25日",
+      "lunarDateEng": "December 25th",
+      "icon": "🎄",
+      "accentColor": "#10b981",
+      "aliases": ["Xmas", "Christmas", "耶诞节", "圣诞节"],
+      "significance": "A beloved federal holiday and worldwide cultural celebration commemorating the birth of Jesus Christ. Filled with the joyous spirit of peace on Earth, boundless generosity, festive decorations, and heartwarming family gatherings.",
+      "significanceZh": "全美最重要的年度联邦法定假日与全球盛大庆典。纪念耶稣基督降生，满载和平、仁爱、慷慨馈赠与家庭团圆的欢欣祥和，街头巷尾银装素裹、彩灯璀璨。",
+      "customs": [
+        "Decorating evergreen Christmas trees with twinkling fairy lights, heirloom ornaments, and a glowing tree-topper star.",
+        "Hanging stockings by the fireplace chimney for Santa Claus to fill with gifts and sweets.",
+        "Waking up on Christmas morning to unwrap beautifully wrapped presents around the tree.",
+        "Singing Christmas carols, visiting neighborhood light displays, and building gingerbread houses."
+      ],
+      "customsZh": [
+        "装点常青圣诞树：挂满晶莹闪烁的小彩灯、精美挂件与姜饼小人，树梢顶端点亮指引方向的璀璨伯利恒之星。",
+        "壁炉悬挂圣诞袜：孩子们在壁炉边挂起长筒袜，期待圣诞老人（Santa Claus）从烟囱降临塞满神秘礼物与糖果。",
+        "圣诞清晨拆礼物：全家围聚在圣诞树下兴高采烈拆开亲朋挚友互赠的心意礼盒，欢呼声此起彼伏。",
+        "唱颂圣诞颂歌与搭建姜饼屋：唱诗班唱响《平安夜》，邻里社区串门送祝福，巧手用糖霜搭建梦幻姜饼童话小屋。"
+      ],
+      "foods": [
+        "Glazed Christmas ham or roasted prime rib with creamy horseradish sauce.",
+        "Spiced gingerbread cookies cut into little men and frosted with colorful royal icing.",
+        "Red and white striped peppermint candy canes hanging from trees.",
+        "Rich eggnog sprinkled with freshly grated nutmeg and cinnamon, paired with Christmas fruitcake."
+      ],
+      "foodsZh": [
+        "蜜汁烤火腿与香烤顶级牛肋排（Prime Rib）：外皮微甜焦脆、内部粉嫩多汁的高级节日盛宴硬菜。",
+        "姜饼人饼干（Gingerbread Men）：生姜肉桂暖香扑鼻、用各色彩色糖霜勾勒出生动笑脸与纽扣的俏皮饼干。",
+        "红白相间薄荷拐杖糖（Candy Cane）：经典挂树薄荷硬糖，清甜微凉带来节日纯真甜蜜。",
+        "蛋奶酒（Eggnog）与圣诞果脯蛋糕：浓郁顺滑的鲜牛奶、蛋黄与肉豆蔻粉交融，可加入适量白兰地微醺暖冬。"
+      ],
+      "funFacts": [
+        "Alabama was the very first US state to declare Christmas an official legal holiday in 1836.",
+        "The modern cheerful image of Santa Claus—chubby with a red suit and white beard—was popularized by Thomas Nast's 19th-century illustrations and Coca-Cola's 1930s advertisements.",
+        "NORAD (North American Aerospace Defense Command) has tracked Santa Claus's worldwide flight every Christmas Eve since 1955!",
+        "The beloved song 'Jingle Bells' was originally written by James Lord Pierpont in 1857 as a Thanksgiving song titled 'The One Horse Open Sleigh'!"
+      ],
+      "funFactsZh": [
+        "亚拉巴马州最早立为州假日：1836年亚拉巴马成为全美首个官方确立圣诞节为法定假日的州。",
+        "红袍白须圣诞老人的形象演变：如今深入人心的慈祥红棉袍圆脸圣诞老人形象，得益于19世纪插画大师托马斯·纳斯特以及可口可乐1930年代经典海报的广泛传播。",
+        "北美防空司令部（NORAD）追踪圣诞老人：始于1955年的暖心误会，如今每年平安夜军方卫星雷达都会为全球儿童实时播报“圣诞老人雪橇巡游航线”。",
+        "《铃儿响叮当》最初是感恩节歌曲：作曲家James Lord Pierpont于1857年创作这首歌时原名《单马开蓬雪橇》，最初专为感恩节排练所作！"
+      ]
+    },
+    {
+      "id": "us_new_years_eve",
+      "name": "跨年夜 · 新年前夕",
+      "namePinyin": "Kuànián Yè",
+      "nameEn": "New Year's Eve",
+      "type": "usObservance",
+      "country": "US",
+      "solarMonth": 12,
+      "solarDay": 31,
+      "lunarDateStr": "12月31日",
+      "lunarDateEng": "December 31st",
+      "icon": "🥂",
+      "accentColor": "#fbbf24",
+      "aliases": ["NYE", "除夕夜", "跨年", "新年前夜"],
+      "significance": "The celebratory final evening of the year, filled with glamorous parties, reflection on memories made, and counting down the final thrilling seconds to welcome the brand new year.",
+      "significanceZh": "岁末辞旧迎新的压轴狂欢夜。回顾过去一年的成长与收获，与亲友携手在璀璨烟火与欢声笑语中倒数最后十秒，喜迎崭新的一年破晓来临。",
+      "customs": [
+        "Gathering with hundreds of thousands in Times Square, New York to watch the Waterford Crystal Ball descend at midnight.",
+        "Singing the timeless Scottish song 'Auld Lang Syne' right as the clock strikes 12:00 AM.",
+        "Sharing a midnight kiss with someone special to guarantee a year filled with love and warmth.",
+        "Blowing party noisemakers, wearing glittering top hats, and toasting with bubbly champagne flutes."
+      ],
+      "customsZh": [
+        "时代广场百万跨年集会：全美乃至全球数百万民众聚集或通过电视直播，守候巨大的沃特福德水晶球缓缓滑落。",
+        "零点钟声齐唱《友谊地久天长》：全场在午夜零点钟声敲响瞬间拥抱亲友，伴着歌声挥别过往岁月。",
+        "午夜浪漫亲吻（Midnight Kiss）：民间风俗深信零点钟声响起时的甜蜜亲吻能驱逐孤独，保佑未来一年恩爱美满。",
+        "佩戴发光跨年眼镜与吹响鸣笛：头戴亮闪闪的“202X”字样眼镜与高顶礼帽，手摇鸣笛在倒数声中尽情欢腾。"
+      ],
+      "foods": [
+        "Chilled premium champagne and sparkling cider flutes for the midnight toast.",
+        "Gourmet charcuterie and artisan cheese grazing boards with figs, prosciutto, and crackers.",
+        "Cocktail meatballs simmered in sweet and tangy grape jelly chili sauce.",
+        "Decadent warm chocolate fondue served with fresh fruit and marshmallows for dipping."
+      ],
+      "foodsZh": [
+        "高脚杯冰镇香槟与起泡酒：气泡飞旋的干型香槟（Brut），午夜倒数“3、2、1”后碰杯相庆的仪式主角。",
+        "奢华熟食奶酪拼盘（Charcuterie Board）：精选意式帕尔玛火腿、萨拉米香肠、无花果干与坚果苏打饼干。",
+        "派对鸡尾酒小肉丸：浸润在微甜微辣经典蔓越莓辣椒酱中慢煨入味的一口多汁肉丸。",
+        "丝滑热巧克力火锅（Fondue）：将鲜草莓、香蕉片与棉花糖蘸入温热浓郁的黑巧克力浆中，甜蜜收官旧岁。"
+      ],
+      "funFacts": [
+        "Over one ton of multicolored confetti is dropped onto Times Square at the stroke of midnight on New Year's Eve.",
+        "People from all around the world write their wishes on pieces of paper that are included in the official Times Square confetti drop via the 'Wishing Wall'.",
+        "The first New Year's celebration in Times Square took place on December 31, 1904, to celebrate the opening of The New York Times' new headquarters building.",
+        "Dropping a 'time ball' originally was a maritime practice used in the 19th century by naval observatories to help ship navigators accurately calibrate their chronometers."
+      ],
+      "funFactsZh": [
+        "一吨彩色愿望碎片从天而降：时代广场零点整会自高楼洒下超过一吨彩色许愿碎纸片，漫天飞舞如梦似幻。",
+        "时代广场“许愿墙”全球征集：来自全球各地的游客可在网上或广场“许愿墙”写下新年梦想，印制成零点飞舞的彩纸碎片。",
+        "1904年首次时代广场跨年庆典：当年为庆祝《纽约时报》全新总部大楼落成揭幕，首次在朗埃克广场（现时代广场）举办跨年烟火。",
+        "“落球”源自19世纪航海校时钟：原本是英国格林尼治等皇家天文台为泰晤士河上航行的船长精准校准航海天文钟的天文传统。"
+      ]
+    }
+  ]
+}

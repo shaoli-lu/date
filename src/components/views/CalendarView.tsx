@@ -5,6 +5,7 @@ import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, en
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { getBilingualLunarDate, getSanfuInfo, getSanjiuInfo } from '@/lib/lunarUtils'
+import { getHolidayForDate } from '@/lib/holidayUtils'
 
 
 const parseDescForBadges = (desc: string | null | undefined) => {
@@ -67,6 +68,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
         const lunar = getBilingualLunarDate(cloneDay)
         const sanfu = getSanfuInfo(cloneDay)
         const sanjiu = getSanjiuInfo(cloneDay)
+        const holiday = getHolidayForDate(cloneDay)
         
         days.push(
           <div 
@@ -75,13 +77,33 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
             onClick={() => onNavigateToDate('weekly', cloneDay)}
             style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: '4px', cursor: 'pointer' }}
           >
-            <div style={{ alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '4px', textAlign: 'center', minHeight: '38px', justifyContent: 'center' }}>
+            <div style={{ alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '4px', textAlign: 'center', minHeight: '38px', justifyContent: 'center', width: '100%' }}>
               <span style={{ fontSize: '0.9rem', fontWeight: isSameDay(day, new Date()) ? 'bold' : 'normal' }}>{format(day, 'd')}</span>
               {lunar && (
                 <>
                   <span style={{ fontSize: '0.62rem', color: 'var(--secondary-color)', lineHeight: 1.1, display: 'block' }}>{lunar.labelCh}</span>
                   <span style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.1, display: 'block' }}>{lunar.labelEng}</span>
                 </>
+              )}
+              {holiday && (
+                <span
+                  title={holiday.nameEn}
+                  style={{
+                    fontSize: '0.55rem',
+                    color: holiday.accentColor,
+                    lineHeight: 1.1,
+                    display: 'block',
+                    marginTop: '1px',
+                    fontWeight: 700,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    maxWidth: '100%',
+                    padding: '0 2px',
+                  }}
+                >
+                  {holiday.icon} {holiday.country === 'US' ? holiday.nameEn : holiday.name}
+                </span>
               )}
               {sanfu && (
                 <span style={{ fontSize: '0.5rem', color: '#f5a623', lineHeight: 1.1, display: 'block', marginTop: '1px', fontWeight: 700 }}>{sanfu.name}</span>
@@ -121,6 +143,7 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
       const lunar = getBilingualLunarDate(cloneDay)
       const sanfu = getSanfuInfo(cloneDay)
       const sanjiu = getSanjiuInfo(cloneDay)
+      const holiday = getHolidayForDate(cloneDay)
 
       days.push(
         <div 
@@ -136,6 +159,31 @@ export default function CalendarView({ session, view, refreshKey, selectedDate, 
               <div style={{ textAlign: 'center', marginTop: '2px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' }}>
                 <span style={{ fontSize: '0.72rem', color: 'var(--secondary-color)', display: 'block', fontWeight: 500, lineHeight: 1.1 }}>{lunar.labelCh}</span>
                 <span style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.4)', display: 'block', lineHeight: 1.1 }}>{lunar.labelEng}</span>
+              </div>
+            )}
+            {holiday && (
+              <div
+                style={{
+                  marginTop: '4px',
+                  padding: '2px 8px',
+                  borderRadius: '20px',
+                  background: `${holiday.accentColor}20`,
+                  border: `1px solid ${holiday.accentColor}55`,
+                  fontSize: '0.68rem',
+                  color: holiday.accentColor,
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  maxWidth: '100%',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
+                title={`${holiday.name} · ${holiday.nameEn}`}
+              >
+                <span>{holiday.icon}</span>
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{holiday.nameEn}</span>
               </div>
             )}
             {sanfu && (

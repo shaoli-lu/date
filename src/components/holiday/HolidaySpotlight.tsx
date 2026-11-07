@@ -23,7 +23,7 @@ export default function HolidaySpotlight({
   const [showAllModal, setShowAllModal] = useState(false)
   const [modalHoliday, setModalHoliday] = useState<HolidayData | null>(null)
   const [modalTab, setModalTab] = useState<'significance' | 'customs' | 'foods' | 'facts'>('significance')
-  const [modalFilter, setModalFilter] = useState<'all' | 'holiday' | 'solarTerm'>('all')
+  const [modalFilter, setModalFilter] = useState<'all' | 'us' | 'holiday' | 'solarTerm'>('all')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -38,8 +38,9 @@ export default function HolidaySpotlight({
   }
 
   const filteredHolidays = ALL_HOLIDAYS.filter(h => {
-    if (modalFilter === 'holiday') return h.isHoliday !== false
-    if (modalFilter === 'solarTerm') return h.type === 'solarTerm' || h.isHoliday === false
+    if (modalFilter === 'us') return h.country === 'US'
+    if (modalFilter === 'holiday') return h.country !== 'US' && h.isHoliday !== false
+    if (modalFilter === 'solarTerm') return h.country !== 'US' && (h.type === 'solarTerm' || h.isHoliday === false)
     return true
   })
 
@@ -90,14 +91,20 @@ export default function HolidaySpotlight({
                         textTransform: 'uppercase',
                       }}
                     >
-                      {activeHoliday.isHoliday === false
+                      {activeHoliday.country === 'US'
+                        ? (activeHoliday.type === 'usFederal'
+                            ? '🇺🇸 US Federal Holiday · 联邦法定节假日'
+                            : '🇺🇸 US Holiday & Observance · 传统节日')
+                        : activeHoliday.isHoliday === false
                         ? '🍂 24 Solar Terms (Non-Holiday) · 二十四节气'
                         : activeHoliday.type === 'solarTerm'
                         ? '🌿 Traditional Festival & Solar Term · 传统佳节/节气'
                         : '🏮 Traditional Holiday · 传统佳节'}
                     </span>
                   <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
-                    {activeHoliday.lunarDateEng} ({activeHoliday.lunarDateStr})
+                    {activeHoliday.country === 'US'
+                      ? activeHoliday.lunarDateEng
+                      : `${activeHoliday.lunarDateEng} (${activeHoliday.lunarDateStr})`}
                   </span>
                 </div>
                 <h3 style={{ fontSize: '1.6rem', color: '#fff', marginTop: '4px', marginBottom: '2px', display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
@@ -338,7 +345,11 @@ export default function HolidaySpotlight({
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ fontSize: '0.72rem', color: 'var(--primary-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    {upcomingHoliday.holiday.isHoliday === false
+                    {upcomingHoliday.holiday.country === 'US'
+                      ? (upcomingHoliday.holiday.type === 'usFederal'
+                          ? '🇺🇸 Upcoming US Federal Holiday · 下一个美国联邦节假日'
+                          : '🇺🇸 Upcoming US Holiday · 下一个美国传统节日')
+                      : upcomingHoliday.holiday.isHoliday === false
                       ? '🍂 Upcoming Solar Term · 下一个节气 (24 Solar Terms)'
                       : '🏮 Upcoming Festival · 下一个传统节日'}
                   </span>
@@ -358,7 +369,7 @@ export default function HolidaySpotlight({
                 <div style={{ color: '#fff', fontWeight: 600, fontSize: '0.98rem', marginTop: '2px' }}>
                   {upcomingHoliday.holiday.name} · {upcomingHoliday.holiday.nameEn}
                   <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
-                    ({upcomingHoliday.holiday.lunarDateStr} · {format(upcomingHoliday.date, 'MMM d')})
+                    ({upcomingHoliday.holiday.country === 'US' ? upcomingHoliday.holiday.lunarDateEng : upcomingHoliday.holiday.lunarDateStr} · {format(upcomingHoliday.date, 'MMM d')})
                   </span>
                 </div>
               </div>
@@ -485,26 +496,31 @@ export default function HolidaySpotlight({
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '12px' }}>
               <div>
                 <h2 style={{ fontSize: '1.4rem', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span>🏮</span> Traditional Chinese Festivals & 24 Solar Terms · 传统节日与二十四节气锦囊
+                  <span>🏮</span> Festivals & Holidays Pocket Guide · 传统节日与节气/美式节假日锦囊
                 </h2>
                 <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginTop: '2px' }}>
-                  Significance, customs, festive foods, and fun facts for major lunar celebrations and 24 solar terms (including non-holiday terms)
+                  Significance, customs, festive foods, and fun facts for US holidays, Chinese lunar celebrations, and 24 solar terms
                 </p>
               </div>
               <button
+                type="button"
                 onClick={() => setShowAllModal(false)}
                 style={{
-                  background: 'transparent',
-                  border: 'none',
-                  color: 'rgba(255,255,255,0.7)',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: 'rgba(255,255,255,0.85)',
                   cursor: 'pointer',
                   padding: '6px',
                   borderRadius: '50%',
                   display: 'grid',
                   placeItems: 'center',
+                  width: '32px',
+                  height: '32px',
+                  flexShrink: 0,
                 }}
+                aria-label="Close"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
@@ -512,11 +528,13 @@ export default function HolidaySpotlight({
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {[
                 { id: 'all', label: `All · 全部 (${ALL_HOLIDAYS.length})` },
-                { id: 'holiday', label: `Traditional Festivals · 传统节日 (${ALL_HOLIDAYS.filter(h => h.isHoliday !== false).length})` },
-                { id: 'solarTerm', label: `24 Seasons · 节气 (${ALL_HOLIDAYS.filter(h => h.type === 'solarTerm' || h.isHoliday === false).length})` },
+                { id: 'us', label: `🇺🇸 US Holidays · 美国节日 (${ALL_HOLIDAYS.filter(h => h.country === 'US').length})` },
+                { id: 'holiday', label: `🏮 Traditional Chinese · 传统节日 (${ALL_HOLIDAYS.filter(h => h.country !== 'US' && h.isHoliday !== false).length})` },
+                { id: 'solarTerm', label: `🍂 24 Seasons · 节气 (${ALL_HOLIDAYS.filter(h => h.country !== 'US' && (h.type === 'solarTerm' || h.isHoliday === false)).length})` },
               ].map(f => (
                 <button
                   key={f.id}
+                  type="button"
                   onClick={() => setModalFilter(f.id as any)}
                   style={{
                     background: modalFilter === f.id ? 'rgba(102, 252, 241, 0.15)' : 'rgba(255, 255, 255, 0.05)',
@@ -566,7 +584,19 @@ export default function HolidaySpotlight({
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px' }}>
                     <span style={{ fontSize: '1.6rem' }}>{h.icon}</span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                      {h.isHoliday === false ? (
+                      {h.country === 'US' ? (
+                        <span style={{
+                          fontSize: '0.65rem',
+                          background: h.type === 'usFederal' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(168, 85, 247, 0.2)',
+                          color: h.type === 'usFederal' ? '#60a5fa' : '#c084fc',
+                          border: `1px solid ${h.type === 'usFederal' ? 'rgba(59, 130, 246, 0.4)' : 'rgba(168, 85, 247, 0.4)'}`,
+                          padding: '1px 5px',
+                          borderRadius: '4px',
+                          fontWeight: 600,
+                        }}>
+                          {h.type === 'usFederal' ? '🇺🇸 US Federal' : '🇺🇸 US Observance'}
+                        </span>
+                      ) : h.isHoliday === false ? (
                         <span style={{
                           fontSize: '0.65rem',
                           background: `${h.accentColor}20`,
@@ -592,7 +622,7 @@ export default function HolidaySpotlight({
                         </span>
                       )}
                       <span style={{ fontSize: '0.75rem', color: h.accentColor, fontWeight: 600 }}>
-                        {h.lunarDateStr}
+                        {h.country === 'US' ? h.lunarDateEng : h.lunarDateStr}
                       </span>
                     </div>
                   </div>
@@ -672,14 +702,20 @@ export default function HolidaySpotlight({
                         whiteSpace: 'nowrap',
                       }}
                     >
-                      {modalHoliday.isHoliday === false
+                      {modalHoliday.country === 'US'
+                        ? (modalHoliday.type === 'usFederal'
+                            ? '🇺🇸 US Federal Holiday · 联邦法定节假日'
+                            : '🇺🇸 US Holiday & Observance · 传统节日')
+                        : modalHoliday.isHoliday === false
                         ? '🍂 24 Solar Terms (Non-Holiday) · 二十四节气'
                         : modalHoliday.type === 'solarTerm'
                         ? '🌿 Traditional Festival & Solar Term · 传统佳节/节气'
                         : '🏮 Traditional Holiday · 传统佳节'}
                     </span>
                     <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
-                      {modalHoliday.lunarDateStr} · {modalHoliday.lunarDateEng}
+                      {modalHoliday.country === 'US'
+                        ? `${modalHoliday.lunarDateEng} · ${modalHoliday.lunarDateStr}`
+                        : `${modalHoliday.lunarDateStr} · ${modalHoliday.lunarDateEng}`}
                     </span>
                   </div>
                   <h2 style={{ fontSize: '1.5rem', color: '#fff', margin: '4px 0 0 0', display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
