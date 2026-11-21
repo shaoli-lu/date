@@ -32,7 +32,7 @@ export default function CreateLoanModal({
 }: CreateLoanModalProps) {
   const [title, setTitle] = useState(existingLoan?.title || 'Family Home Loan');
   const [borrowerName, setBorrowerName] = useState(existingLoan?.borrowerName || '');
-  const [lenderName, setLenderName] = useState(existingLoan?.lenderName || '');
+  const [lenderName, setLenderName] = useState(existingLoan?.lenderName || 'Shaoli Lu');
   const [propertyAddress, setPropertyAddress] = useState(existingLoan?.propertyAddress || '');
   
   const [principalDollars, setPrincipalDollars] = useState(existingLoan ? centsToDollars(existingLoan.originalPrincipalCents).toString() : '440000');
@@ -62,7 +62,7 @@ export default function CreateLoanModal({
     } else if (isOpen) {
       setTitle('Family Home Loan');
       setBorrowerName('');
-      setLenderName('');
+      setLenderName('Shaoli Lu');
       setPropertyAddress('');
       setPrincipalDollars('440000');
       setRatePercent('5.12');

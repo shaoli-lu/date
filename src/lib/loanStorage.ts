@@ -19,7 +19,7 @@ export function getSampleLoan(userId = 'demo-user'): Loan {
     user_id: userId,
     title: 'Family Home Loan',
     borrowerName: 'Alex & Jordan Smith',
-    lenderName: 'Robert & Margaret Smith',
+    lenderName: 'Shaoli Lu',
     propertyAddress: '742 Evergreen Terrace, Springfield, IL 62704',
     originalPrincipalCents: principalCents,
     annualRateBps: rateBps,

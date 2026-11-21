@@ -34,8 +34,9 @@ import {
   ReceiptSlipModal,
 } from '../loan/LoanModals';
 import LoanDocuments from '../loan/LoanDocuments';
+import LoanNotaryDocument from '../loan/LoanNotaryDocument';
 
-type LoanSubTab = 'dashboard' | 'amortization' | 'ledger' | 'simulator' | 'documents' | 'tax' | 'settings';
+type LoanSubTab = 'dashboard' | 'amortization' | 'ledger' | 'simulator' | 'documents' | 'notary' | 'tax' | 'settings';
 
 export default function LoanView({ session }: { session: Session }) {
   const [loans, setLoans] = useState<Loan[]>([]);
@@ -414,6 +415,7 @@ export default function LoanView({ session }: { session: Session }) {
             { id: 'ledger', label: `🧾 Ledger (${payments.length})` },
             { id: 'simulator', label: '🚀 What-If Simulator' },
             { id: 'documents', label: '📜 Legal Note & Docs' },
+            { id: 'notary', label: '🏛️ Notary' },
             { id: 'tax', label: '📑 CPA Tax View' },
             { id: 'settings', label: '⚙️ Settings' },
           ].map(t => (
@@ -951,6 +953,11 @@ export default function LoanView({ session }: { session: Session }) {
       {/* SUB-VIEW 5: LEGAL DOCUMENTS & PROMISSORY NOTE */}
       {subTab === 'documents' && (
         <LoanDocuments loan={activeLoan} taxSummaries={taxSummaries} rows={rows} />
+      )}
+
+      {/* SUB-VIEW 5B: OFFICIAL NOTARY LOAN DOCUMENTATION */}
+      {subTab === 'notary' && (
+        <LoanNotaryDocument loan={activeLoan} />
       )}
 
       {/* SUB-VIEW 6: CPA TAX SUMMARY */}

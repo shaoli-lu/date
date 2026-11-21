@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { Loan, TaxYearSummary, AmortizationRow } from '@/types/loan';
 import { formatCents, formatBps, centsToDollars } from '@/lib/loanEngine';
 import { printElement } from '@/lib/printUtils';
+import LoanNotaryDocument from './LoanNotaryDocument';
 
 type LoanDocumentsProps = {
   loan: Loan;
@@ -12,7 +13,7 @@ type LoanDocumentsProps = {
 };
 
 export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocumentsProps) {
-  const [docType, setDocType] = useState<'note' | 'mortgage' | 'satisfaction' | 'tax'>('note');
+  const [docType, setDocType] = useState<'note' | 'mortgage' | 'satisfaction' | 'tax' | 'notary'>('note');
   const docSheetRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -83,45 +84,66 @@ export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocument
         >
           📑 CPA Tax Summary
         </button>
-
         <button
           type="button"
-          onClick={() => printElement(docSheetRef.current)}
+          onClick={() => setDocType('notary')}
           style={{
-            marginLeft: 'auto',
             padding: '8px 16px',
             borderRadius: '8px',
-            border: '1px solid rgba(102, 252, 241, 0.4)',
-            background: 'rgba(102, 252, 241, 0.1)',
-            color: 'var(--primary-color)',
+            border: docType === 'notary' ? '1px solid var(--primary-color)' : '1px solid rgba(255, 255, 255, 0.1)',
+            background: docType === 'notary' ? 'rgba(102, 252, 241, 0.15)' : 'rgba(255, 255, 255, 0.02)',
+            color: docType === 'notary' ? 'var(--primary-color)' : 'var(--text-main)',
             fontSize: '0.85rem',
             fontWeight: 600,
             cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
           }}
         >
-          🖨️ Print / Save PDF
+          🏛️ Notary Loan Doc
         </button>
+
+        {docType !== 'notary' && (
+          <button
+            type="button"
+            onClick={() => printElement(docSheetRef.current)}
+            style={{
+              marginLeft: 'auto',
+              padding: '8px 16px',
+              borderRadius: '8px',
+              border: '1px solid rgba(102, 252, 241, 0.4)',
+              background: 'rgba(102, 252, 241, 0.1)',
+              color: 'var(--primary-color)',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+          >
+            🖨️ Print / Save PDF
+          </button>
+        )}
       </div>
 
-      {/* Document Sheet */}
-      <div
-        ref={docSheetRef}
-        className="glass-panel"
-        style={{
-          background: '#ffffff',
-          color: '#1e293b',
-          borderRadius: '12px',
-          padding: '2.5rem',
-          maxWidth: '850px',
-          margin: '0 auto',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
-          fontFamily: 'serif',
-          lineHeight: 1.7,
-        }}
-      >
+      {docType === 'notary' ? (
+        <LoanNotaryDocument loan={loan} />
+      ) : (
+        /* Document Sheet */
+        <div
+          ref={docSheetRef}
+          className="glass-panel"
+          style={{
+            background: '#ffffff',
+            color: '#1e293b',
+            borderRadius: '12px',
+            padding: '2.5rem',
+            maxWidth: '850px',
+            margin: '0 auto',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+            fontFamily: 'serif',
+            lineHeight: 1.7,
+          }}
+        >
         {docType === 'note' && (
           <div>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -319,7 +341,8 @@ export default function LoanDocuments({ loan, taxSummaries, rows }: LoanDocument
             </div>
           </div>
         )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
