@@ -36,10 +36,10 @@ export default function CreateLoanModal({
   const [propertyAddress, setPropertyAddress] = useState(existingLoan?.propertyAddress || '');
   
   const [principalDollars, setPrincipalDollars] = useState(existingLoan ? centsToDollars(existingLoan.originalPrincipalCents).toString() : '440000');
-  const [ratePercent, setRatePercent] = useState(existingLoan ? bpsToPercent(existingLoan.annualRateBps).toString() : '5.12');
+  const [ratePercent, setRatePercent] = useState(existingLoan ? bpsToPercent(existingLoan.annualRateBps).toString() : '5.22');
   const [termYears, setTermYears] = useState(existingLoan ? (existingLoan.termMonths / 12).toString() : '30');
-  const [fundingDate, setFundingDate] = useState(existingLoan?.fundingDate || format(new Date(), 'yyyy-MM-dd'));
-  const [firstPaymentDate, setFirstPaymentDate] = useState(existingLoan?.firstPaymentDate || format(addMonths(new Date(), 1), 'yyyy-MM-01'));
+  const [fundingDate, setFundingDate] = useState(existingLoan?.fundingDate || '2026-10-02');
+  const [firstPaymentDate, setFirstPaymentDate] = useState(existingLoan?.firstPaymentDate || '2026-11-01');
   const [paymentDueDay, setPaymentDueDay] = useState(existingLoan?.paymentDueDay?.toString() || '1');
   const [graceDays, setGraceDays] = useState(existingLoan?.graceDays?.toString() || '15');
   const [noteReference, setNoteReference] = useState(existingLoan?.noteReference || `NOTE-${new Date().getFullYear()}-001`);
@@ -65,10 +65,10 @@ export default function CreateLoanModal({
       setLenderName('Shaoli Lu');
       setPropertyAddress('');
       setPrincipalDollars('440000');
-      setRatePercent('5.12');
+      setRatePercent('5.22');
       setTermYears('30');
-      setFundingDate(format(new Date(), 'yyyy-MM-dd'));
-      setFirstPaymentDate(format(addMonths(new Date(), 1), 'yyyy-MM-01'));
+      setFundingDate('2026-10-02');
+      setFirstPaymentDate('2026-11-01');
       setPaymentDueDay('1');
       setGraceDays('15');
       setNoteReference(`NOTE-${new Date().getFullYear()}-001`);

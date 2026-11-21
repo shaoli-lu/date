@@ -254,8 +254,23 @@ h1, h2, h3, h4 {
 
   /* Page settings */
   @page {
-    margin: 0.75in;
-    size: auto;
+    margin: 0.4in;
+    size: letter portrait;
+  }
+
+  /* Compact 1-page Notary document print rules */
+  html[data-print-active] [data-print-target].notary-one-pager {
+    border: 2px solid #0f172a !important;
+    padding: 0.25in 0.35in !important;
+    max-height: 10.2in !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+
+  html[data-print-active] [data-print-target].notary-one-pager td {
+    padding: 3px 6px !important;
+    font-size: 0.78rem !important;
   }
 
   /* Completely hide these elements regardless */

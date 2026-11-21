@@ -10,7 +10,7 @@ const LOCAL_PAYMENTS_KEY = 'date_app_loan_payments_v1';
  */
 export function getSampleLoan(userId = 'demo-user'): Loan {
   const principalCents = 44_000_000; // $440,000
-  const rateBps = 512;               // 5.12%
+  const rateBps = 522;               // 5.22% (October 2026 Long-Term AFR under Rev. Rul. 2026-19)
   const termMonths = 360;            // 30 years
   const scheduledPmt = monthlyPayment(principalCents, rateBps, termMonths);
 
@@ -24,8 +24,8 @@ export function getSampleLoan(userId = 'demo-user'): Loan {
     originalPrincipalCents: principalCents,
     annualRateBps: rateBps,
     termMonths: termMonths,
-    fundingDate: '2026-11-14',
-    firstPaymentDate: '2026-12-01',
+    fundingDate: '2026-10-02',
+    firstPaymentDate: '2026-11-01',
     paymentFrequency: 'monthly',
     scheduledPaymentCents: scheduledPmt,
     paymentDueDay: 1,
